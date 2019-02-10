@@ -211,27 +211,6 @@
     color: red;
   }
   
-  #bb {
-    background-position: center center;
-    background-blend-mode: difference;
-    position: absolute;
-    left: 25vmin;
-    margin: auto;
-    bottom: 7vmin;
-    height: 50vmin;
-    width: 50vmin;
-    background-repeat: no-repeat;
-    background-size: contain, 50%;
-    z-index: 6;
-    -webkit-transition: ease-in .1s;
-    transition: ease-in .1s;
-  }
-  
-  #bb:hover {
-    -webkit-filter: brightness(50%);
-            filter: brightness(50%);
-  }
-  
   .icon-twitter:before {
     content: "\e900";
   }
