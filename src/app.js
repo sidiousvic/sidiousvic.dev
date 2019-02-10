@@ -1,3 +1,3 @@
 import './style.scss'
-import '../node_modules/perlin/index'
+import './assets/perlin.js'
 import './redsphere'
