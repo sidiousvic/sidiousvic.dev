@@ -1,4 +1,4 @@
-import 'perlin';
+import './assets/perlin.js'
 import 'three-orbitcontrols'
 
 ;(function() {
