@@ -3,9 +3,8 @@ import 'three-orbitcontrols'
 
 ;(function() {
     var canvas = document.querySelector('#tres');
-    var wrapper = document.querySelector('#wrapper');
-    var width = wrapper.offsetWidth, 
-        height = wrapper.offsetHeight;
+    var width = window.innerWidth, 
+        height = window.innerHeight;
     
     
     var renderer = new THREE.WebGLRenderer({
@@ -29,8 +28,6 @@ import 'three-orbitcontrols'
     });
     
     console.log(camera.position);
-
-
   
 
     
@@ -83,8 +80,8 @@ import 'three-orbitcontrols'
     function onResize() {
         canvas.style.width = '';
         canvas.style.height = '';
-        width = wrapper.offsetWidth;
-        height = wrapper.offsetHeight;
+        width = window.innerWidth;
+        height = window.innerHeight;
         camera.aspect = width / height;
         camera.updateProjectionMatrix();  
         renderer.setSize(window.innerWidth, window.innerHeight);

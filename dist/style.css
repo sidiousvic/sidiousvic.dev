@@ -77,6 +77,16 @@ a {
   margin-right: auto;
   z-index: 5; }
 
+#guitar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 5; }
+
 .wrapper {
   background: #121212;
   background-blend-mode: difference;

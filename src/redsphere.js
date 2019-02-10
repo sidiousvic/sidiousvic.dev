@@ -3,8 +3,8 @@ import 'three-orbitcontrols'
 
 ;(function() {
     var canvas = document.querySelector('#redsphere');
-    var width = canvas.offsetWidth, 
-        height = canvas.offsetHeight;
+    var width = window.innerWidth, 
+        height = window.innerHeight;
     
     
     var renderer = new THREE.WebGLRenderer({
@@ -84,8 +84,8 @@ import 'three-orbitcontrols'
     function onResize() {
         canvas.style.width = '';
         canvas.style.height = '';
-        width = canvas.offsetWidth;
-        height = canvas.offsetHeight;
+        width = window.innerWidth;
+        height = window.innerHeight;
         camera.aspect = width / height;
         camera.updateProjectionMatrix();  
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -105,8 +105,7 @@ import 'three-orbitcontrols'
         // $("#tres").css("display", "block").hide().fadeIn();
         $("h1").fadeOut(300, () => {
             $("h1").text("OI. I'M VIC.").css("color","#000000").fadeIn();
-        })
-        
+        }) 
     });
     
     
@@ -124,19 +123,14 @@ import 'three-orbitcontrols'
 
     // window.addEventListener( 'resize', onWindowResize, false );
     
+    // function onWindowResize(){
     
-    /*
-    function onWindowResize(){
+    // camera.aspect = window.innerWidth / window.innerHeight;
+    // camera.updateProjectionMatrix();
     
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+    // renderer.setSize( window.innerWidth, window.innerHeight );
     
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    
-    }
-    camera.rotation.set(0, 90, 100);
-    */
+    // }
+    // camera.rotation.set(0, 90, 100);
+
       })()
-
-
-
