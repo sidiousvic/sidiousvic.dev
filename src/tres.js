@@ -2,9 +2,10 @@ import './assets/perlin.js'
 import 'three-orbitcontrols'
 
 ;(function() {
-    var canvas = document.querySelector('#redsphere');
-    var width = canvas.offsetWidth, 
-        height = canvas.offsetHeight;
+    var canvas = document.querySelector('#tres');
+    var wrapper = document.querySelector('#wrapper');
+    var width = wrapper.offsetWidth, 
+        height = wrapper.offsetHeight;
     
     
     var renderer = new THREE.WebGLRenderer({
@@ -22,11 +23,9 @@ import 'three-orbitcontrols'
     controls.update();
     var sphere = new THREE.Group();
     scene.add(sphere);
-    var colorRed = new THREE.Color(0xff0000);
-    var colorBlack = new THREE.Color(0x000000);
     var material = new THREE.LineBasicMaterial({
-        color: colorRed,
-
+        color: 0x000000,
+        
     });
     
     console.log(camera.position);
@@ -36,7 +35,7 @@ import 'three-orbitcontrols'
 
     
     var linesAmount = 30;
-    var radius = 200;
+    var radius = 100;
     var verticesAmount = 100;
     for(var j=0;j<linesAmount;j++){
         var index = j;
@@ -64,7 +63,7 @@ import 'three-orbitcontrols'
          var radiusHeight = Math.sqrt(line.geometry.y * (2*radius-line.geometry.y));
          for(var i=0;i<=verticesAmount;i++) {
              var vector = line.geometry.vertices[i];
-                var ratio = noise.simplex3(vector.x*0.009, vector.z*0.009 + a*0.0006, line.geometry.y*0.009) * 10;
+                var ratio = noise.simplex3(vector.x*0.009, vector.z*0.009 + a*0.0006, line.geometry.y*0.009) * 20;
                 vector.copy(vector._o);
                 vector.multiplyScalar(radiusHeight + ratio);
                 vector.y = line.geometry.y - radius;
@@ -84,8 +83,8 @@ import 'three-orbitcontrols'
     function onResize() {
         canvas.style.width = '';
         canvas.style.height = '';
-        width = canvas.offsetWidth;
-        height = canvas.offsetHeight;
+        width = wrapper.offsetWidth;
+        height = wrapper.offsetHeight;
         camera.aspect = width / height;
         camera.updateProjectionMatrix();  
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -99,44 +98,26 @@ import 'three-orbitcontrols'
     });
 
     $("#title h1").hover( () => {
-        material.color = colorBlack;
-        $(".wrapper").css("background","#c60000");
-        $("#redsphere").fadeOut(300);
-        // $("#tres").css("display", "block").hide().fadeIn();
-        $("h1").fadeOut(300, () => {
-            $("h1").text("OI. I'M VIC.").css("color","#000000").fadeIn();
-        })
-        
+        $("#tres").css("display", "block").hide().fadeIn(200);      
     });
     
     
     $("#title h1").mouseout( () => {
-        material.color = colorRed;
-        $(".wrapper").css("background","#121212");
-        $("#redsphere").css("display", "block").hide().fadeIn();
-        // $("#tres").fadeOut(300);
-        $("h1").fadeOut(300, () => {
-            $("h1").text("VIC SIDIOUS").css("color","red").fadeIn();
-        })
-    
+        $("#tres").fadeOut(200);
     });
 
 
     // window.addEventListener( 'resize', onWindowResize, false );
     
     
-    /*
-    function onWindowResize(){
+
+    // function onWindowResize(){
     
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+    // camera.aspect = window.innerWidth / window.innerHeight;
+    // camera.updateProjectionMatrix();
     
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    // renderer.setSize( window.innerWidth, window.innerHeight );
     
-    }
-    camera.rotation.set(0, 90, 100);
-    */
+    // }
+    // camera.rotation.set(0, 90, 100);
       })()
-
-
-

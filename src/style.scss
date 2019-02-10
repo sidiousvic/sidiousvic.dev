@@ -77,28 +77,42 @@
     z-index: -1;
     z-index: 4;
   }
+
+  #tres {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 5;
+  }
   
   .wrapper {
     background: $spacegray;
+    // background: url('../src/assets/DSC_3799.jpg');
+    background-blend-mode: difference;
+    background-position: center;
+    background-size: cover;
     position: fixed;
     width: 100%;
     height: 100%;
     text-align: center;
-    display: table;
+    display: flex;
     -webkit-transition: ease-in-out 1s;
     transition: ease-in-out 1s;
   }
   
   #title {
     text-align: center;
-    text-align: center;
-    display: table-cell;
     vertical-align: middle;
-    height: 100%;
     width: 100%;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
-    z-index: -1;
+    z-index: 20;
+    margin: auto;
   }
   
   #title h1 {
@@ -115,6 +129,7 @@
             animation-duration: 2s;
     -webkit-animation-iteration-count: infinite;
             animation-iteration-count: infinite;
+    cursor: pointer;
     /* text-shadow: 0px 1px 0px crimson, 0px 2px 0px crimson, 0px 3px 0px red0, 0px 4px 0px crimson, 0px 5px 0px crimson, 0px 6px 0px crimson, 0px 7px 0px crimson, 0px 8px 7px crimson; */
   }
   
