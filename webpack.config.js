@@ -3,12 +3,14 @@ const path = require('path');
 const webpack = require ('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: { main: './src/app.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: 'main.js',
+    publicPath: '/dist/'
   },
   module: {
     rules: [
@@ -29,7 +31,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|ico)$/,
         use: [
             'file-loader'
         ]
@@ -61,10 +63,28 @@ module.exports = {
       $: 'jquery',
       THREE: 'three',
     }),
-    new MiniCssExtractPlugin({filename: 'style.css',}),
+    new MiniCssExtractPlugin({
+      template: "/dist/style.css",
+      filename: 'style.css'
+    }),
     new HtmlWebPackPlugin({
         template: "./src/index.html",
-        filename: "./index.html"
-      })
+        filename: "index.html",
+        css: './style.css',
+        title: 'VIC SIDIOUS',
+        favicon: './src/assets/favicon.ico'
+      }),
+    new CopyWebpackPlugin([
+      {
+        from: './src/assets/favicon.ico',
+        to: '',
+        toType: 'file'
+      },
+      {
+        from: './src/assets/perlin.js',
+        to: '',
+        toType: 'file'
+      }
+    ])
   ]
 };
