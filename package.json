@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Official website for guitarist Vic Sidious",
   "main": "app.js",
-  "repository": "https://github.com/sidiousvic/vicsidious.com.git",
+  "repository": "https://github.com/sidiousvic/www.vicsidious.com.git",
   "author": "sidiousvic",
   "license": "MIT",
   "devDependencies": {
