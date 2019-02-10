@@ -62,6 +62,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       THREE: 'three',
+      OBJLoader: './src/assets/OBJLoader.js'
     }),
     new MiniCssExtractPlugin({
       template: "/dist/style.css",
@@ -81,7 +82,17 @@ module.exports = {
         toType: 'file'
       },
       {
+        from: './src/assets/guitar.obj',
+        to: '',
+        toType: 'file'
+      },
+      {
         from: './src/assets/perlin.js',
+        to: '',
+        toType: 'file'
+      },
+      {
+        from: './src/assets/OBJLoader.js',
         to: '',
         toType: 'file'
       }
