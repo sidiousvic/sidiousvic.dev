@@ -7,10 +7,17 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: { main: './src/app.js' },
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
     publicPath: '/dist/'
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    // hot: true,
+    compress: false,
+    port: 9000
   },
   module: {
     rules: [
@@ -81,11 +88,11 @@ module.exports = {
         to: '',
         toType: 'file'
       },
-      {
-        from: './src/assets/guitar.obj',
-        to: '',
-        toType: 'file'
-      },
+      // {
+      //   from: './src/assets/guitar.obj',
+      //   to: '',
+      //   toType: 'file'
+      // },
       {
         from: './src/assets/perlin.js',
         to: '',
