@@ -9,7 +9,7 @@ import 'three-orbitcontrols'
     
     var renderer = new THREE.WebGLRenderer({
         canvas: canvas,
-        antialias: true,
+        antialias: false,
         alpha: true
     });
     renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
@@ -98,6 +98,10 @@ import 'three-orbitcontrols'
         resizeTm = setTimeout(onResize, 10);
     });
 
+    /////////////////
+    //JQUERY/////////
+    /////////////////
+
     $("#title h1").hover( () => {
         material.color = colorBlack;
         $(".wrapper").css("background","#c60000");
@@ -105,6 +109,8 @@ import 'three-orbitcontrols'
         // $("#tres").css("display", "block").hide().fadeIn();
         $("h1").fadeOut(300, () => {
             $("h1").text("OI. I'M VIC.").css("color","#000000").fadeIn();
+            $("#social, #copyright, .icomoon").css("color","black");
+            $("#vslogoskull").css("filter","brightness(0%)");
         }) 
     });
     
@@ -115,22 +121,10 @@ import 'three-orbitcontrols'
         $("#redsphere").css("display", "block").hide().fadeIn();
         // $("#tres").fadeOut(300);
         $("h1").fadeOut(300, () => {
-            $("h1").text("VIC SIDIOUS").css("color","red").fadeIn();
+            $("h1").text("VIC SIDIOUS").css("color","#ff0026").fadeIn();
+            $("#social, #copyright, .icomoon").css("color","#ff0026");
+            $("#vslogoskull").css("filter","brightness(100%)");
         })
-    
     });
-
-
-    // window.addEventListener( 'resize', onWindowResize, false );
-    
-    // function onWindowResize(){
-    
-    // camera.aspect = window.innerWidth / window.innerHeight;
-    // camera.updateProjectionMatrix();
-    
-    // renderer.setSize( window.innerWidth, window.innerHeight );
-    
-    // }
-    // camera.rotation.set(0, 90, 100);
 
       })()

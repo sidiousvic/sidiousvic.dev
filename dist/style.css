@@ -64,7 +64,8 @@ a {
   margin-right: auto;
   background: 0 0;
   z-index: -1;
-  z-index: 4; }
+  z-index: 4;
+  transform: translateZ(-100px); }
 
 #tres {
   display: none;
@@ -75,7 +76,8 @@ a {
   padding-right: 0;
   margin-left: auto;
   margin-right: auto;
-  z-index: 5; }
+  z-index: 5;
+  transform: translateZ(-100px); }
 
 #guitar {
   position: absolute;
@@ -141,7 +143,8 @@ a {
   mix-blend-mode: exclusion;
   margin: auto;
   float: left;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: ease-in-out .2s; }
 
 #navcontainer {
   background-position: center center;
@@ -167,7 +170,8 @@ a {
   font-family: Futura;
   mix-blend-mode: difference;
   width: 100%;
-  margin: 0; }
+  margin: 0;
+  transition: ease-in-out .2s; }
 
 #copyright {
   word-spacing: 2pt;
@@ -187,7 +191,8 @@ a {
   line-height: 100%;
   display: table-cell;
   vertical-align: middle;
-  margin: 0; }
+  margin: 0;
+  transition: ease-in-out .2s; }
 
 .socialicon {
   height: 10%;
@@ -202,7 +207,8 @@ a {
   -moz-osx-font-smoothing: grayscale;
   font-size: 15pt;
   line-height: 2;
-  color: #ff0026; }
+  color: #ff0026;
+  transition: ease-in-out .2s; }
 
 i:hover {
   color: red; }

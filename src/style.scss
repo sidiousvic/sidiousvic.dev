@@ -76,6 +76,7 @@
     background: 0 0;
     z-index: -1;
     z-index: 4;
+    transform: translateZ(-100px);
   }
 
   #tres {
@@ -88,6 +89,7 @@
     margin-left: auto;
     margin-right: auto;
     z-index: 5;
+    transform: translateZ(-100px);
   }
 
   #guitar {
@@ -164,6 +166,7 @@
     margin: auto;
     float: left;
     cursor: pointer;
+    transition: ease-in-out .2s;
   }
   
   #navcontainer {
@@ -192,6 +195,7 @@
     mix-blend-mode: difference;
     width: 100%;
     margin: 0;
+    transition: ease-in-out .2s;
   }
   
   #copyright {
@@ -214,6 +218,7 @@
     display: table-cell;
     vertical-align: middle;
     margin: 0;
+    transition: ease-in-out .2s;
   }
   
   .socialicon {
@@ -231,6 +236,7 @@
     font-size: 15pt;
     line-height: 2;
     color: $bloodred;
+    transition: ease-in-out .2s;
   }
   
   i:hover {
