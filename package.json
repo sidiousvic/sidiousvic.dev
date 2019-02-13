@@ -20,8 +20,10 @@
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development"
+    "wdevserver": "webpack-dev-server",
+    "wwatch": "webpack --watch",
+    "wbuild": "webpack --mode production",
+    "wdev": "webpack --mode development"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
@@ -35,6 +37,8 @@
     "three": "^0.101.1",
     "three-obj-loader": "^1.1.3",
     "three-orbit-controls": "^82.1.0",
-    "three-orbitcontrols": "^2.101.1"
+    "three-orbitcontrols": "^2.101.1",
+    "vanilla-tilt": "^1.6.1",
+    "webpack-dev-server": "^3.1.14"
   }
 }
