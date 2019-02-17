@@ -1,5 +1,6 @@
 import './assets/perlin.js'
 import 'three-orbitcontrols'
+import './assets/OBJLoader'
 
 ;(function() {
     var canvas = document.querySelector('#redsphere');
@@ -30,6 +31,33 @@ import 'three-orbitcontrols'
     });
     
     console.log(camera.position);
+    
+    var loader = new THREE.OBJLoader();
+    var guitar = new THREE.Mesh;
+
+    loader.load(
+        'dist/guitar.obj',
+
+        object => {
+            scene.add(object);
+            guitar = object;
+            object.scale.set(1, 1, 1);
+            object.position.set(-3, 180, -6);
+            object.rotation.z = .9;
+            object.rotation.y = .5;
+            object.traverse( function (child) {
+                if ( child instanceof THREE.Mesh ) {
+                    child.material.wireframe = true;
+                    child.material.needsUpdate = true;
+                }
+            });
+        }
+        
+    );
+
+    
+    var directionalLight = new THREE.DirectionalLight(0xff0000  , 0.9);
+    scene.add( directionalLight );
 
 
   
@@ -79,6 +107,9 @@ import 'three-orbitcontrols'
         updateVertices(a);
         renderer.render(scene, camera );
     //     renderer.render();
+        // guitar.rotation.x += 0.01;
+        guitar.rotation.z -= 0.001;
+        // guitar.rotation.y -= 0.001;
     }
     
     function onResize() {
@@ -103,12 +134,10 @@ import 'three-orbitcontrols'
     /////////////////
 
     $("#title h1").hover( () => {
-        material.color = colorBlack;
+        material.color = colorRed;
         $(".wrapper").css("background","#c60000");
-        $("#redsphere").fadeOut(300);
-        // $("#tres").css("display", "block").hide().fadeIn();
         $("h1").fadeOut(300, () => {
-            $("h1").text("OI. I'M VIC.").css("color","#000000").fadeIn();
+            $("h1").text("OI. I'M VIC.").css("color","#000000").css("font-size", "10vw").fadeIn();
             $("#social, #copyright, .icomoon").css("color","black");
             $("#vslogoskull").css("filter","brightness(0%)");
         }) 
@@ -118,13 +147,23 @@ import 'three-orbitcontrols'
     $("#title h1").mouseout( () => {
         material.color = colorRed;
         $(".wrapper").css("background","#121212");
-        $("#redsphere").css("display", "block").hide().fadeIn();
-        // $("#tres").fadeOut(300);
         $("h1").fadeOut(300, () => {
-            $("h1").text("VIC SIDIOUS").css("color","#ff0026").fadeIn();
+            $("h1").text("VIC SIDIOUS").css("color","#ff0026").css("font-size", "10vw").fadeIn();
             $("#social, #copyright, .icomoon").css("color","#ff0026");
             $("#vslogoskull").css("filter","brightness(100%)");
         })
     });
+
+    $("#title h1").click( () => {
+        material.color = colorRed;
+        $(".wrapper").css("background","#121212");
+        $("h1").fadeOut(300, () => {
+            $("h1").text("I'M AN AXEMAN AND DEVELOPER.").css("color","#ff0026").css("font-size", "6vw").fadeIn();
+            $("#social, #copyright, .icomoon").css("color","#ff0026");
+            $("#vslogoskull").css("filter","brightness(100%)");
+        })
+    });
+
+   
 
       })()
