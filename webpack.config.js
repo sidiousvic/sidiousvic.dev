@@ -4,6 +4,9 @@ const webpack = require ('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+
+
 
 module.exports = {
   entry: { main: './src/app.js' },
@@ -15,6 +18,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
+    watchContentBase: true,
     // hot: true,
     compress: false,
     port: 9000
@@ -66,6 +70,7 @@ module.exports = {
     }
 },
   plugins: [
+
     new webpack.ProvidePlugin({
       $: 'jquery',
       THREE: 'three',
@@ -77,14 +82,21 @@ module.exports = {
     }),
     new HtmlWebPackPlugin({
         template: "./src/index.html",
-        filename: "index.html",
+        filename: path.resolve(__dirname, 'dist/index.html'),
         css: './style.css',
         title: 'VIC SIDIOUS',
-        favicon: './src/assets/favicon.ico'
+        favicon: './src/assets/favicon.ico',
+        alwaysWriteToDisk: true
       }),
+    new HtmlWebpackHarddiskPlugin(),
     new CopyWebpackPlugin([
       {
         from: './src/assets/favicon.ico',
+        to: '',
+        toType: 'file'
+      },
+      {
+        from: './src/assets/guitar.obj',
         to: '',
         toType: 'file'
       },
