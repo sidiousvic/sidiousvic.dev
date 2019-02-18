@@ -1,5 +1,4 @@
-import './style.scss'
-import './assets/perlin.js'
-import './redsphere'
-// import './tres'
-import 'vanilla-tilt'
+import "./style.scss";
+import "./assets/perlin";
+import "./redsphere";
+import "vanilla-tilt";
