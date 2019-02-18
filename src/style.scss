@@ -233,7 +233,7 @@ a {
 #copyright p {
 	transform: rotate(90deg);
 	-ms-transform: rotate(-90deg);
-	-ms-transform-origin: right, top;
+	// -ms-transform-origin: right, top;
 	-webkit-transform: rotate(90deg);
 	line-height: 100%;
 	display: table-cell;
