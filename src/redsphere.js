@@ -1,10 +1,12 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-param-reassign */
 /* eslint-disable func-names */
 /* eslint-disable no-undef */
 
 import "./assets/perlin";
 import "three-orbitcontrols";
 import "./assets/OBJLoader";
-import { yellow } from "ansi-colors";
 
 (function() {
 	const canvas = document.querySelector("#redsphere");
@@ -37,7 +39,7 @@ import { yellow } from "ansi-colors";
 		color: colorRed,
 	});
 
-	console.log(camera.position);
+	// console.log(camera.position);
 
 	const loader = new THREE.OBJLoader();
 	let guitar = new THREE.Mesh();
