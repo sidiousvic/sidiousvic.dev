@@ -1,274 +1,294 @@
 /* FONTS */
 @font-face {
-    font-family: icomoon;
-    src: url(./assets/fonts/icomoon/fonts/icomoon.eot?bvi0n9);
-    src: url(./assets/fonts/icomoon/fonts/icomoon.eot?bvi0n9#iefix) format("embedded-opentype"), url(./assets/fonts/icomoon/fonts/icomoon.ttf?bvi0n9) format("truetype"), url(./assets/fonts/icomoon/fonts/icomoon.woff?bvi0n9) format("woff"), url(./assets/fonts/icomoon/fonts/icomoon.svg?bvi0n9#icomoon) format("svg");
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Madman';
-    src: url("./assets/fonts/TheTypingofaMadman/TheTypingofaMadman.woff2") format("woff2"), url("./assets/fonts/TheTypingofaMadman/TheTypingofaMadman.woff") format("woff");
-  }
-  
-  @font-face {
-    font-family: 'GothamXNUI';
-    src: url("./assets/fonts/Gotham/GothamXNarrow-UltraItalic.woff2") format("woff2"), url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff") format("woff");
-  }
-  
-  @font-face {
-    font-family: 'GothamXNBI';
-    src: url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff2") format("woff2"), url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff") format("woff");
-  }
-  
-  $bloodred: #ff0026;
-  $spacegray: #121212;
+	font-family: icomoon;
+	src: url(./assets/fonts/icomoon/fonts/icomoon.eot?bvi0n9);
+	src: url(./assets/fonts/icomoon/fonts/icomoon.eot?bvi0n9#iefix)
+			format("embedded-opentype"),
+		url(./assets/fonts/icomoon/fonts/icomoon.ttf?bvi0n9) format("truetype"),
+		url(./assets/fonts/icomoon/fonts/icomoon.woff?bvi0n9) format("woff"),
+		url(./assets/fonts/icomoon/fonts/icomoon.svg?bvi0n9#icomoon)
+			format("svg");
+	font-weight: 400;
+	font-style: normal;
+}
 
-  /* HTML AND BODY */
-  html {
-    margin: 0;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    overflow: hidden;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  /* MAIN PAGE */
-  #background-image {
-    display: block;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-image: url(./assets/images/carefulwiththataxevic-compressed.gif);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    mix-blend-mode: darken;
-    background-blend-mode: exclusion;
-  }
-  
-  #redsphere {
-    display: block;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    mix-blend-mode: difference;
-    margin-right: auto;
-    background: 0 0;
-    z-index: -1;
-    z-index: 4;
-    transform: translateZ(-100px);
-  }
+@font-face {
+	font-family: "Madman";
+	src: url("./assets/fonts/TheTypingofaMadman/TheTypingofaMadman.woff2")
+			format("woff2"),
+		url("./assets/fonts/TheTypingofaMadman/TheTypingofaMadman.woff")
+			format("woff");
+}
 
-  #tres {
-    display: none;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 5;
-    transform: translateZ(-100px);
-  }
+@font-face {
+	font-family: "GothamXNUI";
+	src: url("./assets/fonts/Gotham/GothamXNarrow-UltraItalic.woff2")
+			format("woff2"),
+		url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff")
+			format("woff");
+}
 
-  #guitar {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 5;
-  }
-  
-  .wrapper {
-    background: $spacegray;
-    // background: url('../src/assets/DSC_3799.jpg');
-    background-blend-mode: difference;
-    background-position: center;
-    background-size: cover;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    display: flex;
-    -webkit-transition: ease-in-out 1s;
-    transition: ease-in-out 1s;
-  }
-  
-  #title {
-    text-align: center;
-    vertical-align: middle;
-    width: 100%;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-    z-index: 20;
-    margin: auto;
-  }
-  
-  #title h1 {
-    font-family: "GothamXNUI";
-    font-weight: 100;
-    font-size: 10vw;
-    color: $bloodred;
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    -webkit-animation-name: redglow;
-            animation-name: redglow;
-    -webkit-animation-duration: 2s;
-            animation-duration: 2s;
-    -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-    cursor: pointer;
-    /* text-shadow: 0px 1px 0px crimson, 0px 2px 0px crimson, 0px 3px 0px red0, 0px 4px 0px crimson, 0px 5px 0px crimson, 0px 6px 0px crimson, 0px 7px 0px crimson, 0px 8px 7px crimson; */
-  }
-  
+@font-face {
+	font-family: "GothamXNBI";
+	src: url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff2")
+			format("woff2"),
+		url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff")
+			format("woff");
+}
 
-  @keyframes redglow {
-    0% {
-    }
-    50% {
-      /* opacity: 0; */
-    }
-  }
-  
-  #vslogoskull {
-    height: 15%;
-    width: 100%;
-    background-image: url(./assets/images/vicsidiousskullred-compressed.png);
-    background-repeat: no-repeat;
-    background-position: center 50%;
-    background-size: 50%;
-    mix-blend-mode: exclusion;
-    margin: auto;
-    float: left;
-    cursor: pointer;
-    transition: ease-in-out .2s;
-  }
-  
-  #navcontainer {
-    background-position: center center;
-    position: absolute;
-    right: 1vw;
-    margin: 0;
-    top: 2%;
-    height: 100%;
-    width: 100px;
-    z-index: 7;
-  }
-  
-  #social {
-    position: absolute;
-    bottom: 6%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    color: $bloodred;
-    font-family: Futura;
-    mix-blend-mode: difference;
-    width: 100%;
-    margin: 0;
-    transition: ease-in-out .2s;
-  }
-  
-  #copyright {
-    word-spacing: 2pt;
-    height: 100px;
-    width: 100px;
-    font-size: 5pt;
-    color: $bloodred;
-    font-family: futura;
-    display: table;
-    margin-top: 20px;
-  }
-  
-  #copyright p {
-    transform: rotate(90deg);
-    -ms-transform: rotate(-90deg);
-    -ms-transform-origin: right, top;
-    -webkit-transform: rotate(90deg);
-    line-height: 100%;
-    display: table-cell;
-    vertical-align: middle;
-    margin: 0;
-    transition: ease-in-out .2s;
-  }
-  
-  .socialicon {
-    height: 10%;
-    width: 100%;
-  }
-  
-  .icomoon {
-    font-family: icomoon !important;
-    font-style: normal;
-    font-weight: 400;
-    font-variant: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 15pt;
-    line-height: 2;
-    color: $bloodred;
-    transition: ease-in-out .2s;
-  }
-  
-  i:hover {
-    color: red;
-  }
-  
-  .icon-twitter:before {
-    content: "\e900";
-  }
-  
-  .icon-instagram:before {
-    content: "\e901";
-  }
-  
-  .icon-facebook-f:before {
-    content: "\e902";
-  }
-  
-  .icon-facebook:before {
-    content: "\e902";
-  }
-  
-  .icon-github:before {
-    content: "\e903";
-  }
-  
-  @media (hover: none) {
-    #vslogoskull {
-      visibility: hidden;
-    }
-    #navcontainer {
-      visibility: hidden;
-    }
-  }
+$bloodred: #ff0026;
+$spacegray: #121212;
+
+/* HTML AND BODY */
+html {
+	margin: 0;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* MAIN PAGE */
+#background-image {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-image: url(./assets/images/carefulwiththataxevic-compressed.gif);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	mix-blend-mode: darken;
+	background-blend-mode: exclusion;
+}
+
+#redsphere {
+	display: block;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: auto;
+	mix-blend-mode: difference;
+	margin-right: auto;
+	background: 0 0;
+	z-index: -1;
+	z-index: 4;
+	transform: translateZ(-100px);
+}
+
+#tres {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 5;
+	transform: translateZ(-100px);
+}
+
+#guitar {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 5;
+}
+
+.wrapper {
+	background: $spacegray;
+	// background: url('../src/assets/DSC_3799.jpg');
+	background-blend-mode: difference;
+	background-position: center;
+	background-size: cover;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	display: flex;
+	-webkit-transition: ease-in-out 1s;
+	transition: ease-in-out 1s;
+}
+
+#title {
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	z-index: 20;
+	margin: auto 10vw;
+}
+
+#title h1 {
+	font-family: "GothamXNUI";
+	font-weight: 100;
+	font-size: 10vw;
+	color: $bloodred;
+	position: relative;
+	z-index: 1;
+	margin: 0;
+	// -webkit-animation-name: redglow;
+	// animation-name: redglow;
+	// -webkit-animation-duration: 2s;
+	// animation-duration: 2s;
+	// -webkit-animation-iteration-count: infinite;
+	// animation-iteration-count: infinite;
+	cursor: pointer;
+	/* text-shadow: 0px 1px 0px crimson, 0px 2px 0px crimson, 0px 3px 0px red0, 0px 4px 0px crimson, 0px 5px 0px crimson, 0px 6px 0px crimson, 0px 7px 0px crimson, 0px 8px 7px crimson; */
+}
+
+#atsidiousvic {
+	color: $bloodred;
+	animation-name: redglow;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes redglow {
+	0% {
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+#vslogoskull {
+	height: 15%;
+	width: 100%;
+	background-image: url(./assets/images/vicsidiousskullred-compressed.png);
+	background-repeat: no-repeat;
+	background-position: center 50%;
+	background-size: 50%;
+	mix-blend-mode: exclusion;
+	margin: auto;
+	float: left;
+	cursor: pointer;
+	transition: ease-in-out 0.2s;
+}
+
+#navcontainer {
+	background-position: center center;
+	position: absolute;
+	right: 1vw;
+	margin: 0;
+	top: 2%;
+	height: 100%;
+	width: 100px;
+	z-index: 7;
+}
+
+#social {
+	position: absolute;
+	bottom: 6%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	color: $bloodred;
+	font-family: Futura;
+	mix-blend-mode: difference;
+	width: 100%;
+	margin: 0;
+	transition: ease-in-out 0.2s;
+}
+
+#copyright {
+	word-spacing: 2pt;
+	height: 100px;
+	width: 100px;
+	font-size: 5pt;
+	color: $bloodred;
+	font-family: futura;
+	display: table;
+	margin-top: 20px;
+}
+
+#copyright p {
+	transform: rotate(90deg);
+	-ms-transform: rotate(-90deg);
+	-ms-transform-origin: right, top;
+	-webkit-transform: rotate(90deg);
+	line-height: 100%;
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0;
+	transition: ease-in-out 0.2s;
+}
+
+.socialicon {
+	height: 10%;
+	width: 100%;
+}
+
+.icomoon {
+	font-family: icomoon !important;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 15pt;
+	line-height: 2;
+	color: $bloodred;
+	transition: ease-in-out 0.2s;
+}
+
+i:hover {
+	color: red;
+}
+
+.icon-twitter:before {
+	content: "\e900";
+}
+
+.icon-instagram:before {
+	content: "\e901";
+}
+
+.icon-facebook-f:before {
+	content: "\e902";
+}
+
+.icon-facebook:before {
+	content: "\e902";
+}
+
+.icon-github:before {
+	content: "\e903";
+}
+
+@media (hover: none) {
+	#vslogoskull {
+		visibility: hidden;
+	}
+	#navcontainer {
+		visibility: hidden;
+	}
+}
