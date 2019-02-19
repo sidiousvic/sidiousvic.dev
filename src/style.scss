@@ -37,7 +37,7 @@
 }
 
 $bloodred: #ff0026;
-$spacegray: #121212;
+$spacegray: #111111;
 
 /* HTML AND BODY */
 html {
@@ -162,19 +162,23 @@ a {
 }
 
 #atsidiousvic {
+	font-family: GothamXNUI;
 	color: $bloodred;
 	animation-name: redglow;
-	animation-duration: 1s;
+	animation-duration: 3s;
 	animation-iteration-count: infinite;
+	text-shadow: -1px 1px 0 #111111, -2px 2px 0 #111111, -3px 3px 0 #111111,
+		-4px 4px 0 #111111, -5px 5px 0 #111111, -6px 6px 0 #111111,
+		-7px 7px 0 #111111;
 }
 
-@keyframes redglow {
-	0% {
-	}
-	50% {
-		opacity: 0;
-	}
-}
+// @keyframes redglow {
+// 	0% {
+// 	}
+// 	50% {
+// 		font-size: 7vw;
+// 	}
+// }
 
 #vslogoskull {
 	height: 15%;
