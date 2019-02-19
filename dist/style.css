@@ -91,7 +91,7 @@ a {
   z-index: 5; }
 
 .wrapper {
-  background: #121212;
+  background: #111111;
   background-blend-mode: difference;
   background-position: center;
   background-size: cover;
@@ -124,15 +124,12 @@ a {
   /* text-shadow: 0px 1px 0px crimson, 0px 2px 0px crimson, 0px 3px 0px red0, 0px 4px 0px crimson, 0px 5px 0px crimson, 0px 6px 0px crimson, 0px 7px 0px crimson, 0px 8px 7px crimson; */ }
 
 #atsidiousvic {
+  font-family: GothamXNUI;
   color: #ff0026;
   animation-name: redglow;
-  animation-duration: 1s;
-  animation-iteration-count: infinite; }
-
-@keyframes redglow {
-  0% { }
-  50% {
-    opacity: 0; } }
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  text-shadow: -1px 1px 0 #111111, -2px 2px 0 #111111, -3px 3px 0 #111111, -4px 4px 0 #111111, -5px 5px 0 #111111, -6px 6px 0 #111111, -7px 7px 0 #111111; }
 
 #vslogoskull {
   height: 15%;
@@ -187,7 +184,6 @@ a {
 #copyright p {
   transform: rotate(90deg);
   -ms-transform: rotate(-90deg);
-  -ms-transform-origin: right, top;
   -webkit-transform: rotate(90deg);
   line-height: 100%;
   display: table-cell;
