@@ -89,6 +89,11 @@ module.exports = {
 				toType: "file",
 			},
 			{
+				from: "./src/assets/images/vicsidiousskullred-compressed.png",
+				to: "",
+				toType: "file",
+			},
+			{
 				from: "./src/assets/guitar.obj",
 				to: "",
 				toType: "file",
