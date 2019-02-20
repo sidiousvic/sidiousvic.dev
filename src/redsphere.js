@@ -170,20 +170,10 @@ import "./assets/OBJLoader";
 		});
 	});
 
-	$("#title h1").click(() => {
-		material.color = colorRed;
-		$(".wrapper").css("background", "#121212");
-		$("h1").fadeOut(300, () => {
-			$("h1")
-				.html(
-					"I'M AN AXEMAN, INDITER, AND DEVELOPER. FIND ME EVERYWHERE "
-				)
-				.append('<span id="atsidiousvic">@SIDIOUSVIC</span>')
-				.css("color", "#ff0026")
-				.css("font-size", "6vw")
-				.fadeIn();
-			$("#social, #copyright, .icomoon").css("color", "#ff0026");
-			$("#vslogoskull").css("filter", "brightness(100%)");
-		});
-	});
+	setTimeout(() => {
+		$(".loader").animate({ opacity: 0 }, 1000);
+	}, 8000);
+	setTimeout(() => {
+		$(".loader").css("z-index", "-5");
+	}, 9000);
 })();
