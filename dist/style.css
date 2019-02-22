@@ -212,8 +212,7 @@ a {
   line-height: 100%;
   display: table-cell;
   vertical-align: middle;
-  margin: 0;
-  transition: ease-in-out 0.2s; }
+  margin: 0; }
 
 .socialicon {
   height: 10%;
