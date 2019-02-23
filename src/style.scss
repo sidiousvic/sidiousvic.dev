@@ -48,6 +48,7 @@ html {
 	padding: 0;
 	width: 100%;
 	height: 100%;
+	background: $spacegray;
 }
 
 body {
@@ -89,9 +90,7 @@ a {
 	mix-blend-mode: difference;
 	margin-right: auto;
 	background: 0 0;
-	z-index: -1;
 	z-index: 4;
-	transform: translateZ(-100px);
 }
 
 #guitar {
@@ -106,7 +105,7 @@ a {
 }
 
 .loader {
-	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
@@ -318,11 +317,18 @@ i:hover {
 	content: "\e903";
 }
 
+.icon-spotify:before {
+	content: "\ea94";
+}
+
 @media (hover: none) {
 	#vslogoskull {
 		visibility: hidden;
 	}
 	#navcontainer {
 		visibility: hidden;
+	}
+	#redsphere {
+		display: none;
 	}
 }
