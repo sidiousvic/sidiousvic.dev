@@ -147,9 +147,12 @@ import "./assets/OBJLoader";
 		$(".wrapper").css("background", "#c60000");
 		$("h1").fadeOut(300, () => {
 			$("h1")
-				.text("OI. I'M VIC.")
+				.text("ヴィクシディアス")
 				.css("color", "#000000")
-				.css("font-size", "10vw")
+				.css("font-family", "Hiragino Kaku Gothic StdN")
+				.css("font-style", "italic")
+				.css("font-size", "8vw")
+				.css("font-weight", "900")
 				.fadeIn();
 			$("#social, #copyright, .icomoon").css("color", "black");
 			$("#vslogoskull").css("filter", "brightness(0%)");
@@ -164,6 +167,9 @@ import "./assets/OBJLoader";
 				.text("VIC SIDIOUS")
 				.css("color", "#ff0026")
 				.css("font-size", "10vw")
+				.css("font-style", "normal")
+				.css("font-family", "GothamXNUI")
+				.css("font-weight", "400")
 				.fadeIn();
 			$("#social, #copyright, .icomoon").css("color", "#ff0026");
 			$("#vslogoskull").css("filter", "brightness(100%)");
