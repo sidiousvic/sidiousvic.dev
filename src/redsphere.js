@@ -66,7 +66,7 @@ import "./assets/OBJLoader";
 	const directionalLight = new THREE.DirectionalLight(0xff0000, 0.9);
 	scene.add(directionalLight);
 
-	const linesAmount = 30;
+	const linesAmount = 31;
 	const radius = 200;
 	const verticesAmount = 100;
 	for (let j = 0; j < linesAmount; j++) {
