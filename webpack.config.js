@@ -94,15 +94,15 @@ module.exports = {
 				toType: "file",
 			},
 			{
+				from: "./src/assets/images/ogmetaimage.png",
+				to: "",
+				toType: "file",
+			},
+			{
 				from: "./src/assets/guitar.obj",
 				to: "",
 				toType: "file",
 			},
-			// {
-			//   from: './src/assets/guitar.obj',
-			//   to: '',
-			//   toType: 'file'
-			// },
 			{
 				from: "./src/assets/perlin.js",
 				to: "",
