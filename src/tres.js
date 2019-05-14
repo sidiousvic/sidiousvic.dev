@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable func-names */
+
 import "./assets/perlin";
 import "three-orbitcontrols";
 
