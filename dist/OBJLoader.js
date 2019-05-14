@@ -2,6 +2,7 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
+// eslint-disable-next-line func-names
 THREE.OBJLoader = ( function () {
 
 	// o object_name | g group_name
