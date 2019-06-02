@@ -19,7 +19,7 @@
 		/>
 		<meta
 			property="og:image"
-			content="https://www.vicsidious.com/dist/ogmetaimage.png"
+			content=""
 		/>
 
 		<!-- Google Analytics -->
@@ -37,44 +37,168 @@
 
 			gtag("config", "UA-133303729-1");
 		</script>
-
-		<!-- STYLES -->
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
 	</head>
 
+	
+
 	<body>
-		<!-- <div class="loader"><h1>LOADING</h1></div> -->
-		<div class="wrapper" id="wrapper">
-			<canvas id="redsphere"></canvas>
-			<!-- <canvas id="tres"></canvas> -->
-			<canvas id="guitar"></canvas>
-			<div class="" id="navcontainer">
-				<div id="vslogoskull"></div>
-				<div id="copyright"><p>© ヴィシャススタジオス 2019</p></div>
-				<div id="social">
-					<a
-						href="https://open.spotify.com/artist/211CHnITyO9kAjFhcpbPxu"
-						><i class="icomoon icon-spotify"></i
-					></a>
-					<a href="https://www.facebook.com/sidiousvic"
-						><i class="icomoon icon-facebook"></i
-					></a>
-					<a href="https://twitter.com/sidiousvic"
-						><i class="icomoon icon-twitter"></i
-					></a>
-					<a href="https://www.instagram.com/sidiousvic"
-						><i class="icomoon icon-instagram"></i
-					></a>
-					<a href="https://www.github.com/sidiousvic"
-						><i class="icomoon icon-github"></i
-					></a>
+		<div class="screen">
+				<div class="navbar">
+						<div class="navi" id="j"><p></p></div>
+						<div class="navi" id="x"><p></p></div>
+						<div class="navi" id="y"><p></p></div>
+						<div class="navi" id="z"><p></p></div>
+						<!-- <div class="navitem" id="a2"></div> -->
+				</div>
+			<div
+					class="screen2"
+					href="#hijinx"
+					id="vic-super"
+				></div>
+			<div class="navbar">
+					<div class="navi" id="jp" onclick="japanize(); skewJP();"><p>文</p></div>
+					<div class="navi" id="xi"  onclick="about(); skewXI();"><p>？</p></div>
+					<div class="navi" id="y"><p>#</p></div>
+					<div class="navi" id="z"><p></p></div>
+					<!-- <div class="navitem" id="a2"></div> -->
+			</div>
+
+			</div>
+			<!-- TITLE -->
+			<div class="wrapper" id="title">
+					<div class="navbar"></div>
+				<div class="text">
+					<a data-scroll href="#hijinx"
+						><h1 style="display: inline-block" id="sidiousvic">SIDIOUSVIC</h1>
+						<h1 style="display: none; font-size: 6vw; font-family: GothamXNUI" id="sidiousvic-jp">シディアスヴィック</h1>
+					</a>
+				</div>
+				<div
+					class="vic-super data-scroll"
+					href="#hijinx"
+					id="vic-super"
+				></div>
+				<div class="navbar">
 				</div>
 			</div>
-			<div id="title"><h1>VIC SIDIOUS</h1></div>
+			<!-- PIZZA -->
+			<div class="pizza">
+				<h1>&#x1f355;</h1>
+			</div>
+			<!-- ABOUT -->
+			<!-- <div class="wrapper" id="about">
+				<div class="text" id="menu" >
+					<p>OI! I'M VIC SIDIOUS. I'M A MARTIANECROPHAGIST, DARKPSYCHOMETALIST, PRIMATE OF THE SPECIES XICUAHCUAN MĒHXICAN.</p>
+				</div>
+				<div style="display: none; font-size: 6vw; font-family: GothamXNUI" class="text" id="menu-jp" >
+						<ul>
+							<li>ディベロッパー</li>
+							<li>ディサイナー</li>
+							<li>ギタリスト</li>
+							<li>ライター</li>
+						</ul>
+					</div>
+				<div class="" id="vic-super-about"></div>
+			</div> -->
+			<!-- HIJINX -->
+			<div class="wrapper" id="hijinx">
+					<div class="text" id="menu" >
+						<ul>
+							<li>Developer</li>
+							<li>Designer</li>
+							<li>Axewielder</li>
+							<li>Inditer</li>
+						</ul>
+					</div>
+					<div style="display: none; font-size: 6vw; font-family: GothamXNUI" class="text" id="menu-jp" >
+							<ul>
+								<li>ディベロッパー</li>
+								<li>ディサイナー</li>
+								<li>ギタリスト</li>
+								<li>ライター</li>
+							</ul>
+					</div>
+					<div style="display: none; font-size: 6vw; font-family: GothamXNBI" class="text" id="about" >
+							<p>OI! I'M VIC SIDIOUS. I'M A MARTIANECROPHAGIST, DARKPSYCHOMETALIST, PRIMATE OF THE SPECIES XICUAHCUAN MĒHXICAN.</p>
+						</div>
+						<div style="display: none; font-size: 5vw; font-family: GothamXNUI" class="text" id="about-jp" >
+								<p>オーイ！ヴィックです <br> 私はメキシコの28歳の<br>ディベロッパーと<br>ギタリストと<br>ディサイナ。</p>
+							</div>
+					<div class="vic-super-back" id="vic-super-back"></div>
+				</div>
 		</div>
 
-		<script src="/dist/main.js"></script>
+		<!-- SMOOTH SCROLL -->
+		<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+		<script>
+			var scroll = new SmoothScroll('a[href*="#"]');
+		</script>
+		
+		<script>
 
-		<!-- SCRIPTS -->
-		<script src="/dist/perlin.js"></script>
+
+		// JAPANIZE 
+		const japanize = () => {
+			if ($("#about").is(":visible")) {
+				$("#about-jp").toggle();
+				$("#about").hide();
+				$("#sidiousvic").toggle();
+				$("#sidiousvic-jp").toggle();
+				return 
+			}
+
+			if ($("#about-jp").is(":visible")) {
+				$("#about").toggle();
+				$("#about-jp").hide();
+				$("#sidiousvic").toggle();
+				$("#sidiousvic-jp").toggle();
+				return 
+			}
+
+			if ($("#menu").is(":hidden") && $("#menu-jp").is(":hidden")) {
+				$("#menu").toggle();
+			}
+
+			if ($("#about-jp").is(":visible")) {
+				$("#about-jp").toggle();
+				$("#about").toggle();
+			}
+
+			$("#sidiousvic").toggle();
+			$("#sidiousvic-jp").toggle();
+			$("#menu").toggle();
+			$("#menu-jp").toggle();
+
+		}
+
+		const about = () => {
+			if ($("#menu").is(":visible")) {
+				$("#menu").hide();
+				$("#about").toggle();
+				return
+			}
+			if ($("#menu-jp").is(":visible")) {
+				$("#menu-jp").hide();
+				$("#about-jp").toggle();
+				return
+			}
+			if ($("#about-jp").is(":visible")) {
+				skewXI();
+				return
+			}
+			if ($("#about").is(":visible")) {
+				$("#menu").show();
+				$("#about").toggle();
+				return
+			}
+		}
+		// SKEWS
+		const skewJP = () => {$("#jp").toggleClass("skew")}
+		const skewXI = () => {$("#xi").toggleClass("skew")}
+		</script>
 	</body>
 </html>
