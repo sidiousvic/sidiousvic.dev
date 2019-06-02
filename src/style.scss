@@ -1,16 +1,4 @@
 /* FONTS */
-@font-face {
-	font-family: icomoon;
-	src: url(./assets/fonts/icomoon/fonts/icomoon.eot?bvi0n9);
-	src: url(./assets/fonts/icomoon/fonts/icomoon.eot?bvi0n9#iefix)
-			format("embedded-opentype"),
-		url(./assets/fonts/icomoon/fonts/icomoon.ttf?bvi0n9) format("truetype"),
-		url(./assets/fonts/icomoon/fonts/icomoon.woff?bvi0n9) format("woff"),
-		url(./assets/fonts/icomoon/fonts/icomoon.svg?bvi0n9#icomoon)
-			format("svg");
-	font-weight: 400;
-	font-style: normal;
-}
 
 @font-face {
 	font-family: "Madman";
@@ -44,7 +32,7 @@ html {
 	margin: 0;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	overflow: hidden;
+	overflow: scroll;
 	padding: 0;
 	width: 100%;
 	height: 100%;
@@ -52,283 +40,259 @@ html {
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	padding: 0;
+	margin: auto;
+	padding: auto;
+	overflow: scroll;
 	// width: 100%;
 	// height: 100%;
 }
+
+/* TEXTS */
 
 a {
 	text-decoration: none;
 }
 
-/* MAIN PAGE */
-#background-image {
-	display: block;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	background-image: url(./assets/images/carefulwiththataxevic-compressed.gif);
-	background-size: contain;
+h1 {
+	font-family: GothamXNBI;
+	font-weight: 200;
+	color: red;
+	text-align: center;
+	margin: auto;
+	line-height: 100%;
+	margin: 10% auto;
+	z-index: 9;
+}
+
+h1:hover {
+	transform: skew(20deg);
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	z-index: 9;
+}
+
+li {
+	list-style: none;
+	// transition: ease-in-out 200ms;
+	z-index: 9;
+	transform: skew(20deg);
+}
+
+li:hover {
+	color: #ff3a20;
+	cursor: pointer;
+	// filter: hue-rotate(10deg);
+	transform: skew(0deg);
+}
+
+/* NAV */
+
+.fixed {
+	background-size: 63%;
 	background-position: center;
 	background-repeat: no-repeat;
-	mix-blend-mode: darken;
-	background-blend-mode: exclusion;
-}
-
-#redsphere {
-	display: block;
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	padding-left: 0;
-	padding-right: 0;
-	margin-left: auto;
 	mix-blend-mode: difference;
-	margin-right: auto;
-	background: 0 0;
-	z-index: 4;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background-image: none;
 }
 
-#guitar {
-	position: absolute;
+.navbar {
+	height: 100%;
+	width: 20%;
+	display: grid;
+	grid-template-areas:
+		"a1 a2 a3"
+		"b1 b2 b3"
+		"c1 c2 c3"
+		"d1 d2 d3"
+		"e1 e2 e3"
+		"f1 f2 f3";
+	pointer-events: all;
+}
+
+#jp {
+	grid-area: b2;
+	// border: red dotted 1px;
+	user-select: none;
 	height: 100%;
 	width: 100%;
-	padding-left: 0;
-	padding-right: 0;
-	margin-left: auto;
-	margin-right: auto;
-	z-index: 5;
-}
-
-.loader {
-	display: none;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 100%;
-	height: 100%;
-	background-color: $spacegray;
-	position: fixed;
-	z-index: 200;
-	background-image: url(./assets/images/vicsidiousskullred-compressed.png);
-	background-position: center;
-	background-position-y: 40%;
-	background-size: 6%;
-	-webkit-animation-name: loading;
-	animation-name: loading;
-	animation-timing-function: ease-in-out;
-	animation-duration: 1s;
-	animation-iteration-count: infinite;
-}
-
-@keyframes loading {
-	0% {
-	}
-	50% {
-		filter: hue-rotate(-15deg);
-	}
-	100% {
-	}
-}
-
-.loader h1 {
-	font-family: "GothamXNUI";
-	font-weight: 100;
-	font-size: 20vw;
-	color: $bloodred;
-	position: relative;
-	z-index: 1;
-	margin: 0;
+	align-items: center;
 	cursor: pointer;
-	animation-name: loading;
-	mix-blend-mode: difference;
 }
+
+#xi {
+	grid-area: c2;
+	// border: red dotted 1px;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+}
+
+#y {
+	grid-area: d2;
+	// border: red dotted 1px;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-items: center;
+}
+
+#z {
+	grid-area: e2;
+	// border: red dotted 1px;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.navi {
+	font-family: GothamXNUI;
+	color: $bloodred;
+	font-size: 4vh;
+	// transition: ease-in-out 100ms;
+}
+
+.skew {
+	transform: skew(30deg);
+}
+
+.screen {
+	// background: url("../src/assets/DSC_3799.jpg");
+	position: fixed;
+	justify-content: flex-end;
+	pointer-events: none;
+	height: 100vh;
+	width: 100vw;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	z-index: 1;
+	overflow: scroll;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 3;
+}
+
+.screen2 {
+	width: 60%;
+	height: 100%;
+}
+
+.wrapper-fixed {
+	background: transparent;
+	pointer-events: none;
+	// background: url("../src/assets/DSC_3799.jpg");
+	position: fixed;
+	justify-content: flex-end;
+	height: 100vh;
+	width: 100vw;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	// transition: ease-in-out 1s;
+	z-index: 2;
+	overflow: scroll;
+}
+
+/* MAIN */
 
 .wrapper {
 	background: $spacegray;
-	// background: url('../src/assets/DSC_3799.jpg');
-	background-blend-mode: difference;
-	background-position: center;
-	background-size: cover;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	display: flex;
-	-webkit-transition: ease-in-out 1s;
-	transition: ease-in-out 1s;
-	z-index: -1;
-}
-
-#title {
-	text-align: center;
-	vertical-align: middle;
-	width: 100%;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	z-index: 20;
-	margin: auto 10vw;
-}
-
-#title h1 {
-	font-family: "GothamXNUI";
-	font-weight: 100;
-	font-size: 10vw;
-	color: $bloodred;
+	// background: url("../src/assets/DSC_3799.jpg");
 	position: relative;
-	z-index: 20;
-	margin: 0;
-	// -webkit-animation-name: redglow;
-	// animation-name: redglow;
-	// -webkit-animation-duration: 2s;
-	// animation-duration: 2s;
-	// -webkit-animation-iteration-count: infinite;
-	// animation-iteration-count: infinite;
-	cursor: pointer;
-	/* text-shadow: 0px 1px 0px crimson, 0px 2px 0px crimson, 0px 3px 0px red0, 0px 4px 0px crimson, 0px 5px 0px crimson, 0px 6px 0px crimson, 0px 7px 0px crimson, 0px 8px 7px crimson; */
-}
-
-#atsidiousvic {
-	font-family: GothamXNUI;
-	color: $bloodred;
-	animation-name: redglow;
-	animation-duration: 3s;
-	animation-iteration-count: infinite;
-	text-shadow: -1px 1px 0 #111111, -2px 2px 0 #111111, -3px 3px 0 #111111,
-		-4px 4px 0 #111111, -5px 5px 0 #111111, -6px 6px 0 #111111,
-		-7px 7px 0 #111111;
-}
-
-// @keyframes redglow {
-// 	0% {
-// 	}
-// 	50% {
-// 		font-size: 7vw;
-// 	}
-// }
-
-#vslogoskull {
-	height: 15%;
-	width: 100%;
-	background-image: url(./assets/images/vicsidiousskullred-compressed.png);
-	background-repeat: no-repeat;
-	background-position: center 50%;
-	background-size: 50%;
-	mix-blend-mode: exclusion;
-	margin: auto;
-	float: left;
-	cursor: pointer;
-	transition: ease-in-out 0.2s;
-}
-
-#navcontainer {
-	background-position: center center;
-	position: absolute;
-	right: 1vw;
-	margin: 0;
-	top: 2%;
-	height: 100%;
-	width: 100px;
-	z-index: 7;
-}
-
-#social {
-	position: absolute;
-	bottom: 6%;
-	display: -webkit-box;
-	display: -ms-flexbox;
+	justify-content: flex-end;
+	height: 100vh;
+	width: 100vw;
+	text-align: center;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	color: $bloodred;
-	font-family: Futura;
+	align-items: center;
+	justify-content: space-around;
+	// transition: ease-in-out 1s;
+	z-index: 1;
+	overflow: scroll;
+}
+
+.pizza {
+	height: 20%;
+	width: 100%;
+	font-size: 5vh;
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.vic-super {
+	background-image: url(./assets/images/vic-super-front.png);
+	background-size: 100%;
+	// background-color: red;
+	background-position: center;
+	background-repeat: no-repeat;
 	mix-blend-mode: difference;
-	width: 100%;
-	margin: 0;
-	transition: ease-in-out 0.2s;
+	position: relative;
+	width: 60%;
+	height: 100%;
+	margin: auto;
 }
 
-#copyright {
-	word-spacing: 2pt;
-	height: 100px;
-	width: 100px;
-	font-size: 5pt;
-	color: $bloodred;
-	font-family: futura;
-	display: table;
-	margin-top: 20px;
+.vic-super-back {
+	background-image: url(./assets/images/VIC-SUPER-2.png);
+	background-size: 100%;
+	// background-color: red;
+	background-position: center;
+	background-repeat: no-repeat;
+	mix-blend-mode: difference;
+	position: relative;
+	width: 60%;
+	height: 100%;
+	margin: auto;
 }
 
-#copyright p {
-	transform: rotate(90deg);
-	-ms-transform: rotate(-90deg);
-	// -ms-transform-origin: right, top;
-	-webkit-transform: rotate(90deg);
-	line-height: 100%;
-	display: table-cell;
-	vertical-align: middle;
-	margin: 0;
+#vic-super-about {
+	// background-image: url(./assets/images/vic-super-3.png);
+	background-size: 100%;
+	// background-color: red;
+	background-position: center;
+	background-repeat: no-repeat;
+	mix-blend-mode: difference;
+	position: relative;
+	width: 60%;
+	height: 100%;
+	margin: auto;
 }
 
-.socialicon {
-	height: 10%;
-	width: 100%;
-}
-
-.icomoon {
-	font-family: icomoon !important;
-	font-style: normal;
-	font-weight: 400;
-	font-variant: normal;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-size: 15pt;
-	line-height: 2;
-	color: $bloodred;
-	transition: ease-in-out 0.2s;
-}
-
-i:hover {
+.text {
+	padding: 30px;
+	font-family: GothamXNBI;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 9vmin;
+	width: 60%;
 	color: red;
-}
-
-.icon-twitter:before {
-	content: "\e900";
-}
-
-.icon-instagram:before {
-	content: "\e901";
-}
-
-.icon-facebook-f:before {
-	content: "\e902";
-}
-
-.icon-facebook:before {
-	content: "\e902";
-}
-
-.icon-github:before {
-	content: "\e903";
-}
-
-.icon-spotify:before {
-	content: "\ea94";
-}
-
-@media (hover: none) {
-	#vslogoskull {
-		visibility: hidden;
-	}
-	#navcontainer {
-		visibility: hidden;
-	}
-	#redsphere {
-		display: none;
-	}
+	mix-blend-mode: color-dodge;
+	position: absolute;
+	position: 40% 40%;
+	margin: auto;
+	z-index: 9;
 }
