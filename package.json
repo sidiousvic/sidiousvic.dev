@@ -26,10 +26,10 @@
 		"webpack-node-externals": "^1.7.2"
 	},
 	"scripts": {
-		"wdevserver": "webpack-dev-server",
-		"wwatch": "webpack --watch",
-		"wbuild": "webpack --mode production",
-		"wdev": "webpack --mode development",
+		"server": "webpack-dev-server",
+		"watch": "webpack --watch",
+		"build": "webpack --mode production",
+		"dev": "webpack --mode development",
 		"lint": "eslint ."
 	},
 	"dependencies": {
