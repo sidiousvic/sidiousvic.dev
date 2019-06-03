@@ -77,7 +77,7 @@ module.exports = {
 			template: "./src/index.html",
 			filename: path.resolve(__dirname, "dist/index.html"),
 			css: "./style.css",
-			title: "VIC SIDIOUS",
+			title: "SIDIOUSVIC",
 			favicon: "./src/assets/favicon.ico",
 			alwaysWriteToDisk: true,
 		}),
@@ -88,31 +88,11 @@ module.exports = {
 				to: "",
 				toType: "file",
 			},
-			{
-				from: "./src/assets/images/vicsidiousskullred-compressed.png",
-				to: "",
-				toType: "file",
-			},
-			{
-				from: "./src/assets/images/ogmetaimage.png",
-				to: "",
-				toType: "file",
-			},
-			{
-				from: "./src/assets/guitar.obj",
-				to: "",
-				toType: "file",
-			},
-			{
-				from: "./src/assets/perlin.js",
-				to: "",
-				toType: "file",
-			},
-			{
-				from: "./src/assets/OBJLoader.js",
-				to: "",
-				toType: "file",
-			},
+			// {
+			// 	from: "",
+			// 	to: "",
+			// 	toType: "file",
+			// },
 		]),
 	],
 };
