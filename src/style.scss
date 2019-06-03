@@ -56,16 +56,21 @@ a {
 h1 {
 	font-family: GothamXNBI;
 	font-weight: 200;
+	font-size: 19vmin;
 	color: red;
 	text-align: center;
 	margin: auto;
 	line-height: 100%;
 	margin: 10% auto;
 	z-index: 9;
+	transition: ease-in-out 100ms;
+	user-select: none;
 }
 
 h1:hover {
 	transform: skew(20deg);
+	color: #ff3a20;
+	cursor: pointer;
 }
 
 ul {
@@ -79,6 +84,8 @@ li {
 	// transition: ease-in-out 200ms;
 	z-index: 9;
 	transform: skew(20deg);
+	transition: ease-in-out 100ms;
+	user-select: none;
 }
 
 li:hover {
@@ -129,6 +136,12 @@ li:hover {
 	cursor: pointer;
 }
 
+#about p,
+#about-jp p {
+	// transform: skew(10deg);
+	user-select: none;
+}
+
 #xi {
 	grid-area: c2;
 	// border: red dotted 1px;
@@ -165,14 +178,20 @@ li:hover {
 }
 
 .navi {
-	font-family: GothamXNUI;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka,
+		"メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 	color: $bloodred;
 	font-size: 4vh;
-	// transition: ease-in-out 100ms;
+	font-weight: bold;
+	transition: ease-in-out 100ms;
+	transform: skew(-13deg);
+}
+.navi:hover {
+	cursor: pointer;
 }
 
 .skew {
-	transform: skew(30deg);
+	transform: skew(13deg);
 }
 
 .screen {
@@ -234,15 +253,6 @@ li:hover {
 	overflow: scroll;
 }
 
-.pizza {
-	height: 20%;
-	width: 100%;
-	font-size: 5vh;
-	position: relative;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
 .vic-super {
 	background-image: url(./assets/images/vic-super-front.png);
 	background-size: 100%;
@@ -270,8 +280,8 @@ li:hover {
 }
 
 #vic-super-about {
-	// background-image: url(./assets/images/vic-super-3.png);
-	background-size: 100%;
+	background-image: url(./assets/images/vic-super-3.png);
+	background-size: contain;
 	// background-color: red;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -280,19 +290,143 @@ li:hover {
 	width: 60%;
 	height: 100%;
 	margin: auto;
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
 .text {
-	padding: 30px;
 	font-family: GothamXNBI;
 	text-transform: uppercase;
 	text-align: center;
-	font-size: 9vmin;
 	width: 60%;
+	font-size: 13vmin;
 	color: red;
 	mix-blend-mode: color-dodge;
 	position: absolute;
-	position: 40% 40%;
 	margin: auto;
 	z-index: 9;
+	// animation: ghost ease-in-out infinite;
+	// animation-duration: 3s;
+}
+
+#about {
+	transform: skew(10deg) translate(20px) rotate(1deg);
+}
+
+@keyframes ghost {
+	0% {
+		transform: skew(0deg);
+	}
+	50% {
+		transform: skew(10deg) scale(1.1) rotate(2deg);
+	}
+	100% {
+		transform: skew(0deg);
+	}
+}
+
+.emoji {
+	height: 20%;
+	width: 100%;
+	font-size: 10vh;
+	position: relative;
+	text-align: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	font-family: GothamXNBI;
+	text-transform: uppercase;
+	text-align: center;
+	color: red;
+	mix-blend-mode: color-dodge;
+	z-index: 9;
+	cursor: pointer;
+	user-select: none;
+}
+
+#martianecrophagy {
+	font-family: Cormorant;
+	text-align: left;
+	margin: auto;
+	height: 20%;
+	width: 30%;
+	font-size: 3vh;
+	position: relative;
+	display: block;
+	color: whitesmoke;
+}
+
+.pine {
+	// transform: translate3d(0, 0, 0);
+	display: block;
+	position: absolute;
+	top: -10%;
+	font-size: 9vh;
+	z-index: 200;
+}
+
+.pineRain {
+	animation: rain ease-in infinite;
+}
+
+.pine1 {
+	animation-duration: 1s;
+	left: 13%;
+	transform: rotate(50deg);
+}
+.pine2 {
+	animation-duration: 2s;
+	left: 23%;
+	transform: rotate(40deg);
+}
+.pine3 {
+	animation-duration: 1.1s;
+	left: 33%;
+	transform: rotate(70deg);
+}
+.pine4 {
+	animation-duration: 1.5s;
+	left: 43%;
+	transform: rotate(80deg);
+}
+
+.pine5 {
+	animation-duration: 1.2s;
+	left: 53%;
+}
+.pine6 {
+	animation-duration: 2.3s;
+	left: 63%;
+	transform: rotate(50deg);
+}
+.pine7 {
+	animation-duration: 1s;
+	left: 73%;
+}
+.pine8 {
+	animation-duration: 1.5s;
+	left: 83%;
+}
+.pine9 {
+	animation-duration: 1.3s;
+	left: 93%;
+}
+
+.pine10 {
+	animation-duration: 2.3s;
+	left: 3%;
+	transform: rotate(30deg);
+}
+
+@keyframes rain {
+	from {
+		top: -40;
+	}
+	to {
+		top: 100%;
+		transform: rotate(360deg);
+	}
 }
