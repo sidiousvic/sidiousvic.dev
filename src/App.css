@@ -1,15 +1,32 @@
+/* FONTS */
+
+@font-face {
+  font-family: "GothamXNUI";
+  src: url("./assets/fonts/Gotham/GothamXNarrow-UltraItalic.woff2")
+      format("woff2"),
+    url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "GothamXNBI";
+  src: url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff2")
+      format("woff2"),
+    url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff") format("woff");
+}
+
+/* APP */
+
+html,
+body {
+  background-color: #111;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
-  background-color: #282c34;
+  background-color: #111;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,15 +36,26 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header h1 {
+  /* transform: skew(12deg); */
+  font-family: GothamXNUI, sans-serif;
+  color: rgb(255, 31, 15);
+  mix-blend-mode: color-dodge;
+  line-height: 30%;
+  font-size: 10vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-link {
+  color: red;
+}
+
+#under-development {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70vh;
+  width: 70vw;
+  background: url(./assets/images/vic_super_back.png);
+  background-size: cover;
+  mix-blend-mode: difference;
 }
