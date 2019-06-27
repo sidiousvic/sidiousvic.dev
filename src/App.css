@@ -1,63 +1,136 @@
 /* FONTS */
-
 @font-face {
-  font-family: "GothamXNUI";
-  src: url("./assets/fonts/Gotham/GothamXNarrow-UltraItalic.woff2")
-      format("woff2"),
-    url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff") format("woff");
+  font-family: "ZeldaNES";
+  src: url("./assets/fonts/TheLegendofZeldaNES.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "GothamXNBI";
-  src: url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff2")
-      format("woff2"),
-    url("./assets/fonts/Gotham/GothamXNarrow-BlackItalic.woff") format("woff");
+  font-family: "ChicagoPix";
+  src: url("./assets/fonts/pixChicago.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* APP */
 
 html,
 body {
-  background-color: #000;
+  overflow: hidden;
+  background-color: #f5183d;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
+  display: flex;
+  flex-direction: column;
+  flex-flow: wrap;
+  flex-wrap: wrap;
   text-align: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #000;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.titles {
+  position: relative;
+  margin: 0;
+  z-index: 1;
+  width: 100%;
 }
 
-.App-header h1 {
-  /* transform: skew(12deg); */
-  font-family: GothamXNUI, sans-serif;
-  color: rgb(255, 31, 15);
-  mix-blend-mode: color-dodge;
-  line-height: 30%;
-  font-size: 10vh;
+h1 {
+  margin: 0;
 }
 
-.App-link {
-  color: red;
+p {
+  position: absolute;
+  /* left: 1%; */
+  bottom: 1%;
+  margin: 0;
+  font-family: ZeldaNES;
+  font-size: 9pt;
 }
 
-#under-development {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  width: 100vw;
-  background: url(./assets/images/vicsidiouscom.png);
+.title {
+  color: black;
+  font-family: ZeldaNES;
+  font-weight: 100 !important;
+  font-size: 5vmin;
+  text-align: left;
+  user-select: none;
+}
+
+.links {
+  position: relative;
+  width: 50%;
+  z-index: 1;
+  margin-top: 4%;
+}
+
+.links ul {
+  margin: 0;
+  padding: 0;
+}
+
+.links li {
+  font-family: ZeldaNES;
+  color: black;
+  font-size: 3.5vmin;
+  margin-top: 30px;
+  font-weight: 500;
+  list-style: none;
+  text-align: left;
+  cursor: pointer;
+  letter-spacing: 5px;
+  transform: skew(-10deg);
+  user-select: none;
+}
+
+.links a {
+  text-decoration: none;
+}
+
+#vic-cutout {
+  margin: 0;
+  padding: 40;
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  bottom: -2px;
+  left: 44%;
+  background-image: url(./assets/images/vic-super-cut.gif);
   background-size: contain;
-  background-position: 50%;
   background-repeat: no-repeat;
-  mix-blend-mode: difference;
+  /* background: pink; */
+}
+
+#three-container {
+  position: absolute;
+  height: 100%;
+  z-index: 0;
+  width: 100%;
+  margin-right: 70%;
+  height: 25vmax;
+  margin: 0;
+  right: -18%;
+  top: 5%;
+  background-color: #f5183d;
+}
+
+.filler {
+  position: relative;
+  width: 0%;
+  height: 100%;
+  margin: 0;
+  /* background-color: blue; */
+}
+
+#three-container:hover {
+  /* mix-blend-mode: luminosity; */
+  cursor: pointer;
 }

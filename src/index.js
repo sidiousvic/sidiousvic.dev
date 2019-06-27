@@ -5,6 +5,21 @@ import App from "./App";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+// animate subtitle
+const title = document.querySelector("#title-description");
+(function switchTitles() {
+  const descriptions = [
+    "DARKPSYCHNECROMETALIST",
+    "MARTIANECROPHAGIST",
+    "ULTRAVENOMIST",
+    "NECROMANTULIST",
+    "OPHIOPHAGIST"
+  ];
+  let random = Math.floor(Math.random() * 3) + 1;
+  window.setInterval(function() {
+    while (title.innerHTML === descriptions[random]) {
+      random = Math.floor(Math.random() * 5);
+    }
+    title.innerHTML = descriptions[random];
+  }, 3000);
+})();
