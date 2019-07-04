@@ -1,7 +1,7 @@
 import * as THREE from "three";
+import OrbitControls from "./OrbitControls";
 import GeneralLights from "./sceneSubjects/GeneralLights";
 import Cube from "./sceneSubjects/Cube";
-// import OrbitControls from "three-orbitcontrols";
 
 function SceneManager(canvas) {
   const clock = new THREE.Clock();
@@ -15,9 +15,14 @@ function SceneManager(canvas) {
   const renderer = buildRender(screenDimensions);
   const camera = buildCamera(screenDimensions);
   const sceneSubjects = createSceneSubjects(scene);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enabled = true;
+  controls.maxDistance = 1500;
+  controls.minDistance = 0;
+
   function buildScene() {
     const scene = new THREE.Scene();
-    // scene.background = new THREE.Color("#f5183d");
+    scene.background = new THREE.Color("#f5183d");
 
     return scene;
   }
@@ -41,7 +46,7 @@ function SceneManager(canvas) {
   function buildCamera({ width, height }) {
     const aspectRatio = width / height;
     const fieldOfView = 60;
-    const nearPlane = 1;
+    const nearPlane = 0.1;
     const farPlane = 100;
     const camera = new THREE.PerspectiveCamera(
       fieldOfView,
@@ -50,7 +55,7 @@ function SceneManager(canvas) {
       farPlane
     );
 
-    // camera.position.set(10, 0, 2.5);
+    camera.position.set(0, 0, 10);
 
     return camera;
   }
@@ -67,6 +72,8 @@ function SceneManager(canvas) {
     for (let i = 0; i < sceneSubjects.length; i++)
       sceneSubjects[i].update(elapsedTime);
 
+    controls.update();
+    renderer.clear();
     renderer.render(scene, camera);
   };
 
@@ -80,10 +87,8 @@ function SceneManager(canvas) {
     camera.updateProjectionMatrix();
 
     renderer.setSize(width, height);
+    // const controls = new OrbitControls(camera, renderer.domElement);
   };
-
-  //   const controls = new OrbitControls(camera, renderer.domElement);
-  //   controls.enabled = true;
 }
 
 export default SceneManager;

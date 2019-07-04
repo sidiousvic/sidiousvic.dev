@@ -23,9 +23,9 @@ function Cube(scene) {
       map: loader.load(vslogo)
     })
   ];
-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(10, 10, 10), materials);
+  const mesh = new THREE.Mesh(new THREE.BoxBufferGeometry(3, 3, 3), materials);
 
-  mesh.position.set(0, 0, -20);
+  // mesh.position.set(0, 0, 0);
 
   scene.add(mesh);
 
