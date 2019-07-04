@@ -1,0 +1,43 @@
+/* FONTS */
+
+/* APP */
+
+html,
+body {
+  overflow: hidden;
+  background-color: #f5183d;
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  font-family: Gotham XNarrow;
+  font-size: 1rem;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+#three-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  #three-container {
+    position: relative;
+  }
+}
