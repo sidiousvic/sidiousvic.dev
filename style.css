@@ -8,6 +8,7 @@ body {
   background-color: #f5183d;
   height: 100%;
   width: 100%;
+  margin: 0;
 }
 
 .header {
@@ -24,6 +25,7 @@ body {
 
 #three-container {
   position: fixed;
+  border: greenyellow 3px dotted;
   height: 100%;
   width: 100%;
   z-index: 0;
