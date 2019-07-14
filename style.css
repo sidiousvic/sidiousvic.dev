@@ -6,16 +6,20 @@ html,
 body {
   overflow: hidden;
   background-color: #f5183d;
-  height: 100%;
-  width: 100%;
   margin: 0;
 }
 
 .header {
   font-family: Gotham XNarrow;
+  background-color: #f5183d;
+  /* border: greenyellow 1px dotted; */
   font-size: 1rem;
   padding: 0 20px;
   z-index: 1;
+}
+
+h1 {
+  margin-top: 15px;
 }
 
 #root {
@@ -24,8 +28,8 @@ body {
 }
 
 #three-container {
-  position: fixed;
-  border: greenyellow 3px dotted;
+  position: absolute;
+  margin: auto;
   height: 100%;
   width: 100%;
   z-index: 0;
