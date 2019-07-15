@@ -11,7 +11,7 @@ body {
 
 .header {
   font-family: Gotham XNarrow;
-  background-color: #f5183d;
+  /* background-color: #f5183d; */
   /* border: greenyellow 1px dotted; */
   font-size: 1rem;
   padding: 0 20px;
