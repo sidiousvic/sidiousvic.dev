@@ -1,6 +1,10 @@
-let container, camera, renderer, scene, mesh, controls, skull;
+let container, camera, renderer, scene, controls, skull;
+let mouseX,
+  mouseY = 0;
+let windowHalfX = window.innerWidth / 2;
+let windowHalfY = window.innerHeight / 2;
 
-function init() {
+async function init() {
   container = document.querySelector("#three-container");
 
   // pause with spacebar
@@ -22,12 +26,17 @@ function init() {
   createCamera();
   createControls();
   createLights();
-  createMeshes();
+  Skull("vs-skull3.obj", "skull");
   createRenderer();
 
+  // event listeners
+  document.addEventListener("mousemove", onDocumentMouseMove);
+  window.addEventListener("resize", onWindowResize);
+
+  // init animation loop
   renderer.setAnimationLoop(() => {
-    render();
     update();
+    render();
   });
 }
 
@@ -55,31 +64,30 @@ function createLights() {
   scene.add(ambientLight, mainLight);
 }
 
-function createMeshes() {
+function Skull(objFile, objName) {
   // instantiate a loader
   var loader = new THREE.OBJLoader();
   var material = new THREE.MeshStandardMaterial({
     color: 0x000000
-    // wireframe: true,
-    // precision: "highp"
+    // wireframeLinewidth: 0.1
+    // wireframe: true
   });
 
-  // load a resource
-  loader.load(
-    // resource URL
-    "vs-skull3.obj",
-    // called when resource is loaded
-    object => {
+  //load object
+  return loader.load(
+    objFile,
+    function(object) {
       object.traverse(function(child) {
         if (child instanceof THREE.Mesh) {
           child.material = material;
         }
       });
       scene.add(object);
-      skull = object;
-      skull.rotation.y = -4.85;
+      object.name = objName;
+      object.rotation.y = -4.85;
+      object.rotation.x = -0.09;
     },
-    // called when loading is in progresses
+    // called when loading is in progress
     function(xhr) {
       console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
     },
@@ -102,13 +110,12 @@ function createRenderer() {
   container.appendChild(renderer.domElement);
 }
 
-function update() {
-  // skull.rotation.x += 0.001;
-  skull.rotation.y += 0.001;
-  // skull.rotation.z += 0.001;
-}
+function update() {}
 
 function render() {
+  // console.log(mouseX);
+  // camera.position.z = (-mouseY - camera.position.z) * 0.5;
+  camera.lookAt(scene.position);
   renderer.render(scene, camera);
 }
 
@@ -124,14 +131,19 @@ function stop() {
 }
 
 function onWindowResize() {
+  windowHalfX = window.innerWidth / 2;
+  windowHalfY = window.innerHeight / 2;
   // update aspect ratio
-  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.aspect = window.innerWidth / window.innerHeight;
   // update frustum
   camera.updateProjectionMatrix();
   // update renderer and canvas
-  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-window.addEventListener("resize", onWindowResize);
+function onDocumentMouseMove(event) {
+  mouseX = (event.clientX - windowHalfX) / 2;
+  mouseY = (event.clientY - windowHalfY) / 2;
+}
 
 init();
