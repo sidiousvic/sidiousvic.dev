@@ -20,9 +20,7 @@
     "Icon",
     "node_modules",
     ".DS_Store",
-    "molinamarketing",
     ".cache",
-    "blackdog",
     ".babelrc",
     "package.json",
     "yarn-error.log",
@@ -32,9 +30,5 @@
     "README.md",
     ".eslintrc.json",
     ".prettierrc"
-  ],
-  "generatedFiles": {
-    "extensionsToInclude": [".gif"],
-    "path": "/Volumes/Macintosh HD/Users/VICSIDIOUS/Desktop/dev/vicsidious.com/dist"
-  }
+  ]
 }
