@@ -20,7 +20,7 @@ async function init() {
   };
 
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xf5183d);
+  // scene.background = new THREE.Color(0xf5183d);
   // scene.background = new THREE.Color(0x1111111);2
 
   createCamera();
@@ -28,6 +28,7 @@ async function init() {
   createLights();
   skull = Skull("vsskull.obj", "skull");
   createRenderer();
+  renderer.setClearColor(0x000000, 0);
 
   // event listeners
   document.addEventListener("mousemove", onDocumentMouseMove);
@@ -99,7 +100,7 @@ function Skull(objFile, objName) {
 }
 
 function createRenderer() {
-  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
 
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -113,9 +114,9 @@ function createRenderer() {
 function update() {}
 
 function render() {
-  console.log(mouseX);
+  // console.log(mouseX);
   camera.position.y = (mouseY - camera.position.z) * 0.06;
-  camera.position.x = (-mouseX - camera.position.z) * 0.06;
+  camera.position.x = (-mouseX - camera.position.z) * 0.04;
   camera.lookAt(scene.position);
   renderer.render(scene, camera);
 }
