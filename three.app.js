@@ -21,12 +21,12 @@ async function init() {
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0xf5183d);
-  // scene.background = new THREE.Color(0x1111111);
+  // scene.background = new THREE.Color(0x1111111);2
 
   createCamera();
   createControls();
   createLights();
-  Skull("vs-skull3.obj", "skull");
+  skull = Skull("vsskull.obj", "skull");
   createRenderer();
 
   // event listeners
@@ -84,8 +84,8 @@ function Skull(objFile, objName) {
       });
       scene.add(object);
       object.name = objName;
-      object.rotation.y = -4.85;
-      object.rotation.x = -0.09;
+      // object.rotation.y = -4.84;
+      // object.rotation.x = -0.09;
     },
     // called when loading is in progress
     function(xhr) {
@@ -113,8 +113,9 @@ function createRenderer() {
 function update() {}
 
 function render() {
-  // console.log(mouseX);
-  // camera.position.z = (-mouseY - camera.position.z) * 0.5;
+  console.log(mouseX);
+  camera.position.y = (mouseY - camera.position.z) * 0.06;
+  camera.position.x = (-mouseX - camera.position.z) * 0.06;
   camera.lookAt(scene.position);
   renderer.render(scene, camera);
 }
