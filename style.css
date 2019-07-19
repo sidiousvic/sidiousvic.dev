@@ -5,6 +5,8 @@
 html,
 body {
   overflow: scroll;
+  cursor: pointer;
+
   background-color: #f5183d;
   margin: 0;
   height: 200%;
@@ -92,6 +94,52 @@ h1 {
   flex-direction: row;
   height: 100%;
   width: 100%;
+}
+
+.overlay-menu {
+  font-family: Gotham XNarrow;
+  font-size: 3vh;
+  position: absolute;
+  /* background: lime; */
+  display: flex;
+  justify-content: space-evenly;
+  line-height: 100%;
+  align-items: center;
+  height: 12%;
+  width: 100%;
+}
+
+i {
+  /* transition: 0.2s ease-in-out; */
+}
+
+i:hover {
+  /* transform: scale(2);
+  transition: 0.1s ease-in-out; */
+}
+
+.vskullogo {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  background-image: url("vs_skull.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  height: 7%;
+  width: 7%;
+}
+
+.en-text-menu {
+  /* transform: skewY(-20deg); */
+  margin: 0;
+}
+
+.jp-text-menu {
+  margin: 0;
+  font-family: Osaka;
+  line-height: 0.9vh;
+  font-size: 0.9vh;
 }
 
 /* @media only screen and (max-width: 600px) {
