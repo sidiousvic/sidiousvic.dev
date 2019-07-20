@@ -60,6 +60,7 @@ h1 {
 
 .title-overlay {
   text-align: center;
+  margin: auto;
   font-family: Gotham XNarrow;
   position: absolute;
   width: 100%;
@@ -84,8 +85,8 @@ h1 {
 
 #title {
   font-size: 20vh;
-  transform: skewY(-30deg);
-  margin-top: 300px;
+  transform: skewY(-30deg) translateX(-1.9vw);
+  margin-top: 250px;
 }
 
 .App {
@@ -147,8 +148,11 @@ a:hover {
   font-size: 0.9vh;
 }
 
-/* @media only screen and (max-width: 600px) {
-  #three-container {
-    position: relative;
+/* iphone x */
+@media only screen and (max-width: 600px) {
+  #title {
+    font-size: 15vw;
+    transform: skewY(-30deg) translateX(-1.9vw);
+    margin-top: 40vh;
   }
-} */
+}
