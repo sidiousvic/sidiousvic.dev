@@ -147,6 +147,7 @@ a:hover {
 .jp-text-menu {
   margin: 0;
   font-family: Osaka;
+  font-weight: bolder;
   line-height: 0.9vh;
   font-size: 0.9vh;
 }
@@ -155,7 +156,7 @@ a:hover {
 @media only screen and (max-width: 600px) {
   #title {
     font-size: 15vw;
-    transform: skewY(-30deg) translateX(-1.9vw);
+    transform: skewY(-30deg) translateX(-1vw);
     margin-top: 40vh;
   }
 }
