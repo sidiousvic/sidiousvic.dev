@@ -1,5 +1,8 @@
 /* FONTS */
-
+@font-face {
+  font-family: "Gotham XNarrow";
+  src: url("GothamXNarrow-UltraItalic.ttf") format("truetype");
+}
 /* APP */
 
 html,
