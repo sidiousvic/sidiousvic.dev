@@ -1,8 +1,6 @@
 let container, camera, renderer, scene, controls, skull;
 let mouseX = 0;
 let mouseY = 0;
-let gyroX = 0;
-let gyroY = 0;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
@@ -34,7 +32,6 @@ async function init() {
 
   // event listeners
   document.addEventListener("mousemove", onDocumentMouseMove);
-  window.addEventListener("deviceorientation", onDeviceRotation);
   window.addEventListener("resize", onWindowResize);
 
   // init animation loop
@@ -121,11 +118,6 @@ function render() {
   camera.position.y = (mouseY - camera.position.z) * 0.06;
   camera.position.x = (-mouseX - camera.position.z) * 0.04;
   // console.log(mouseX);
-
-  if (gyroX && gyroY) {
-    camera.position.y = (gyroY - camera.position.z) * 0.06;
-    camera.position.x = (-gyroX - camera.position.z) * 0.04;
-  }
   camera.lookAt(scene.position);
   renderer.render(scene, camera);
 }
@@ -155,17 +147,28 @@ function onWindowResize() {
 function onDocumentMouseMove(event) {
   mouseX = (event.clientX - windowHalfX) / 2;
   mouseY = (event.clientY - windowHalfY) / 2;
+
+  (function toggleTitleTransition() {
+    if (bool) {
+      title.style.transition = "0.5s ease-in-out";
+    } else {
+      title.style.transition = "";
+    }
+  })();
 }
 
-function onDeviceRotation(event) {
-  gyroX = (event.beta - windowHalfX) / 2;
-  gyroY = (event.gamma - windowHalfY) / 2;
-}
+let title = document.querySelector("#title");
+let bool = true;
 
 document.querySelector(".vskullogo").addEventListener("click", e => {
-  let title = document.querySelector("#title");
-  if (title.style.opacity == 0) title.style.opacity = 1;
-  else title.style.opacity = 0;
+  if (bool) {
+    title.style.opacity = 0;
+    bool = false;
+  } else {
+    title.style.transition = "0.5s ease-in-out";
+    title.style.opacity = 1;
+    bool = true;
+  }
 });
 
 init();
