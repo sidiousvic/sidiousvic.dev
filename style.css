@@ -66,7 +66,6 @@ h1 {
 .title-overlay {
   text-align: center;
   margin: auto;
-  font-family: Gotham XNarrow;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -89,9 +88,10 @@ h1 {
 }
 
 #title {
-  font-size: 15vh;
-  transform: skewY(-30deg) translateX(-1.9vw);
-  margin-top: 23vh;
+  font-family: Futura-CondensedExtraBold;
+  font-size: 12vw;
+  /* transform: skewY(-20deg); */
+  margin-top: 40vmin;
   opacity: 1;
 }
 
@@ -103,7 +103,6 @@ h1 {
 }
 
 .overlay-menu {
-  font-family: Gotham XNarrow;
   font-size: 3vh;
   position: absolute;
   /* background: lime; */
@@ -165,8 +164,7 @@ a:hover {
     height: 25%;
   }
   #title {
-    font-size: 15vw;
-    transform: skewY(-30deg) translateX(-1vw);
+    font-size: 30vw;
     margin-top: 40vh;
   }
 }
