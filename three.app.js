@@ -4,7 +4,10 @@ let mouseY = 0;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
-async function init() {
+function init() {
+  //////////////////////////////////////////////////////
+  // THREE.JS///////////////////////////////////////////
+  //////////////////////////////////////////////////////
   container = document.querySelector("#three-container");
 
   // pause with spacebar
@@ -147,20 +150,24 @@ function onWindowResize() {
 function onDocumentMouseMove(event) {
   mouseX = (event.clientX - windowHalfX) / 2;
   mouseY = (event.clientY - windowHalfY) / 2;
-
-  (function toggleTitleTransition() {
-    if (bool) {
-      title.style.transition = "0.5s ease-in-out";
-    } else {
-      title.style.transition = "";
-    }
-  })();
 }
 
-let title = document.querySelector("#title");
+init();
+
+//////////////////////////////////////////////////////
+// SKULL CLICK FADE TITLE IN AND OUT /////////////////
+//////////////////////////////////////////////////////
 let bool = true;
+(function toggleTitleTransition() {
+  if (bool) {
+    title.style.transition = "0.5s ease-in-out";
+  } else {
+    title.style.transition = "";
+  }
+})();
 
 document.querySelector(".vskullogo").addEventListener("click", e => {
+  let title = document.querySelector("#title");
   if (bool) {
     title.style.opacity = 0;
     bool = false;
@@ -171,4 +178,20 @@ document.querySelector(".vskullogo").addEventListener("click", e => {
   }
 });
 
-init();
+//////////////////////////////////////////////////////
+// HOVER CHANGE TITLE TEXT ///////////////////////////
+//////////////////////////////////////////////////////
+let nav = document.querySelector(".nav");
+nav.addEventListener("mouseover", e => {
+  let navClass = e.target.classList;
+  if (navClass.contains("github")) title.textContent = "JUST CODE SHIT.";
+  else if (navClass.contains("twitter")) title.textContent = "JUST TWEET SHIT.";
+  else if (navClass.contains("spotify")) title.textContent = "JUST PLAY SHIT.";
+  else if (navClass.contains("behance"))
+    title.textContent = "JUST DESIGN SHIT.";
+  else if (navClass.contains("medium")) title.textContent = "JUST WRITE SHIT.";
+});
+
+nav.addEventListener("mouseleave", e => {
+  title.textContent = "JUST DO SHIT.";
+});
