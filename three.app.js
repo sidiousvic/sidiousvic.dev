@@ -175,23 +175,23 @@ document.querySelector(".vskullogo").addEventListener("click", e => {
 //////////////////////////////////////////////////////
 nav.addEventListener("mouseover", e => {
   let navClass = e.target.classList;
-  if (navClass.contains("github")) title.textContent = "JUST CODE SHIT.";
-  else if (navClass.contains("twitter")) title.textContent = "JUST TWEET SHIT.";
-  else if (navClass.contains("spotify")) title.textContent = "JUST ROCK SHIT.";
+  if (navClass.contains("github")) title.textContent = "JUST CODE SH*T.";
+  else if (navClass.contains("twitter")) title.textContent = "JUST TWEET SH*T.";
+  else if (navClass.contains("spotify")) title.textContent = "JUST ROCK SH*T.";
   else if (navClass.contains("behance"))
-    title.textContent = "JUST DESIGN SHIT.";
-  else if (navClass.contains("medium")) title.textContent = "JUST WRITE SHIT.";
+    title.textContent = "JUST DESIGN SH*T.";
+  else if (navClass.contains("medium")) title.textContent = "JUST WRITE SH*T.";
 });
 // return to "JUST DO SHIT" on leave
 nav.addEventListener("mouseleave", e => {
-  title.textContent = "JUST DO SHIT.";
+  title.textContent = "JUST DO SH*T.";
 });
 
 //////////////////////////////////////////////////////
 // CLICK CHANGE TITLE TEXT ///////////////////////////
 //////////////////////////////////////////////////////
 title.addEventListener("click", e => {
-  if (title.textContent === "JUST DO SHIT.") title.textContent = "VIC SIDIOUS.";
+  if (title.textContent === "JUST DO SH*T.") title.textContent = "VIC SIDIOUS.";
   else if (title.textContent === "VIC SIDIOUS.")
-    title.textContent = "JUST DO SHIT.";
+    title.textContent = "JUST DO SH*T.";
 });
