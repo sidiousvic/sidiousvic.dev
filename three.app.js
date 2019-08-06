@@ -1,33 +1,36 @@
 let container, camera, renderer, scene, controls, skull;
-let mouseX = 0;
-let mouseY = 0;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
+let title = document.querySelector("#title");
+let nav = document.querySelector(".nav");
+let bool = true;
 
+let mouseX = 0;
+let mouseY = 0;
+
+//////////////////////////////////////////////////////
+// THREE.JS///////////////////////////////////////////
+//////////////////////////////////////////////////////
 function init() {
-  //////////////////////////////////////////////////////
-  // THREE.JS///////////////////////////////////////////
-  //////////////////////////////////////////////////////
   container = document.querySelector("#three-container");
 
-  // pause with spacebar
+  // pause and play with s key
   document.body.onkeydown = function(e) {
-    if (e.keyCode == 32) {
+    if (e.keyCode == 83) {
       stop();
     }
   };
+
   document.body.onkeyup = function(e) {
-    if (e.keyCode == 32) {
+    if (e.keyCode == 83) {
       play();
     }
   };
 
+  // set the scene
   scene = new THREE.Scene();
-  // scene.background = new THREE.Color(0xf5183d);
-  // scene.background = new THREE.Color(0x1111111);2
 
   createCamera();
-  createControls();
   createLights();
   skull = Skull("vsskull.obj", "skull");
   createRenderer();
@@ -39,7 +42,6 @@ function init() {
 
   // init animation loop
   renderer.setAnimationLoop(() => {
-    update();
     render();
   });
 }
@@ -52,10 +54,6 @@ function createCamera() {
     100
   );
   camera.position.set(0, 0, 5);
-}
-
-function createControls() {
-  // controls = new THREE.OrbitControls(camera, container);
 }
 
 function createLights() {
@@ -114,13 +112,9 @@ function createRenderer() {
   container.appendChild(renderer.domElement);
 }
 
-function update() {}
-
 function render() {
-  // console.log(mouseX);
   camera.position.y = (mouseY - camera.position.z) * 0.06;
   camera.position.x = (-mouseX - camera.position.z) * 0.04;
-  // console.log(mouseX);
   camera.lookAt(scene.position);
   renderer.render(scene, camera);
 }
@@ -157,7 +151,6 @@ init();
 //////////////////////////////////////////////////////
 // SKULL CLICK FADE TITLE IN AND OUT /////////////////
 //////////////////////////////////////////////////////
-let bool = true;
 (function toggleTitleTransition() {
   if (bool) {
     title.style.transition = "0.5s ease-in-out";
@@ -167,7 +160,6 @@ let bool = true;
 })();
 
 document.querySelector(".vskullogo").addEventListener("click", e => {
-  let title = document.querySelector("#title");
   if (bool) {
     title.style.opacity = 0;
     bool = false;
@@ -181,17 +173,25 @@ document.querySelector(".vskullogo").addEventListener("click", e => {
 //////////////////////////////////////////////////////
 // HOVER CHANGE TITLE TEXT ///////////////////////////
 //////////////////////////////////////////////////////
-let nav = document.querySelector(".nav");
 nav.addEventListener("mouseover", e => {
   let navClass = e.target.classList;
   if (navClass.contains("github")) title.textContent = "JUST CODE SHIT.";
   else if (navClass.contains("twitter")) title.textContent = "JUST TWEET SHIT.";
-  else if (navClass.contains("spotify")) title.textContent = "JUST PLAY SHIT.";
+  else if (navClass.contains("spotify")) title.textContent = "JUST ROCK SHIT.";
   else if (navClass.contains("behance"))
     title.textContent = "JUST DESIGN SHIT.";
   else if (navClass.contains("medium")) title.textContent = "JUST WRITE SHIT.";
 });
-
+// return to "JUST DO SHIT" on leave
 nav.addEventListener("mouseleave", e => {
   title.textContent = "JUST DO SHIT.";
+});
+
+//////////////////////////////////////////////////////
+// CLICK CHANGE TITLE TEXT ///////////////////////////
+//////////////////////////////////////////////////////
+title.addEventListener("click", e => {
+  if (title.textContent === "JUST DO SHIT.") title.textContent = "VIC SIDIOUS.";
+  else if (title.textContent === "VIC SIDIOUS.")
+    title.textContent = "JUST DO SHIT.";
 });
