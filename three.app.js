@@ -195,3 +195,23 @@ title.addEventListener("click", e => {
   else if (title.textContent === "VIC SIDIOUS.")
     title.textContent = "JUST DO SH*T.";
 });
+
+// animated fadeInUp
+
+let scrollpos = window.scrollY;
+const about = document.querySelector(".about");
+console.log(about);
+const aboutHeight = about.offsetHeight;
+const addClassOnScroll = () => about.classList.add("fade-in");
+const removeClassOnScroll = () => about.classList.remove("fade-in");
+about.classList.remove("fade-out");
+window.addEventListener("scroll", function() {
+  scrollpos = window.scrollY;
+  if (scrollpos >= window.innerHeight - 100) {
+    addClassOnScroll();
+  } else {
+    removeClassOnScroll();
+  }
+  console.log(scrollpos);
+  console.log(windowHalfY);
+});
