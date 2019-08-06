@@ -103,13 +103,13 @@ h1 {
 .App {
   display: flex;
   flex-direction: row;
-  height: 150vh;
+  height: 100vh;
   width: 100%;
 }
 
 .overlay-menu {
   font-size: 3vh;
-  position: absolute;
+  position: fixed;
   /* background: lime; */
   display: flex;
   justify-content: space-evenly;
@@ -154,8 +154,8 @@ a:hover {
 }
 
 .jp-text-menu {
-  margin: 0;
   font-family: Osaka;
+  margin: 0;
   font-weight: bolder;
   line-height: 0.9vh;
   font-size: 0.9vh;
@@ -163,11 +163,6 @@ a:hover {
 
 /* iphone x */
 @media only screen and (max-width: 600px) {
-  .App,
-  .description,
-  .description-jp {
-    height: 25%;
-  }
   #title {
     font-size: 30vw;
     margin-top: 40vh;
