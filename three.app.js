@@ -1,8 +1,12 @@
 let container, camera, renderer, scene, controls, skull;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
-let title = document.querySelector("#title");
-let nav = document.querySelector(".nav");
+let title = document.querySelector('#title');
+let titleOverlay = document.querySelector('.title-overlay');
+let aboutText = document.querySelector('.about-text');
+let nav = document.querySelector('.nav');
+let body = document.querySelector('body');
+let html = document.querySelector('html');
 let bool = true;
 
 let mouseX = 0;
@@ -12,7 +16,7 @@ let mouseY = 0;
 // THREE.JS///////////////////////////////////////////
 //////////////////////////////////////////////////////
 function init() {
-  container = document.querySelector("#three-container");
+  container = document.querySelector('#three-container');
 
   // pause and play with s key
   document.body.onkeydown = function(e) {
@@ -32,13 +36,13 @@ function init() {
 
   createCamera();
   createLights();
-  skull = Skull("vsskull.obj", "skull");
+  skull = Skull('vsskull.obj', 'skull');
   createRenderer();
   renderer.setClearColor(0x000000, 0);
 
   // event listeners
-  document.addEventListener("mousemove", onDocumentMouseMove);
-  window.addEventListener("resize", onWindowResize);
+  document.addEventListener('mousemove', onDocumentMouseMove);
+  window.addEventListener('resize', onWindowResize);
 
   // init animation loop
   renderer.setAnimationLoop(() => {
@@ -91,11 +95,11 @@ function Skull(objFile, objName) {
     },
     // called when loading is in progress
     function(xhr) {
-      console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+      console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
     },
     // called when loading has errors
     function(error) {
-      console.log("An error happened");
+      console.log('An error happened');
     }
   );
 }
@@ -153,18 +157,18 @@ init();
 //////////////////////////////////////////////////////
 (function toggleTitleTransition() {
   if (bool) {
-    title.style.transition = "0.5s ease-in-out";
+    title.style.transition = '0.5s ease-in-out';
   } else {
-    title.style.transition = "";
+    title.style.transition = '';
   }
 })();
 
-document.querySelector(".vskullogo").addEventListener("click", e => {
+document.querySelector('.vskullogo').addEventListener('click', e => {
   if (bool) {
     title.style.opacity = 0;
     bool = false;
   } else {
-    title.style.transition = "0.5s ease-in-out";
+    title.style.transition = '0.5s ease-in-out';
     title.style.opacity = 1;
     bool = true;
   }
@@ -173,45 +177,61 @@ document.querySelector(".vskullogo").addEventListener("click", e => {
 //////////////////////////////////////////////////////
 // HOVER CHANGE TITLE TEXT ///////////////////////////
 //////////////////////////////////////////////////////
-nav.addEventListener("mouseover", e => {
+nav.addEventListener('mouseover', e => {
   let navClass = e.target.classList;
-  if (navClass.contains("github")) title.textContent = "JUST CODE SH*T.";
-  else if (navClass.contains("twitter")) title.textContent = "JUST TWEET SH*T.";
-  else if (navClass.contains("spotify")) title.textContent = "JUST ROCK SH*T.";
-  else if (navClass.contains("behance"))
-    title.textContent = "JUST DESIGN SH*T.";
-  else if (navClass.contains("medium")) title.textContent = "JUST WRITE SH*T.";
+  if (navClass.contains('github')) title.textContent = 'DEVELOPER';
+  else if (navClass.contains('twitter')) title.textContent = 'TWEETER';
+  else if (navClass.contains('spotify')) title.textContent = 'ROCKER';
+  else if (navClass.contains('behance')) title.textContent = 'DESIGNER';
+  else if (navClass.contains('medium')) title.textContent = 'WRITER';
+  else if (navClass.contains('linkedin')) title.textContent = 'HUSTLER';
 });
 // return to "JUST DO SHIT" on leave
-nav.addEventListener("mouseleave", e => {
-  title.textContent = "JUST DO SH*T.";
+nav.addEventListener('mouseleave', e => {
+  title.textContent = 'JUST DO SH*T.';
+  setTimeout(() => {
+    title.textContent = '@SIDIOUSVIC';
+  }, 3000);
 });
 
 //////////////////////////////////////////////////////
 // CLICK CHANGE TITLE TEXT ///////////////////////////
 //////////////////////////////////////////////////////
-title.addEventListener("click", e => {
-  if (title.textContent === "JUST DO SH*T.") title.textContent = "VIC SIDIOUS.";
-  else if (title.textContent === "VIC SIDIOUS.")
-    title.textContent = "JUST DO SH*T.";
+titleOverlay.addEventListener('click', e => {
+  if (title.textContent === 'JUST DO SH*T.') title.textContent = '@SIDIOUSVIC';
+  else if (title.textContent === '@SIDIOUSVIC')
+    title.textContent = 'JUST DO SH*T.';
 });
 
 // animated fadeInUp
 
 let scrollpos = window.scrollY;
-const about = document.querySelector(".about");
-console.log(about);
-const aboutHeight = about.offsetHeight;
-const addClassOnScroll = () => about.classList.add("fade-in");
-const removeClassOnScroll = () => about.classList.remove("fade-in");
-about.classList.remove("fade-out");
-window.addEventListener("scroll", function() {
+const about = document.querySelector('.about');
+// const aboutHeight = about.offsetHeight;
+
+const addFadeOnScroll = async () => {
+  // add fade class to about section
+  about.classList.add('fade-in');
+  nav.classList.add('fade-out');
+  body.style.backgroundColor = 'BLACK';
+  html.style.backgroundColor = 'BLACK';
+};
+
+const removeFadeOnScroll = () => {
+  // remove fade classes
+  about.classList.remove('fade-in');
+  nav.classList.remove('fade-out');
+  body.style.backgroundColor = '#f5183d';
+  html.style.backgroundColor = '#f5183d';
+};
+
+window.addEventListener('scroll', function() {
   scrollpos = window.scrollY;
-  if (scrollpos >= window.innerHeight - 100) {
-    addClassOnScroll();
+  if (scrollpos >= window.innerHeight) {
+    addFadeOnScroll();
   } else {
-    removeClassOnScroll();
+    removeFadeOnScroll();
   }
-  console.log(scrollpos);
-  console.log(windowHalfY);
+  // console.log(scrollpos);
+  // console.log(windowHalfY);
 });

@@ -1,22 +1,22 @@
 /* FONTS */
-/* @font-face {
-  font-family: "Gotham XNarrow";
-  src: url("GothamXNarrow-UltraItalic.ttf") format("truetype");
-} */
 @font-face {
-  font-family: "Futura CXB";
-  src: url("Futura-CondensedExtraBold.ttf") format("truetype");
+  font-family: 'Gotham XNarrow';
+  src: url('GothamXNarrow-UltraItalic.ttf') format('truetype');
 }
-/* APP */
+@font-face {
+  font-family: 'Futura CXB';
+  src: url('Futura-CondensedExtraBold.ttf') format('truetype');
+}
 
+/* APP */
 html,
 body {
-  overflow: scroll;
   background-color: #f5183d;
   margin: 0;
   width: 100%;
   z-index: -2;
-  height: 200vh;
+  height: 100vh;
+  transition: 0.5s linear;
 }
 
 #root {
@@ -28,7 +28,7 @@ body {
 }
 
 #three-container {
-  position: absolute;
+  position: FIXED;
   display: flex;
   margin: auto;
   height: 100%;
@@ -43,67 +43,10 @@ body {
   width: 100%;
 }
 
-.title-overlay {
-  text-align: center;
-  margin: auto;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  word-wrap: break-word;
-  overflow: visible;
-  color: #f5183d;
-  user-select: none;
-  mix-blend-mode: difference;
-  z-index: 2;
-}
-
-#title {
-  font-family: "Futura CXB";
-  font-size: 12vw;
-  animation: mover 5s infinite ease-in-out;
-  /* transform: skewY(-20deg); */
-  margin-top: 40vmin;
-  opacity: 1;
-  letter-spacing: -0.5rem;
-}
-
-.about {
-  user-select: none;
-  overflow: hidden;
-  opacity: 0;
-  flex-direction: row;
-  height: 100vh;
-  width: 100%;
-  background-image: url("vicLined-03.svg");
-  background-size: 35%;
-  background-position: 60vw 3vh;
-  background-repeat: no-repeat;
-  transition: 0.5s linear;
-}
-
-.fade-in {
-  opacity: 1;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
-#about-text {
-  text-align: left;
-  vertical-align: middle;
-  font-family: "Futura CXB";
-  font-size: 2.5vw;
-  padding: 10vh 35vw 0 6vw;
-  opacity: 1;
-  letter-spacing: -0.15rem;
-  z-index: 1;
-}
-
-.overlay-menu {
+/* NAVBAR */
+.nav {
   font-size: 3vh;
   position: fixed;
-  /* background: lime; */
   display: flex;
   justify-content: space-evenly;
   line-height: 100%;
@@ -115,17 +58,114 @@ body {
   mix-blend-mode: difference;
 }
 
+.nav-solid {
+  mix-blend-mode: normal;
+  color: black;
+  background: #f5183d;
+}
+
+.nav-solid a {
+  color: black;
+}
+
+/* TITLE PAGE */
+.title-overlay {
+  display: table;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  word-wrap: break-word;
+  overflow: visible;
+  color: #f5183d;
+  user-select: none;
+  mix-blend-mode: difference;
+  z-index: 5;
+}
+
+/* .fade-in { */
+/* opacity: 1 !important; */
+/* } */
+
+/* .fade-out { */
+/* opacity: 0 !important; */
+/* } */
+
+#title {
+  font-family: 'Futura CXB';
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 12vw;
+
+  animation: mover 5s infinite ease-in-out;
+  margin-top: 40vmin;
+  margin-bottom: 0;
+  opacity: 1;
+  letter-spacing: -0.3rem;
+}
+
+.about {
+  display: flex;
+  user-select: none;
+  overflow: hidden;
+  opacity: 1;
+  flex-direction: column;
+  justify-items: center;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  transition: 0.5s linear;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  /* transition: 0.3s ease-in-out; */
+  background-size: 100%;
+}
+
+#vic {
+  position: relative;
+  margin: auto;
+  font-family: 'Futura CXB';
+  font-size: 30vw;
+  opacity: 1;
+  animation: mover 5s infinite ease-in-out;
+  letter-spacing: -0.3rem;
+  color: #bd1430;
+}
+
+#sidious {
+  position: absolute;
+  display: table;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Futura CXB';
+  font-size: 3.5vh;
+  text-align: center;
+  opacity: 1;
+  letter-spacing: -0.1rem;
+  color: #f5183d;
+  mix-blend-mode: difference;
+}
+
+#sidious h1 {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 a {
   text-decoration: none;
   color: #f5183d;
+  cursor: pointer;
   /* transition: 0.2s ease-in-out; */
 }
 
+/* VIC SIDIOUS LOGO */
 .vskullogo {
   position: fixed;
   bottom: 3vw;
   left: 3vw;
-  background-image: url("vs_skull.png");
+  background-image: url('vs_skull.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -135,24 +175,16 @@ a {
   cursor: pointer;
 }
 
+/* ANIMATIONS */
 @keyframes mover {
   0% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
 }
 
-/* iphone x */
-@media only screen and (max-width: 600px) {
-  #title {
-    font-size: 27vw;
-    margin-top: 40vh;
-  }
-  #about-text {
-    font-size: 5vw;
-    margin-top: 0vh;
-    padding: 10vh 10vw;
-  }
+/* RESPONSIVE */
+@media only screen and (max-width: 1024px) {
 }
