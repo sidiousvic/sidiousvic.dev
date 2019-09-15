@@ -1,10 +1,14 @@
 let container, camera, renderer, scene, controls, skull;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
-let title = document.querySelector('#title');
+let title = document.querySelector('.title');
+let svTitle = document.querySelector('#sv-title');
+let projectsTitle = document.querySelector('#projects-title');
 let titleOverlay = document.querySelector('.title-overlay');
-let aboutText = document.querySelector('.about-text');
+const projects = document.querySelector('.projects');
+// let aboutText = document.querySelector('.about-text');
 let nav = document.querySelector('.nav');
+let pNav = document.querySelector('.pnav');
 let body = document.querySelector('body');
 let html = document.querySelector('html');
 let bool = true;
@@ -151,6 +155,7 @@ function onDocumentMouseMove(event) {
 }
 
 init();
+// stop();
 
 //////////////////////////////////////////////////////
 // SKULL CLICK FADE TITLE IN AND OUT /////////////////
@@ -178,20 +183,38 @@ document.querySelector('.vskullogo').addEventListener('click', e => {
 // HOVER CHANGE TITLE TEXT ///////////////////////////
 //////////////////////////////////////////////////////
 nav.addEventListener('mouseover', e => {
-  let navClass = e.target.classList;
-  if (navClass.contains('github')) title.textContent = 'DEVELOPER';
-  else if (navClass.contains('twitter')) title.textContent = 'TWEETER';
-  else if (navClass.contains('spotify')) title.textContent = 'ROCKER';
-  else if (navClass.contains('behance')) title.textContent = 'DESIGNER';
-  else if (navClass.contains('medium')) title.textContent = 'WRITER';
-  else if (navClass.contains('linkedin')) title.textContent = 'HUSTLER';
+  let cl = e.target.classList;
+  console.log(cl);
+  if (cl.contains('github')) svTitle.textContent = 'DEVELOPER';
+  else if (cl.contains('twitter')) svTitle.textContent = 'TWEETER';
+  else if (cl.contains('spotify')) svTitle.textContent = 'ROCKER';
+  else if (cl.contains('behance')) svTitle.textContent = 'DESIGNER';
+  else if (cl.contains('medium')) svTitle.textContent = 'WRITER';
+  else if (cl.contains('linkedin')) svTitle.textContent = 'HUSTLER';
+});
+
+pNav.addEventListener('mouseover', e => {
+  let cl = e.target.classList;
+  console.log(cl);
+  if (cl.contains('pPizzalculator'))
+    projectsTitle.textContent = 'PIZZALCULATOR';
+  else if (cl.contains('pTasker')) projectsTitle.textContent = 'TASKER';
+  else if (cl.contains('pBlackdog')) projectsTitle.textContent = 'BLACKDOG';
+  else if (cl.contains('pClock')) projectsTitle.textContent = 'CLOCK';
+  else if (cl.contains('pSecretNumber'))
+    projectsTitle.textContent = 'SECRET NUMBER';
+  else if (cl.contains('pRpoke')) projectsTitle.textContent = 'R-POKE';
+  else if (cl.contains('pBacefook')) projectsTitle.textContent = 'BACEFOOK';
+  else if (cl.contains('pBudgy')) projectsTitle.textContent = 'BUDGETER';
+  else if (cl.contains('pGithubSpotlight'))
+    projectsTitle.textContent = 'GITHUB SPOTLIGHT';
+  else if (cl.contains('pKisetsu')) projectsTitle.textContent = 'KISETSU';
+  else if (cl.contains('pOcarina')) projectsTitle.textContent = 'OCARINA';
+  else if (cl.contains('pBooklist')) projectsTitle.textContent = 'BOOKLIST';
 });
 // return to "JUST DO SHIT" on leave
 nav.addEventListener('mouseleave', e => {
-  title.textContent = 'JUST DO SH*T.';
-  setTimeout(() => {
-    title.textContent = '@SIDIOUSVIC';
-  }, 3000);
+  svTitle.textContent = '@SIDIOUSVIC';
 });
 
 //////////////////////////////////////////////////////
@@ -204,34 +227,34 @@ titleOverlay.addEventListener('click', e => {
 });
 
 // animated fadeInUp
-
 let scrollpos = window.scrollY;
-const about = document.querySelector('.about');
 // const aboutHeight = about.offsetHeight;
 
-const addFadeOnScroll = async () => {
+const addFadeOnScroll = () => {
   // add fade class to about section
-  about.classList.add('fade-in');
+  projects.classList.add('fade-in');
   nav.classList.add('fade-out');
-  body.style.backgroundColor = 'BLACK';
-  html.style.backgroundColor = 'BLACK';
+  pNav.classList.add('fade-in');
+  projectsTitle.classList.add('fade-in');
+  body.style.backgroundColor = 'rgb(10, 10, 10)';
+  html.style.backgroundColor = 'rgb(10, 10, 10)';
 };
 
 const removeFadeOnScroll = () => {
   // remove fade classes
-  about.classList.remove('fade-in');
+  projects.classList.remove('fade-in');
   nav.classList.remove('fade-out');
+  pNav.classList.remove('fade-in');
+  projectsTitle.classList.remove('fade-in');
   body.style.backgroundColor = '#f5183d';
   html.style.backgroundColor = '#f5183d';
 };
 
 window.addEventListener('scroll', function() {
   scrollpos = window.scrollY;
-  if (scrollpos >= window.innerHeight) {
+  if (scrollpos >= window.innerHeight - 200) {
     addFadeOnScroll();
   } else {
     removeFadeOnScroll();
   }
-  // console.log(scrollpos);
-  // console.log(windowHalfY);
 });
