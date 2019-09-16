@@ -8,6 +8,9 @@ class Skull {
   }
 
   init() {
+    // DIMENSIONS
+    window.windowHalfX = window.innerWidth / 2;
+    window.windowHalfY = window.innerHeight / 2;
     // scene
     this.createCamera();
     this.createLights();
