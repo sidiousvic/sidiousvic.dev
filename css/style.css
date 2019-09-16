@@ -1,11 +1,7 @@
 /* FONTS */
 @font-face {
-  font-family: 'Gotham XNarrow';
-  src: url('GothamXNarrow-UltraItalic.ttf') format('truetype');
-}
-@font-face {
   font-family: 'Futura CXB';
-  src: url('Futura-CondensedExtraBold.ttf') format('truetype');
+  src: url('../assets/fonts/Futura-CondensedExtraBold.ttf') format('truetype');
 }
 
 /* APP */
@@ -62,15 +58,16 @@ body {
 
 .projects {
   display: flex;
+  align-items: flex-end;
+  justify-items: flex-end;
   margin: auto;
   height: 100%;
   width: 100%;
   z-index: 99;
-  mix-blend-mode: difference;
 }
 
 .pnav {
-  margin-top: 3%;
+  /* margin-top: 3%; */
   font-size: 3vh;
   /* position: fixed; */
   display: flex;
@@ -140,6 +137,7 @@ body {
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
+  mix-blend-mode: difference;
   font-family: 'Futura CXB';
   text-align: center;
   letter-spacing: -0.1rem;
@@ -147,10 +145,14 @@ body {
 }
 
 #projects-title {
-  color: rgb(7, 7, 7);
-  color: #e4183a;
-  opacity: 0;
-  transition: 0.3s linear;
+  font-family: 'Futura CXB';
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 12vw;
+  animation: mover 5s infinite ease-in-out;
+  margin-top: 40vmin;
+  margin-bottom: 0;
+  letter-spacing: -0.3rem;
 }
 
 a {
@@ -165,7 +167,7 @@ a {
   position: fixed;
   bottom: 3vw;
   left: 3vw;
-  background-image: url('vs_skull.png');
+  background-image: url('../assets/images/vs_skull.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
