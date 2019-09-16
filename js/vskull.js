@@ -17,7 +17,7 @@ class Skull {
     this.createRenderer();
     this.renderer.setClearColor(0x000000, 0);
     // load object
-    this.loadObject('../../assets/3D/vsskulL.obj', 'skull');
+    this.loadObject('../../assets/3D/vsskull.obj', 'skull');
     // e listeners
     document.addEventListener('mousemove', e => {
       this.onDocumentMouseMove(e);
