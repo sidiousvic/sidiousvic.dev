@@ -60,9 +60,9 @@ function changeTitle(e) {
   let cl = e.target.classList;
   if (cl.contains('github')) svTitle.textContent = 'DEVELOPER';
   else if (cl.contains('twitter')) svTitle.textContent = 'TWEETER';
-  else if (cl.contains('spotify')) svTitle.textContent = 'ROCKER';
+  else if (cl.contains('spotify')) svTitle.textContent = 'AXEWIELDER';
   else if (cl.contains('behance')) svTitle.textContent = 'DESIGNER';
-  else if (cl.contains('medium')) svTitle.textContent = 'WRITER';
+  else if (cl.contains('medium')) svTitle.textContent = 'INDITER';
   else if (cl.contains('linkedin')) svTitle.textContent = 'HUSTLER';
 }
 
