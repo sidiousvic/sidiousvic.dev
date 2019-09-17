@@ -53,6 +53,12 @@ body {
   width: 100%;
   z-index: 90;
 }
+/* NAV ICON LINKS */
+a {
+  color: #f5183d;
+  cursor: pointer;
+  text-decoration: none;
+}
 
 /* TITLE PAGE */
 .title-overlay {
@@ -90,12 +96,6 @@ body {
   margin: auto;
   opacity: 1;
   position: relative;
-}
-
-a {
-  color: #f5183d;
-  cursor: pointer;
-  text-decoration: none;
 }
 
 /* LOGO */
