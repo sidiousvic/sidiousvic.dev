@@ -44,7 +44,7 @@ class Skull {
   }
 
   createLights() {
-    this.light = new THREE.DirectionalLight(0xffffff, 1);
+    this.light = new THREE.DirectionalLight(0x432342, 1);
     // set position (x, y, z)
     this.light.position.set(10, 10, 10);
     this.scene.add(this.light);

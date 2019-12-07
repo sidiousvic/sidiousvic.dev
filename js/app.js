@@ -10,14 +10,18 @@ const pNav = document.querySelector(".pnav");
 const body = document.querySelector("body");
 const html = document.querySelector("html");
 const vsSkullLogo = document.querySelector(".vskullogo");
+const about = document.querySelector("#about");
 
 // EVENT LISTENERS ////////////////////
 
 // hide title on logo click
-vsSkullLogo.addEventListener("mouseover", e => {
-  toggleTitle();
+about.addEventListener("mouseover", e => {
+  showAbout();
 });
-vsSkullLogo.addEventListener("mouseleave", e => {
+about.addEventListener("mouseleave", e => {
+  showAbout();
+});
+vsSkullLogo.addEventListener("mouseover", e => {
   toggleTitle();
 });
 // change title on nav hover
@@ -42,6 +46,23 @@ function titleToggler() {
   let bool = true;
   return () => {
     if (bool) {
+      title.style.transition = "0.2s linear";
+      title.style.opacity = 0;
+      bool = false;
+    } else {
+      title.style.transition = "0.2s linear";
+      title.style.opacity = 1;
+      bool = true;
+    }
+  };
+}
+let toggleTitle = titleToggler();
+
+// show about
+function showAbouter() {
+  let bool = true;
+  return () => {
+    if (bool) {
       title.style.display = "none";
       desc.style.display = "table-cell";
       bool = false;
@@ -52,7 +73,7 @@ function titleToggler() {
     }
   };
 }
-let toggleTitle = titleToggler();
+let showAbout = showAbouter();
 
 // change title text
 function changeTitle(e) {
