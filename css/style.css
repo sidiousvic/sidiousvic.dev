@@ -1,7 +1,7 @@
 /* FONTS */
 @font-face {
-  font-family: 'Futura CXB';
-  src: url('../assets/fonts/Futura-CondensedExtraBold.ttf') format('truetype');
+  font-family: "Futura CXB";
+  src: url("../assets/fonts/Futura-CondensedExtraBold.ttf") format("truetype");
 }
 
 /* APP */
@@ -79,18 +79,28 @@ a {
 .title {
   animation: mover 5s infinite ease-in-out;
   display: table-cell;
-  font-family: 'Futura CXB';
+  font-family: "Futura CXB";
   font-size: 12vw;
   letter-spacing: -0.3rem;
-  margin-bottom: 0;
-  margin-top: 40vmin;
+  vertical-align: middle;
+}
+
+.desc {
+  animation: mover 5s infinite ease-in-out;
+  display: none;
+  color: chartreuse;
+  font-family: "Pixeland";
+  text-align: right;
+  font-weight: 100;
+  font-size: 6vw;
+  padding: 0 25vmin 0 25vmin;
   vertical-align: middle;
 }
 
 #vic {
   animation: mover 5s infinite ease-in-out;
   color: #bd1430;
-  font-family: 'Futura CXB';
+  font-family: "Futura CXB";
   font-size: 30vw;
   letter-spacing: -0.3rem;
   margin: auto;
@@ -100,7 +110,7 @@ a {
 
 /* LOGO */
 .vskullogo {
-  background-image: url('../assets/images/vs_skull.png');
+  background-image: url("../assets/images/vs_skull.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

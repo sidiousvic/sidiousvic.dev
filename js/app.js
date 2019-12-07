@@ -1,5 +1,6 @@
 // SELECTORS ////////////////////
 const title = document.querySelector(".title");
+const desc = document.querySelector(".desc");
 const svTitle = document.querySelector("#sv-title");
 const projectsTitle = document.querySelector("#projects-title");
 const titleOverlay = document.querySelector(".title-overlay");
@@ -13,7 +14,10 @@ const vsSkullLogo = document.querySelector(".vskullogo");
 // EVENT LISTENERS ////////////////////
 
 // hide title on logo click
-vsSkullLogo.addEventListener("click", e => {
+vsSkullLogo.addEventListener("mouseover", e => {
+  toggleTitle();
+});
+vsSkullLogo.addEventListener("mouseleave", e => {
   toggleTitle();
 });
 // change title on nav hover
@@ -38,11 +42,12 @@ function titleToggler() {
   let bool = true;
   return () => {
     if (bool) {
-      title.style.transition = "0.5s ease-in-out";
-      title.style.opacity = 0;
+      title.style.display = "none";
+      desc.style.display = "table-cell";
       bool = false;
     } else {
-      title.style.opacity = 1;
+      title.style.display = "table-cell";
+      desc.style.display = "none";
       bool = true;
     }
   };
@@ -54,7 +59,7 @@ function changeTitle(e) {
   let cl = e.target.classList;
   if (cl.contains("github")) svTitle.textContent = "DEVELOPER";
   else if (cl.contains("twitter")) svTitle.textContent = "TWEETER";
-  else if (cl.contains("spotify")) svTitle.textContent = "AXEWIELDER";
+  else if (cl.contains("spotify")) svTitle.textContent = "MUSICIAN";
   else if (cl.contains("behance")) svTitle.textContent = "DESIGNER";
   else if (cl.contains("medium")) svTitle.textContent = "INDITER";
   else if (cl.contains("linkedin")) svTitle.textContent = "HUSTLER";
