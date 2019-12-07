@@ -25,7 +25,7 @@ function UnityProgress(gameInstance, progress) {
       "none";
 }
 
-let counter = 10;
+let counter = 20;
 const loader = setInterval(() => {
   console.log(counter);
   loadingMsg = document.querySelector("#loadingMsg");
@@ -37,4 +37,4 @@ setTimeout(() => {
   loading = document.querySelector(".loading");
   loading.style.display = "none";
   clearInterval(loader);
-}, 11000);
+}, 15000);
