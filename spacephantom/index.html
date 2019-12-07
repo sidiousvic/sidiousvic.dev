@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us" style="background: black;">
+  <head>
+    <script src="../../js/jquery-3.3.1.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SPACE PHANTOM by VIC SIDIOUS</title>
+    <meta property="og:url" content="https://www.vicsidious.com/spacephantom" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SPACE PHANTOM" />
+    <meta
+      property="og:description"
+      content="Space shooter game by VIC SIDIOUS"
+    />
+    <meta property="og:image" content="../../images/SPACEPHANTOMCOVER.png" />
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <link rel="stylesheet" href="TemplateData/style.css" />
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate(
+        "gameContainer",
+        "Build/WebSpacePhantom.json",
+        { onProgress: UnityProgress }
+      );
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div class="loading">
+        <h1 id="loadingMsg">Loading<br /><br /></h1>
+      </div>
+      <div
+        id="gameContainer"
+        style="width: 100vw; height: 100vh; background: black !important;"
+      ></div>
+    </div>
+  </body>
+</html>
