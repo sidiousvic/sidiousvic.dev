@@ -88,7 +88,7 @@ a {
 .desc {
   animation: mover 5s infinite ease-in-out;
   display: none;
-  color: chartreuse;
+  color: unset;
   font-family: "Pixeland";
   text-align: right;
   font-weight: 100;
