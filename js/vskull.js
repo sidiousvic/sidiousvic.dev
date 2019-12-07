@@ -1,6 +1,6 @@
 class Skull {
   constructor() {
-    this.container = document.querySelector('#three-container');
+    this.container = document.querySelector("#three-container");
     this.scene = new THREE.Scene();
     this.camera;
     this.light;
@@ -8,7 +8,7 @@ class Skull {
   }
 
   init() {
-    // DIMENSIONS
+    // dimensions
     window.windowHalfX = window.innerWidth / 2;
     window.windowHalfY = window.innerHeight / 2;
     // scene
@@ -17,16 +17,17 @@ class Skull {
     this.createRenderer();
     this.renderer.setClearColor(0x000000, 0);
     // load object
-    this.loadObject('../../assets/3D/vsskull.obj', 'skull');
+    this.loadObject("../../assets/3D/vsskull.obj", "skull");
     // e listeners
-    document.addEventListener('mousemove', e => {
+    document.addEventListener("mousemove", e => {
       this.onDocumentMouseMove(e);
     });
-    window.addEventListener('resize', e => {
+    window.addEventListener("resize", e => {
       this.onWindowResize(e);
     });
     //  animation loop
     this.renderer.setAnimationLoop(() => {
+      this.update();
       this.render();
     });
   }
@@ -51,10 +52,10 @@ class Skull {
 
   loadObject(file, name) {
     // store scene reference
-    const scene = this.scene;
+    // const scene = this.scene;
     const loader = new THREE.OBJLoader();
     const material = new THREE.MeshStandardMaterial({
-      color: 'black'
+      color: "black"
       // wireframeLinewidth: 0.1,
       // wireframe: true
     });
@@ -67,16 +68,16 @@ class Skull {
             child.material = material;
           }
         });
-        scene.add(object);
+        this.scene.add(object);
         object.name = name;
       },
       // called when loading is in progress
       xhr => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+        console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
       },
       // called when error during loading
       error => {
-        console.error('LOADING ERROR');
+        console.error("LOADING ERROR");
       }
     );
   }
@@ -97,16 +98,19 @@ class Skull {
   }
 
   render() {
-    this.camera.position.y = (mouseY - this.camera.position.z) * 0.06;
-    this.camera.position.x = (-mouseX - this.camera.position.z) * 0.04;
     this.camera.lookAt(this.scene.position);
     this.renderer.render(this.scene, this.camera);
   }
 
+  update() {
+    this.camera.position.y = (mouseY - this.camera.position.z) * 0.06;
+    this.camera.position.x = (-mouseX - this.camera.position.z) * 0.04;
+  }
+
   play() {
     this.renderer.setAnimationLoop(() => {
-      update();
-      render();
+      this.update();
+      this.render();
     });
   }
 
