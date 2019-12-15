@@ -55,6 +55,9 @@ class Skull {
     window.addEventListener("resize", e => {
       this.onWindowResize(e);
     });
+    window.addEventListener("click", e => {
+      this.onDocumentClick(e);
+    });
     //  animation loop
     this.renderer.setAnimationLoop(() => {
       this.update();
@@ -82,6 +85,7 @@ class Skull {
 
   createEyes() {
     const lightColor = 0xff0020;
+    const matColor = 0xff0010;
     // glowing eyes
     const sphere = new THREE.SphereBufferGeometry(0.02, 20, 20);
     // make lights
@@ -91,36 +95,22 @@ class Skull {
     this.eyeR.position.set(0.24, 0.19, 0.55);
     // mesh 'em together
     this.eyeL.add(
-      new THREE.Mesh(
-        sphere,
-        new THREE.ShaderMaterial({
-          uniforms: {
-            time: { value: 1.0 },
-            resolution: { value: new THREE.Vector2() }
-          },
-          vertexShader: this.shaders.spiral.v,
-          fragmentShader: this.shaders.spiral.f
-        })
-      )
+      new THREE.Mesh(sphere, new THREE.MeshToonMaterial({ color: matColor }))
     );
     this.eyeR.add(
-      new THREE.Mesh(
-        sphere,
-        new THREE.ShaderMaterial({
-          uniforms: this.uniforms,
-          vertexShader: this.shaders.spiral.v,
-          fragmentShader: this.shaders.spiral.f
-        })
-      )
+      new THREE.Mesh(sphere, new THREE.MeshToonMaterial({ color: matColor }))
     );
     this.scene.add(this.eyeL, this.eyeR);
+    // set their initial velocity to 0
+    this.eyeL.velocity = 0;
+    this.eyeR.velocity = 0;
   }
 
   loadObject(file, name) {
     // store scene reference
     // const scene = this.scene;
     const loader = new THREE.OBJLoader();
-    const material = new THREE.MeshStandardMaterial({
+    const material = new THREE.MeshToonMaterial({
       color: "black"
       // wireframeLinewidth: 0.1,
       // wireframe: true
@@ -169,9 +159,23 @@ class Skull {
   }
 
   update() {
+    // shader uniforms
     this.uniforms.u_time.value = this.clock.getElapsedTime();
+    // change camera position on mouse move
     this.camera.position.y = (mouseY - this.camera.position.z) * 0.06;
     this.camera.position.x = (-mouseX - this.camera.position.z) * 0.04;
+    // fire the eye lasers on z axis
+    this.eyeL.position.y += Math.cos(this.clock.getElapsedTime() * 2) * 0.0005;
+    this.eyeL.position.x += Math.sin(this.clock.getElapsedTime() * 2) * 0.0003;
+    this.eyeR.position.y += Math.cos(this.clock.getElapsedTime() * 2) * 0.0005;
+    this.eyeR.position.x -= Math.sin(this.clock.getElapsedTime() * 2) * 0.0003;
+    // bring them back
+    if (this.eyeL.position.z > 5) {
+      this.eyeL.velocity = 0;
+      this.eyeR.velocity = 0;
+      this.eyeL.position.set(-0.24, 0.19, 0.55);
+      this.eyeR.position.set(0.24, 0.19, 0.55);
+    }
   }
 
   play() {
@@ -197,5 +201,12 @@ class Skull {
   onDocumentMouseMove(e) {
     mouseX = (e.clientX - windowHalfX) / 2;
     mouseY = (e.clientY - windowHalfY) / 2;
+  }
+
+  onDocumentClick(e) {
+    console.log("clicked");
+    console.log(this.eyeL);
+    this.eyeL.visible = !this.eyeL.visible;
+    this.eyeR.visible = !this.eyeR.visible;
   }
 }
