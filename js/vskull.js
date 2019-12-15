@@ -204,8 +204,6 @@ class Skull {
   }
 
   onDocumentClick(e) {
-    console.log("clicked");
-    console.log(this.eyeL);
     this.eyeL.visible = !this.eyeL.visible;
     this.eyeR.visible = !this.eyeR.visible;
   }
