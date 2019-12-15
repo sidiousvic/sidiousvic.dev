@@ -5,6 +5,34 @@ class Skull {
     this.camera;
     this.light;
     this.renderer;
+    this.skull = null;
+    this.eyeL;
+    this.eyeR;
+    this.clock = new THREE.Clock();
+    this.uniforms = {
+      u_time: { value: 1.0 }
+    };
+    this.shaders = {
+      spiral: {
+        v: `varying vec2 v_uv;
+            void main() {
+              v_uv = uv;
+              gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        
+            }`,
+        f: `varying vec2 v_uv;
+        
+            const float PI = 3.1415926535897932384626433832795;
+            uniform float u_time;
+            float time = u_time * 4.0;
+        
+            void main() {
+              vec2 uv = gl_FragCoord.xy;
+              vec3 color = vec3(1.0, sin(time * cos(v_uv.x / v_uv.y)) * 0.6, 0.5);
+              gl_FragColor = vec4(color, sin(time)).rgba;
+            }`
+      }
+    };
   }
 
   init() {
@@ -17,7 +45,9 @@ class Skull {
     this.createRenderer();
     this.renderer.setClearColor(0x000000, 0);
     // load object
-    this.loadObject("../../assets/3D/vsskull.obj", "skull");
+    this.skull = this.loadObject("../../assets/3D/vsskull.obj", "skull");
+    // eyes
+    this.createEyes();
     // e listeners
     document.addEventListener("mousemove", e => {
       this.onDocumentMouseMove(e);
@@ -48,6 +78,42 @@ class Skull {
     // set position (x, y, z)
     this.light.position.set(10, 10, 10);
     this.scene.add(this.light);
+  }
+
+  createEyes() {
+    const lightColor = 0xff0020;
+    // glowing eyes
+    const sphere = new THREE.SphereBufferGeometry(0.02, 20, 20);
+    // make lights
+    this.eyeL = new THREE.PointLight(lightColor, 2, 50);
+    this.eyeR = new THREE.PointLight(lightColor, 2, 50);
+    this.eyeL.position.set(-0.24, 0.19, 0.55);
+    this.eyeR.position.set(0.24, 0.19, 0.55);
+    // mesh 'em together
+    this.eyeL.add(
+      new THREE.Mesh(
+        sphere,
+        new THREE.ShaderMaterial({
+          uniforms: {
+            time: { value: 1.0 },
+            resolution: { value: new THREE.Vector2() }
+          },
+          vertexShader: this.shaders.spiral.v,
+          fragmentShader: this.shaders.spiral.f
+        })
+      )
+    );
+    this.eyeR.add(
+      new THREE.Mesh(
+        sphere,
+        new THREE.ShaderMaterial({
+          uniforms: this.uniforms,
+          vertexShader: this.shaders.spiral.v,
+          fragmentShader: this.shaders.spiral.f
+        })
+      )
+    );
+    this.scene.add(this.eyeL, this.eyeR);
   }
 
   loadObject(file, name) {
@@ -103,6 +169,7 @@ class Skull {
   }
 
   update() {
+    this.uniforms.u_time.value = this.clock.getElapsedTime();
     this.camera.position.y = (mouseY - this.camera.position.z) * 0.06;
     this.camera.position.x = (-mouseX - this.camera.position.z) * 0.04;
   }
