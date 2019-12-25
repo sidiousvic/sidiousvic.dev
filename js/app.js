@@ -55,12 +55,12 @@ let toggleTitle = titleToggler();
 function changeTitle(e) {
   let cl = e.target.classList;
   if (cl.contains("github")) svTitle.textContent = "DEVELOPER";
-  else if (cl.contains("twitter")) svTitle.textContent = "TWEETR";
-  else if (cl.contains("spotify")) svTitle.textContent = "AXEWIELDR";
-  else if (cl.contains("behance")) svTitle.textContent = "DESIGNR";
-  else if (cl.contains("medium")) svTitle.textContent = "BLOGGR";
-  else if (cl.contains("linkedin")) svTitle.textContent = "HUSTLR";
-  else if (cl.contains("mail")) svTitle.textContent = "MAILR";
+  else if (cl.contains("twitter")) svTitle.textContent = "TWEETER";
+  else if (cl.contains("spotify")) svTitle.textContent = "AXEWIELDER";
+  else if (cl.contains("behance")) svTitle.textContent = "DESIGNER";
+  else if (cl.contains("medium")) svTitle.textContent = "BLOGGER";
+  else if (cl.contains("linkedin")) svTitle.textContent = "HUSTLER";
+  else if (cl.contains("mail")) svTitle.textContent = "MAIL";
 }
 
 // THREE.JS ////////////////////
