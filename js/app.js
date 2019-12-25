@@ -10,17 +10,8 @@ const pNav = document.querySelector(".pnav");
 const body = document.querySelector("body");
 const html = document.querySelector("html");
 const vsSkullLogo = document.querySelector(".vskullogo");
-const about = document.querySelector("#about");
 
 // EVENT LISTENERS ////////////////////
-
-// hide title on logo click
-about.addEventListener("mouseover", e => {
-  showAbout();
-});
-about.addEventListener("mouseleave", e => {
-  showAbout();
-});
 vsSkullLogo.addEventListener("mouseover", e => {
   toggleTitle();
 });
@@ -58,23 +49,6 @@ function titleToggler() {
 }
 let toggleTitle = titleToggler();
 
-// show about
-function showAbouter() {
-  let bool = true;
-  return () => {
-    if (bool) {
-      title.style.display = "none";
-      desc.style.display = "table-cell";
-      bool = false;
-    } else {
-      title.style.display = "table-cell";
-      desc.style.display = "none";
-      bool = true;
-    }
-  };
-}
-let showAbout = showAbouter();
-
 // change title text
 function changeTitle(e) {
   let cl = e.target.classList;
@@ -82,8 +56,9 @@ function changeTitle(e) {
   else if (cl.contains("twitter")) svTitle.textContent = "TWEETER";
   else if (cl.contains("spotify")) svTitle.textContent = "MUSICIAN";
   else if (cl.contains("behance")) svTitle.textContent = "DESIGNER";
-  else if (cl.contains("medium")) svTitle.textContent = "INDITER";
+  else if (cl.contains("medium")) svTitle.textContent = "BLOGGER";
   else if (cl.contains("linkedin")) svTitle.textContent = "HUSTLER";
+  else if (cl.contains("mail")) svTitle.textContent = "MAIL ME";
 }
 
 // THREE.JS ////////////////////
