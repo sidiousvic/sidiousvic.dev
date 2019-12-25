@@ -3,6 +3,10 @@
   font-family: "Futura CXB";
   src: url("../assets/fonts/Futura-CondensedExtraBold.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Jackey";
+  src: url("../assets/fonts/jackeyfont.ttf") format("truetype");
+}
 
 /* APP */
 html,
@@ -83,7 +87,7 @@ a {
   right: 0%;
   width: 30%;
   z-index: 90;
-  font-family: "JackeyFont";
+  font-family: "Jackey";
   color: #f5183d;
 }
 
@@ -113,7 +117,7 @@ a {
 }
 
 .desc {
-  font-family: "JackeyFont";
+  font-family: "Jackey";
   text-transform: uppercase;
   text-align: justify;
   font-style: italic;
