@@ -4,16 +4,6 @@
   src: url("../assets/fonts/Futura-CondensedExtraBold.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: "Pixl";
-  src: url("../assets/fonts/Pixeland\ 2.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "BisonBold";
-  src: url("../assets/fonts/Bison-Bold.ttf") format("truetype");
-}
-
 /* APP */
 html,
 body {
@@ -72,15 +62,33 @@ body {
   width: 100%;
   z-index: 90;
 }
-/* NAV ICON LINKS */
+/* ICON LINKS */
 a {
   color: #f5183d;
   cursor: pointer;
   text-decoration: none;
 }
+/* PROJECTS */
+.projects {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 3vh;
+  height: 12%;
+  justify-content: space-evenly;
+  line-height: 100%;
+  mix-blend-mode: difference;
+  position: absolute;
+  bottom: 0;
+  right: 0%;
+  width: 30%;
+  z-index: 90;
+  font-family: "JackeyFont";
+  color: #f5183d;
+}
 
 /* TITLE PAGE */
-.title-overlay {
+.overlay {
   color: #f5183d;
   display: table;
   height: 100%;
@@ -116,22 +124,9 @@ a {
   font-size: 3vmax;
   padding: 0 33vmin 0 33vmin;
   vertical-align: middle;
-  animation: mover 5s infinite ease-in-out;
   display: table-cell;
-  /* letter-spacing: -0.1rem; */
   line-height: 5rem;
   vertical-align: middle;
-}
-
-#vic {
-  animation: mover 5s infinite ease-in-out;
-  color: #bd1430;
-  font-family: "Futura CXB";
-  font-size: 30vw;
-  letter-spacing: -0.3rem;
-  margin: auto;
-  opacity: 1;
-  position: relative;
 }
 
 /* LOGO */
@@ -173,7 +168,20 @@ a {
   .pnav {
     font-size: 1.5vh;
   }
+  .body {
+    scroll-behavior: smooth;
+  }
+  .title {
+    letter-spacing: -0.1rem;
+  }
   .desc {
     padding: 0 30vmin 0 3vmin;
+    background-color: chartreuse;
+    animation: none;
+    color: black;
+    padding-top: 10%;
+  }
+  .projects {
+    display: none;
   }
 }

@@ -3,7 +3,7 @@ const title = document.querySelector(".title");
 const desc = document.querySelector(".desc");
 const svTitle = document.querySelector("#sv-title");
 const projectsTitle = document.querySelector("#projects-title");
-const titleOverlay = document.querySelector(".title-overlay");
+const titleOverlay = document.querySelector(".overlay");
 const projects = document.querySelector(".projects");
 const nav = document.querySelector(".nav");
 const pNav = document.querySelector(".pnav");
@@ -15,19 +15,21 @@ const vsSkullLogo = document.querySelector(".vskullogo");
 vsSkullLogo.addEventListener("mouseover", e => {
   toggleTitle();
 });
-// change title on nav hover
+// change title on nav and projs hover
 nav.addEventListener("mouseover", e => {
   changeTitle(e);
 });
+
 // @SIDIOUSVIC on nav leave
 nav.addEventListener("mouseleave", e => {
   svTitle.textContent = "@SIDIOUSVIC";
 });
+
 // @SIDIOUSVIC <-> JUST DO SH*T on click
 titleOverlay.addEventListener("click", e => {
-  if (title.textContent === "JUST DO SH*T.") title.textContent = "@SIDIOUSVIC";
+  if (title.textContent === "HAPPY HOLIDAYS") title.textContent = "@SIDIOUSVIC";
   else if (title.textContent === "@SIDIOUSVIC")
-    title.textContent = "JUST DO SH*T.";
+    title.textContent = "HAPPY HOLIDAYS";
 });
 
 // FUNCTIONS ////////////////////
@@ -53,12 +55,12 @@ let toggleTitle = titleToggler();
 function changeTitle(e) {
   let cl = e.target.classList;
   if (cl.contains("github")) svTitle.textContent = "DEVELOPER";
-  else if (cl.contains("twitter")) svTitle.textContent = "TWEETER";
-  else if (cl.contains("spotify")) svTitle.textContent = "MUSICIAN";
-  else if (cl.contains("behance")) svTitle.textContent = "DESIGNER";
-  else if (cl.contains("medium")) svTitle.textContent = "BLOGGER";
-  else if (cl.contains("linkedin")) svTitle.textContent = "HUSTLER";
-  else if (cl.contains("mail")) svTitle.textContent = "MAIL ME";
+  else if (cl.contains("twitter")) svTitle.textContent = "TWEETR";
+  else if (cl.contains("spotify")) svTitle.textContent = "AXEWIELDR";
+  else if (cl.contains("behance")) svTitle.textContent = "DESIGNR";
+  else if (cl.contains("medium")) svTitle.textContent = "BLOGGR";
+  else if (cl.contains("linkedin")) svTitle.textContent = "HUSTLR";
+  else if (cl.contains("mail")) svTitle.textContent = "MAILR";
 }
 
 // THREE.JS ////////////////////
