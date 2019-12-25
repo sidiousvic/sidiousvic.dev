@@ -9,13 +9,18 @@
   src: url("../assets/fonts/Pixeland\ 2.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "BisonBold";
+  src: url("../assets/fonts/Bison-Bold.ttf") format("truetype");
+}
+
 /* APP */
 html,
 body {
   background-color: #f5183d;
   height: 100vh;
   margin: 0;
-  transition: 0.5s linear;
+  transition: 0.3s ease-in-out;
   width: 100%;
   z-index: -2;
 }
@@ -44,6 +49,13 @@ body {
   width: 100%;
 }
 
+.about {
+  display: table;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+}
+
 /* NAVBAR */
 .nav {
   align-items: center;
@@ -54,7 +66,9 @@ body {
   justify-content: space-evenly;
   line-height: 100%;
   mix-blend-mode: difference;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 90;
 }
@@ -73,7 +87,7 @@ a {
   margin: auto;
   mix-blend-mode: difference;
   overflow: visible;
-  position: absolute;
+  position: relative;
   text-align: center;
   user-select: none;
   width: 100%;
@@ -92,21 +106,21 @@ a {
 
 .desc {
   animation: mover 5s infinite ease-in-out;
-  display: none;
-  color: unset;
-  font-family: "Pixeland";
-  text-align: right;
+  font-family: "JackeyFont";
+  text-transform: uppercase;
+  text-align: justify;
+  font-style: italic;
   font-weight: 100;
-  font-size: 5vw;
-  padding: 0 25vmin 0 25vmin;
+  display: table-cell;
+  height: 100%;
+  font-size: 3vmax;
+  padding: 0 33vmin 0 33vmin;
   vertical-align: middle;
-}
-
-#about {
-  font-family: "Pixl";
-  font-size: 2.5vw;
-  transform: skew(-10deg);
-  text-rendering: optimizeLegibility;
+  animation: mover 5s infinite ease-in-out;
+  display: table-cell;
+  /* letter-spacing: -0.1rem; */
+  line-height: 5rem;
+  vertical-align: middle;
 }
 
 #vic {
@@ -158,5 +172,8 @@ a {
 @media only screen and (max-width: 600px) {
   .pnav {
     font-size: 1.5vh;
+  }
+  .desc {
+    padding: 0 30vmin 0 3vmin;
   }
 }
