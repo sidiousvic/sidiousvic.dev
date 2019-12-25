@@ -6,6 +6,7 @@ class Skull {
     this.light;
     this.renderer;
     this.skull = null;
+    this.scrollY = 0;
     this.eyeL;
     this.eyeR;
     this.clock = new THREE.Clock();
@@ -24,12 +25,12 @@ class Skull {
         
             const float PI = 3.1415926535897932384626433832795;
             uniform float u_time;
-            float time = u_time * 4.0;
+            float time = u_time * 9.0;
         
             void main() {
               vec2 uv = gl_FragCoord.xy;
-              vec3 color = vec3(1.0, sin(time * cos(v_uv.x / v_uv.y)) * 0.6, 0.5);
-              gl_FragColor = vec4(color, sin(time)).rgba;
+              vec3 color = vec3(1.0, sin(time * v_uv.x / v_uv.y), 0.5);
+              gl_FragColor = vec4(color, 1).rgba;
             }`
       }
     };
@@ -46,8 +47,7 @@ class Skull {
     this.renderer.setClearColor(0x000000, 0);
     // load object
     this.skull = this.loadObject("../../assets/3D/vsskull.obj", "skull");
-    // eyes
-    this.createEyes();
+
     // e listeners
     document.addEventListener("mousemove", e => {
       this.onDocumentMouseMove(e);
@@ -85,7 +85,7 @@ class Skull {
 
   createEyes() {
     const lightColor = 0xff0020;
-    const matColor = 0xff0010;
+    const matColor = 0xff0044;
     // glowing eyes
     const sphere = new THREE.SphereBufferGeometry(0.02, 20, 20);
     // make lights
@@ -100,7 +100,7 @@ class Skull {
     this.eyeR.add(
       new THREE.Mesh(sphere, new THREE.MeshToonMaterial({ color: matColor }))
     );
-    this.scene.add(this.eyeL, this.eyeR);
+    this.skull.add(this.eyeL, this.eyeR);
     // set their initial velocity to 0
     this.eyeL.velocity = 0;
     this.eyeR.velocity = 0;
@@ -116,6 +116,15 @@ class Skull {
       // wireframe: true
     });
 
+    // const material = new THREE.ShaderMaterial({
+    //   uniforms: {
+    //     u_time: this.uniforms.u_time
+    //   },
+    //   vertexShader: this.shaders.spiral.v,
+    //   fragmentShader: this.shaders.spiral.f
+    //   // wireframe: true
+    // });
+
     return loader.load(
       file,
       object => {
@@ -124,7 +133,10 @@ class Skull {
             child.material = material;
           }
         });
+        this.skull = object;
         this.scene.add(object);
+        // add eyes
+        this.createEyes();
         object.name = name;
       },
       // called when loading is in progress
@@ -162,19 +174,41 @@ class Skull {
     // shader uniforms
     this.uniforms.u_time.value = this.clock.getElapsedTime();
     // change camera position on mouse move
+    // if (window.scrollY < 750) {
     this.camera.position.y = (mouseY - this.camera.position.z) * 0.06;
     this.camera.position.x = (-mouseX - this.camera.position.z) * 0.04;
-    // fire the eye lasers on z axis
-    this.eyeL.position.y += Math.cos(this.clock.getElapsedTime() * 2) * 0.0005;
-    this.eyeL.position.x += Math.sin(this.clock.getElapsedTime() * 2) * 0.0003;
-    this.eyeR.position.y += Math.cos(this.clock.getElapsedTime() * 2) * 0.0005;
-    this.eyeR.position.x -= Math.sin(this.clock.getElapsedTime() * 2) * 0.0003;
-    // bring them back
-    if (this.eyeL.position.z > 5) {
-      this.eyeL.velocity = 0;
-      this.eyeR.velocity = 0;
-      this.eyeL.position.set(-0.24, 0.19, 0.55);
-      this.eyeR.position.set(0.24, 0.19, 0.55);
+    // }
+    // float the eyes ghostily
+    if (this.eyeL) {
+      this.eyeL.position.y +=
+        Math.cos(this.clock.getElapsedTime() * 2) * 0.0005;
+      this.eyeL.position.x +=
+        Math.sin(this.clock.getElapsedTime() * 2) * 0.0003;
+      this.eyeR.position.y +=
+        Math.cos(this.clock.getElapsedTime() * 2) * 0.0005;
+      this.eyeR.position.x -=
+        Math.sin(this.clock.getElapsedTime() * 2) * 0.0003;
+      // fire the eyes as projectiles if velocity > 0
+      this.eyeL.position.z += this.eyeL.velocity;
+      this.eyeR.position.z += this.eyeR.velocity;
+      // bring eyes back when shot out
+      if (this.eyeL.position.z > 1) {
+        this.eyeL.velocity = -this.eyeL.velocity;
+        this.eyeR.velocity = -this.eyeR.velocity;
+      }
+      // land them at their original position
+      if (this.eyeL.position.z < 0.55) {
+        this.eyeL.position.z = 0.55;
+        this.eyeR.position.z = 0.55;
+      }
+    }
+    // move skull on scroll
+    if (this.skull) {
+      // move skull out on scroll
+      this.skull.position.z = Math.sin(window.scrollY * 0.001) * 3;
+      // float the skull ghostily
+      // this.skull.position.y += Math.cos(this.clock.getElapsedTime()) * 0.0005;
+      // this.skull.position.z += Math.sin(this.clock.getElapsedTime()) * -0.003;
     }
   }
 
@@ -204,7 +238,8 @@ class Skull {
   }
 
   onDocumentClick(e) {
-    this.eyeL.visible = !this.eyeL.visible;
-    this.eyeR.visible = !this.eyeR.visible;
+    // shoot eyes
+    this.eyeL.velocity = 0.03;
+    this.eyeR.velocity = 0.03;
   }
 }
