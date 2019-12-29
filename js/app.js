@@ -58,7 +58,7 @@ function changeTitle(e) {
   else if (cl.contains("twitter")) svTitle.textContent = "TWEETER";
   else if (cl.contains("spotify")) svTitle.textContent = "AXEWIELDER";
   else if (cl.contains("behance")) svTitle.textContent = "DESIGNER";
-  else if (cl.contains("medium")) svTitle.textContent = "BLOGGER";
+  else if (cl.contains("medium")) svTitle.textContent = "WRITER";
   else if (cl.contains("linkedin")) svTitle.textContent = "HUSTLER";
   else if (cl.contains("mail")) svTitle.textContent = "MAIL";
 }
