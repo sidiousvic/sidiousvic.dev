@@ -1,3 +1,5 @@
+"use strict";
+
 // SELECTORS ////////////////////
 const title = document.querySelector(".title");
 const desc = document.querySelector(".desc");
