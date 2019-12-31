@@ -29,9 +29,9 @@ nav.addEventListener("mouseleave", e => {
 
 // @SIDIOUSVIC <-> JUST DO SH*T on click
 titleOverlay.addEventListener("click", e => {
-  if (title.textContent === "HAPPY HOLIDAYS") title.textContent = "@SIDIOUSVIC";
+  if (title.textContent === "JUST DO SH*T") title.textContent = "@SIDIOUSVIC";
   else if (title.textContent === "@SIDIOUSVIC")
-    title.textContent = "HAPPY HOLIDAYS";
+    title.textContent = "JUST DO SH*T";
 });
 
 // FUNCTIONS ////////////////////
