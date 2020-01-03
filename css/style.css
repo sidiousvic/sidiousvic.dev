@@ -133,7 +133,7 @@ ul {
 .log-wrapper {
   text-align: left;
   font-weight: 400;
-  font-size: 1.5vmax;
+  font-size: 2vmin;
   padding: 10vmin 7vmin;
   background: #111;
   overflow: auto;
@@ -147,6 +147,16 @@ ul {
   overflow: scroll;
   white-space: pre;
   line-height: 3;
+}
+
+.code-i {
+  color: rgb(131, 59, 255);
+  padding: 1vmin;
+  background: rgb(12, 12, 12);
+  overflow: scroll;
+  white-space: pre;
+  line-height: 3;
+  display: inline;
 }
 
 .log-date {
