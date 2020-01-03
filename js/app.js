@@ -57,11 +57,11 @@ let toggleTitle = titleToggler();
 function changeTitle(e) {
   let cl = e.target.classList;
   if (cl.contains("github")) svTitle.textContent = "DEVELOPER";
-  else if (cl.contains("twitter")) svTitle.textContent = "TWEETER";
-  else if (cl.contains("spotify")) svTitle.textContent = "AXEWIELDER";
-  else if (cl.contains("behance")) svTitle.textContent = "DESIGNER";
-  else if (cl.contains("medium")) svTitle.textContent = "WRITER";
-  else if (cl.contains("linkedin")) svTitle.textContent = "HUSTLER";
+  else if (cl.contains("twitter")) svTitle.textContent = "TWEETS";
+  else if (cl.contains("spotify")) svTitle.textContent = "SHREDS";
+  else if (cl.contains("behance")) svTitle.textContent = "DESIGNS";
+  else if (cl.contains("medium")) svTitle.textContent = "SHIPLOG";
+  else if (cl.contains("linkedin")) svTitle.textContent = "LINKEDIN";
   else if (cl.contains("mail")) svTitle.textContent = "MAIL";
 }
 

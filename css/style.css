@@ -11,41 +11,30 @@
 /* APP */
 html,
 body {
+  line-height: 2;
   background-color: #f5183d;
-  /* height: 100vh; */
   margin: 0;
   transition: 0.3s ease-in-out;
   width: 100%;
-  z-index: -2;
 }
-
+/* 
 #root {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   height: 100%;
   width: 100%;
-}
+} */
 
 #three-container {
   display: flex;
   height: 100%;
   margin: auto;
-  position: fixed;
+  position: absolute;
   width: 100%;
-  z-index: 0;
 }
 
 .app {
-  display: table;
-  flex-direction: row;
-  height: 100vh;
-  width: 100%;
-}
-
-.about {
-  display: table;
-  flex-direction: row;
   height: 100vh;
   width: 100%;
 }
@@ -58,37 +47,17 @@ body {
   font-size: 3vh;
   height: 12%;
   justify-content: space-evenly;
-  line-height: 100%;
   mix-blend-mode: difference;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 90;
 }
 /* ICON LINKS */
 a {
   color: #f5183d;
   cursor: pointer;
   text-decoration: none;
-}
-/* PROJECTS */
-.projects {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  font-size: 3vh;
-  height: 12%;
-  justify-content: space-evenly;
-  line-height: 100%;
-  mix-blend-mode: difference;
-  position: absolute;
-  bottom: 0;
-  right: 0%;
-  width: 30%;
-  z-index: 90;
-  font-family: "Jackey";
-  color: #f5183d;
 }
 
 /* TITLE PAGE */
@@ -104,7 +73,6 @@ a {
   user-select: none;
   width: 100%;
   word-wrap: break-word;
-  z-index: 5;
 }
 
 .title {
@@ -116,20 +84,107 @@ a {
   vertical-align: middle;
 }
 
-.desc {
-  font-family: "Jackey";
-  text-transform: uppercase;
-  text-align: justify;
-  font-style: italic;
-  font-weight: 100;
-  display: table-cell;
+.shiplog-top {
+  display: block;
+  width: 100%;
+  height: 90px;
+  background: transparent;
+  fill: #111;
+  margin-bottom: -1px;
+}
+
+/* SHIPLOG */
+.shiplog-wrapper {
+  font-family: "Fira Code";
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+}
+
+.shiplog {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  font-size: 3vmax;
-  padding: 0 33vmin 0 33vmin;
-  vertical-align: middle;
-  display: table-cell;
-  line-height: 5rem;
-  vertical-align: middle;
+  width: 80%;
+  color: #f5183d;
+  background: #111;
+}
+
+.shiplog-nav {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100vh;
+  padding: 0 3%;
+  border: #f5183d solid 1px;
+  color: #f5183d;
+  background: #111;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+}
+
+.log-wrapper {
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.5vmax;
+  padding: 10vmin 7vmin;
+  background: #111;
+  overflow: auto;
+  overflow-wrap: break-word;
+}
+
+.code {
+  color: rgb(131, 59, 255);
+  margin: 3vmin 0 3vmin 0;
+  background: rgb(12, 12, 12);
+  overflow: scroll;
+  white-space: pre;
+  line-height: 3;
+}
+
+.log-date {
+  text-transform: uppercase;
+  white-space: pre;
+  margin: 0;
+}
+
+.log-tags {
+  color: #f5183d;
+  text-transform: uppercase;
+  white-space: pre;
+  line-height: 4;
+}
+
+.log-tag {
+  background: #191919;
+  margin: 10px 10px 10px 0;
+  padding: 5px 10px;
+  width: 50%;
+}
+
+.log-title {
+  margin-top: 0;
+}
+
+.log-separator {
+  line-height: 3;
+}
+
+.log-body {
+  line-height: 4;
+}
+
+img {
+  max-width: 80%;
+  border: #f5183d solid 1px;
+  margin: 10vmin 0;
 }
 
 /* LOGO */
@@ -144,7 +199,6 @@ a {
   left: 3vw;
   position: fixed;
   width: 7%;
-  z-index: 5;
 }
 
 /* UTILITY  */
@@ -177,14 +231,22 @@ a {
   .title {
     letter-spacing: -0.1rem;
   }
-  .desc {
-    padding: 0 30vmin 0 3vmin;
-    background-color: crimson;
-    animation: none;
-    color: black;
-    padding-top: 10%;
+  .shiplog-wrapper {
+    flex-direction: column-reverse;
   }
-  .projects {
-    display: none;
+  .shiplog {
+    width: 100%;
+  }
+  .shiplog-nav {
+    flex-direction: row;
+    width: 94%;
+    position: relative;
+    height: auto;
+  }
+  .log-title {
+    font-size: 2rem;
+  }
+  .code {
+    font-size: 10px;
   }
 }

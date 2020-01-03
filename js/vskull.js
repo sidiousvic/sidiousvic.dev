@@ -174,10 +174,8 @@ class Skull {
     // shader uniforms
     this.uniforms.u_time.value = this.clock.getElapsedTime();
     // change camera position on mouse move
-    // if (window.scrollY < 750) {
     this.camera.position.y = (mouseY - this.camera.position.z) * 0.06;
     this.camera.position.x = (-mouseX - this.camera.position.z) * 0.04;
-    // }
     // float the eyes ghostily
     if (this.eyeL) {
       this.eyeL.position.y +=
@@ -205,7 +203,7 @@ class Skull {
     // move skull on scroll
     if (this.skull) {
       // move skull out on scroll
-      this.skull.position.z = Math.sin(window.scrollY * 0.001) * 3;
+      // this.skull.position.z = Math.sin(window.scrollY * 0.001) * 3;
       // float the skull ghostily
       // this.skull.position.y += Math.cos(this.clock.getElapsedTime()) * 0.0005;
       // this.skull.position.z += Math.sin(this.clock.getElapsedTime()) * -0.003;
