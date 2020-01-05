@@ -68,7 +68,7 @@ following is a common recursive solution.
     };
 </div>
 
-So what's happening here? Inside <div class="code-i">rockPaperScissors</div>, we define a our recursive function <div class="code-i">play</div>. This function takes two parameters: a number of rounds, and an array containing the current combo. If we have no remaining rounds, we return the combo. If there are remaining rounds to play, we loop through our weapons array (starting with rock) and call <div class="code-i">play</div> with 1 less number of rounds and a combo with the added weapon. A few things are happening when we begin our recursion. Let's go step by step.
+So what's happening here? Inside <div class="code-i">rockPaperScissors</div>, we define our recursive function <div class="code-i">play</div>. This function takes two parameters: a number of rounds, and an array containing the current combo. If we have no remaining rounds, we return the combo. If there are remaining rounds to play, we loop through our weapons array (starting with rock) and call <div class="code-i">play</div> with 1 less number of rounds and a combo with the added weapon. A few things are happening when we begin our recursion. Let's go step by step.
 
 <div class="code">    
         R
@@ -79,7 +79,7 @@ So what's happening here? Inside <div class="code-i">rockPaperScissors</div>, we
 
 In the first iteration, the weapon we're looking at is rock (R). We call <div class="code-i">play(rounds - 1, combo.concat(weapon));</div> and begin a new <div class="code-i">play()</div>. 
 
-In this new play(), the number of rounds is <div class="code-i">2</div>. The current combo is <div class="code-i">["rock"]</div>. The stack might look something like this:
+In this new context, the number of rounds is <div class="code-i">2</div>. The current combo is <div class="code-i">["rock"]</div>. The stack might look something like this:
 
 <div class="code">
         play()                      rounds: 2     combo: ["rock"]
