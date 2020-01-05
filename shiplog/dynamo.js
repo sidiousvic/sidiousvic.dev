@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // separator
     const logSeparator = document.createElement("h1");
     logSeparator.className = "log-separator";
-    logSeparator.innerHTML = "⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬";
+    logSeparator.innerHTML = "⌰ ⌬ ↯ ⌰ ⌬ ↯";
 
     // append to wrapper
     logWrapper.appendChild(logDate);
