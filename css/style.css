@@ -11,6 +11,7 @@
 /* APP */
 html,
 body {
+  font-size: 14px;
   line-height: 2;
   background-color: #f5183d;
   margin: 0;
@@ -131,17 +132,23 @@ ul {
 }
 
 .log-wrapper {
+  color: #ddd;
   text-align: left;
   font-weight: 400;
-  font-size: 2vmin;
   padding: 10vmin 7vmin;
   background: #111;
   overflow: auto;
   overflow-wrap: break-word;
+  padding-bottom: 0;
+}
+
+.log-wrapper-light {
+  background: #ddd;
 }
 
 .code {
-  color: rgb(131, 59, 255);
+  color: #ccc;
+  font-size: 1rem;
   margin: 3vmin 0 3vmin 0;
   background: rgb(12, 12, 12);
   overflow: scroll;
@@ -150,7 +157,7 @@ ul {
 }
 
 .code-i {
-  color: rgb(131, 59, 255);
+  color: rgb(159, 103, 255);
   padding: 1vmin;
   background: rgb(12, 12, 12);
   overflow: scroll;
@@ -160,6 +167,7 @@ ul {
 }
 
 .log-date {
+  color: #f5183d;
   text-transform: uppercase;
   white-space: pre;
   margin: 0;
@@ -188,13 +196,34 @@ ul {
 }
 
 .log-body {
-  line-height: 4;
+  font-size: 1.3rem;
+  line-height: 3;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 2;
+  color: #f5183d;
+}
+
+h2,
+h3 {
+  margin-top: 5rem;
+  color: #f5183d;
 }
 
 img {
   max-width: 80%;
   border: #f5183d solid 1px;
   margin: 10vmin 0;
+}
+
+#read-on-medium {
+  background: #f5183d;
+  color: #191919;
+  margin: 10px 10px 10px 0;
+  padding: 5px 10px;
+  width: fit-content;
 }
 
 /* LOGO */

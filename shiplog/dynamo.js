@@ -1,7 +1,7 @@
 const shiplog = document.querySelector(".shiplog");
 
 document.addEventListener("DOMContentLoaded", () => {
-  logs.map(log => {
+  logs.reverse().map(log => {
     const logWrapper = document.createElement("div");
     logWrapper.className = "log-wrapper";
     logWrapper.id = log.title.replace(/[^a-zA-Z]+/g, "_").toLowerCase();
@@ -26,12 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const logBody = document.createElement("p");
     logBody.className = "log-body";
     logBody.innerHTML = log.body;
+    // read on medium
+    const readOnMediumButton = document.createElement("a");
+    readOnMediumButton.id = "read-on-medium";
+    readOnMediumButton.href = log.medium;
+    readOnMediumButton.innerHTML = `READ ON <i class='fab fa-medium-m'></i> ↯`;
+    // separator
+    const logSeparator = document.createElement("h1");
+    logSeparator.className = "log-separator";
+    logSeparator.innerHTML = "⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬ ⌬";
 
     // append to wrapper
     logWrapper.appendChild(logDate);
     logWrapper.appendChild(logTitle);
+    logTags.prepend(readOnMediumButton);
     logWrapper.appendChild(logTags);
     logWrapper.appendChild(logBody);
+    logWrapper.appendChild(logSeparator);
 
     // append to shiplog
     shiplog.appendChild(logWrapper);
