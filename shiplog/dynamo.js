@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       logTags.appendChild(logTag);
     });
     // body
-    const logBody = document.createElement("p");
+    const logBody = document.createElement("div");
     logBody.className = "log-body";
     logBody.innerHTML = log.body;
     // read on medium
