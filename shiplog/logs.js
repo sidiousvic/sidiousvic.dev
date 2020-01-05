@@ -6,9 +6,9 @@ const logs = [
     title: "The Shiplog, where I talk about random sh*t.",
     body: `
        
-        Hello, welcome to the shiplog. This is a bare-bones blog where I will document my progress as a programmer.
+        Hello, welcome to the shiplog. This is a bare-bones blog where I will document programming ideas.
     
-        I don't use a database — all the posts are stored in an object in my website's source code. I render posts dynamically using raw JavaScript and the DOM.
+        I don't use a database — all the posts are stored in an object in my website's source code. I render posts dynamically using raw JavaScript to render DOM elements dynamically.
     
         A post object looks like this:
     
@@ -33,11 +33,14 @@ const logs = [
     date: "JAN 5 2020",
     tags: ["recursion", "javascript"],
     title: "Visualizing Recursion",
-    medium: "https://www.medium.com",
+    medium: "https://medium.com/@sidiousvic/visualizing-recursion-b8107bd56b01",
     body: `
     
 Recursion is unintuitive and challenging to understand. I think thats because
-it's not easy to visualize it. In this log I will tackle a recursive problem and
+it's not easy to visualize it. 
+<br>
+<br> 
+In this log I will tackle a recursive problem and
 try to offer a graphic representation of what's going on when we call a
 function within itself.
 
@@ -68,7 +71,7 @@ following is a common recursive solution.
     };
 </div>
 
-So what's happening here? Inside <div class="code-i">rockPaperScissors</div>, we define our recursive function <div class="code-i">play</div>. This function takes two parameters: a number of rounds, and an array containing the current combo. If we have no remaining rounds, we return the combo. If there are remaining rounds to play, we loop through our weapons array (starting with rock) and call <div class="code-i">play</div> with 1 less number of rounds and a combo with the added weapon. A few things are happening when we begin our recursion. Let's go step by step.
+So what's happening here? Inside <div class="code-i">rockPaperScissors</div>, we define our recursive function <div class="code-i">play()</div>. This function takes two parameters: a number of rounds, and an array containing the current combo. If we have no remaining rounds, we return the combo. If there are remaining rounds to play, we loop through our weapons array (starting with rock) and call <div class="code-i">play()</div> with 1 less number of rounds and a combo with the added weapon. A few things are happening when we begin our recursion. Let's go step by step.
 
 <div class="code">    
         R
@@ -105,7 +108,8 @@ We check again if <div class="code-i">rounds < 1</div>, and loop through weapons
 
 And our stack now might look like this:
 
-<div class="code">
+<pre class="code">
+
           play()                    rounds: 0     combo: ["rock", "rock", "rock"]
           -----------------------------------------------------------------------
           play()                    rounds: 1     combo: ["rock", "rock"]
@@ -116,16 +120,18 @@ And our stack now might look like this:
           -----------------------------------------------------------------------
           rockPaperScissors()
 
-</div>
+</pre>
 
 <h2>Recursion is a tree 🌲</h2>
 
 At this point, if we check again, our exit case will be activated. <div class="code-i">rounds < 1</div>
 evaluates to <div class="code-i">true</div>, and we push our current combo <div class="code-i">["rock", "rock", "rock"]</div>
 into our <div class="code-i">output</div> array as a possible combination. <br> Now here's where things get interesting.
+<br>
 <br> 
 If you have a keen eye, you might have noticed that so far we have traveled a few levels down the tree, but we haven't touched all the branches yet. We have stayed in the <div class="code-i">rock</div> branch exclusively. 
 <br>
+<br> 
 At the point where we return, however, we pop that last level off the stack, and return to the previous one, where things will change:
 
 <div class="code">
@@ -143,7 +149,6 @@ This is the first time we go into the second iteration of our <div class="code-i
 becomes <div class="code-i">paper</div>. We then call <div class="code-i">play()</div> again and we end up in the last level again, but with a different combination:
 
 <div class="code">
-  <pre>
           play()                      rounds: 1 combo: ["rock", "rock", "paper"]
           ----------------------------------------------------------------------- 
           play()                      rounds: 1 combo: ["rock", "rock"]
@@ -153,8 +158,7 @@ becomes <div class="code-i">paper</div>. We then call <div class="code-i">play()
           play()                      rounds: 3 combo: []
           -----------------------------------------------------------------------
           rockPaperScissors()
-      </pre
-  >
+          
 </div>
 
 And we add it to
@@ -163,6 +167,7 @@ And we add it to
 
 The pattern is repeated and we traverse the tree until we find ourselves back at the first level, and exhaust our rounds there. 
 <br>
+<br> 
 I hope this helped you conceptualize recursion in a visual way. Just remember, recursion is a tree 🌲, and every time you call a function within itself, you are planting another. 🌱
 
     `
