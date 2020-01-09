@@ -3,11 +3,11 @@ class Skull {
     this.container = document.querySelector("#three-container");
     this.scene = new THREE.Scene();
     this.camera;
-    this.light;
+    this.light = true;
     this.renderer;
     this.skull = null;
     this.scrollY = 0;
-    this.eyeL;
+    this.eyeL = 500;
     this.eyeR;
     this.clock = new THREE.Clock();
     this.uniforms = {
@@ -141,7 +141,7 @@ class Skull {
       },
       // called when loading is in progress
       xhr => {
-        console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+        console.log((xhr.loaded / xhr.total) * 400 + "% loaded");
       },
       // called when error during loading
       error => {
@@ -174,7 +174,7 @@ class Skull {
     // shader uniforms
     this.uniforms.u_time.value = this.clock.getElapsedTime();
     // change camera position on mouse move
-    this.camera.position.y = (mouseY - this.camera.position.z) * 0.06;
+    this.camera.position.y = (mouseY - this.camera.position.z) * 0.5;
     this.camera.position.x = (-mouseX - this.camera.position.z) * 0.04;
     // float the eyes ghostily
     if (this.eyeL) {
