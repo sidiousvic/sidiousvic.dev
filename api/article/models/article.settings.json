@@ -1,0 +1,19 @@
+{
+  "info": {
+    "name": "Article"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "richtext"
+    }
+  },
+  "connection": "default",
+  "collectionName": "articles"
+}
