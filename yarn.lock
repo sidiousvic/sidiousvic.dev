@@ -4166,10 +4166,10 @@ react-reconciler@0.24.0:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
-react-three-fiber@^4.0.7:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-4.0.7.tgz#5461fb2e6d5dbc0c1bf8ee896fbd8de865442324"
-  integrity sha512-eB8nltPTCh5FqKRvaODwNtqrNgA/yeTaXLhwyoKQMW5dI+GJsjJyWAftRKQShfQvkG6FiAsOjZf33EDT1d7ZdQ==
+react-three-fiber@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-4.0.8.tgz#45f1a35df51aa81f071092008af93c336015aa74"
+  integrity sha512-9xd9q8HkT7r5N4x8UMJ89JSaMDbbnU0HAFR6pbE+K7OHvYmsRz1Jn6dUSZ40bivQTXMnqa1m+1fy7gP1O3y19g==
   dependencies:
     "@babel/runtime" "^7.7.7"
     "@juggle/resize-observer" "^3.0.2"
@@ -4897,6 +4897,11 @@ terser@^4.1.2:
     commander "^2.20.0"
     source-map "~0.6.1"
     source-map-support "~0.5.12"
+
+three@^0.112.1:
+  version "0.112.1"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.112.1.tgz#f8d8f4d0f8e5f753dac6260491b8209457fdc131"
+  integrity sha512-8I0O74hiYtKl3LgDNcPJbBGOlpekbcJ6fJnImmW3mFdeUFJ2H9Y3/UuUSW2sBdjrIlCM0gvOkaTEFlofO900TQ==
 
 through2@^2.0.0:
   version "2.0.5"
