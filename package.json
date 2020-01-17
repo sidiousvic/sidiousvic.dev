@@ -6,7 +6,10 @@
   "author": "sidiousvic <vic@sidiousvic.dev>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
@@ -17,8 +20,16 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "csv-loader": "^3.0.2",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-three-fiber": "^4.0.7"
+    "react-three-fiber": "^4.0.7",
+    "style-loader": "^1.1.2",
+    "webpack-dev-server": "^3.10.1",
+    "xml-loader": "^1.2.1"
   }
 }

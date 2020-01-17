@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "FX";
+  src: url("./assets/fonts/Futura-CondensedExtraBold.ttf") format("truetype");
+}
+
+:root {
+  --sidious-red: #f5183d;
+}
+
+html,
+body {
+  font-size: 10px;
+  font-family: "FX";
+  background: var(--sidious-red);
+  margin: 0;
+  transition: 0.3s ease-in-out;
+  width: 100%;
+}
