@@ -25,6 +25,7 @@ const SidiousSkull = props => {
 
 export default function ThreeScene() {
   let [mouse, setMouse] = useState({ x: 0, y: 0 });
+
   return (
     <Canvas
       onMouseMove={e => {
@@ -34,14 +35,29 @@ export default function ThreeScene() {
         });
       }}
       camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 5] }}
+      pixelRatio={window.devicePixelRatio}
     >
       <directionalLight
         position={[10, 10, 10]}
         color={0x432342}
-        intensity={1}
+        intensity={2}
       />
       <Suspense fallback={null}>
         <SidiousSkull mouse={mouse} />
+        {/* l eye */}
+        <pointLight color={0xff0020}>
+          <mesh visible position={[-0.24, 0.19, 0.55]} rotation={[0, 0, 0]}>
+            <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
+            <meshToonMaterial attach="material" color={0xff0044} />
+          </mesh>
+        </pointLight>
+        {/* r eye */}
+        <pointLight color={0xff0020}>
+          <mesh visible position={[0.24, 0.19, 0.55]} rotation={[0, 0, 0]}>
+            <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
+            <meshToonMaterial attach="material" color={0xff0044} />
+          </mesh>
+        </pointLight>
       </Suspense>
     </Canvas>
   );
