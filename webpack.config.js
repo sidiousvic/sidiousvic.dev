@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: "./src/App.js"
+    app: "./src/App.jsx"
   },
   mode: "development",
   output: {
@@ -42,7 +42,7 @@ module.exports = {
         use: ["file-loader"]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(woff|woff2|eot|ttf|otf|obj)$/,
         use: ["file-loader"]
       },
       {
