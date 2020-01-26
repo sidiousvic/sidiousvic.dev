@@ -2,17 +2,19 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
     app: "./src/App.jsx"
   },
-  // resolve: {
-  //   alias: {
-  //     // Forward all three imports to our exports file
-  //     three$: path.resolve("./src/three-exports.js")
-  //   }
-  // },
+  resolve: {
+    alias: {
+      // Forward all three imports to our exports file
+      three$: path.resolve("./src/three.exports.js")
+    },
+    extensions: [".tsx", ".ts", ".js"]
+  },
   mode: "development",
   output: {
     filename: "[name].bundle.js",
@@ -33,6 +35,7 @@ module.exports = {
       filename: "./index.html"
     }),
     new CleanWebpackPlugin()
+    // new BundleAnalyzerPlugin()
   ],
   module: {
     rules: [
@@ -69,8 +72,5 @@ module.exports = {
         use: ["xml-loader"]
       }
     ]
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"]
   }
 };

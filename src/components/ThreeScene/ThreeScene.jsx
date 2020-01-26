@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from "react";
 import { Canvas } from "react-three-fiber";
-import SidiousSkull from "../SidiousSkull/SidiousSkull.jsx";
+import SidiousSkull from "../SidiousSkull/SidiousSkull.tsx";
 
 export default function ThreeScene() {
   let [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -18,8 +18,8 @@ export default function ThreeScene() {
     >
       <directionalLight
         position={[10, 10, 10]}
-        color={0x543453}
-        intensity={2}
+        color={0x432342}
+        intensity={4}
       />
       <Suspense fallback={null}>
         <SidiousSkull mouse={mouse} />

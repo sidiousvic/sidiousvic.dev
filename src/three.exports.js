@@ -38,10 +38,13 @@ export {
   RingGeometry,
   RingBufferGeometry
 } from "three/src/geometries/RingGeometry.js";
+export { Clock } from "three/src/core/Clock.js";
+export { Layers } from "three/src/core/Layers.js";
 export { EdgesGeometry } from "three/src/geometries/EdgesGeometry.js";
 export { Material } from "three/src/materials/Material.js";
 export { MeshPhongMaterial } from "three/src/materials/MeshPhongMaterial.js";
 export { MeshPhysicalMaterial } from "three/src/materials/MeshPhysicalMaterial.js";
+export { MeshToonMaterial } from "three/src/materials/MeshToonMaterial";
 export { MeshBasicMaterial } from "three/src/materials/MeshBasicMaterial.js";
 export { LineDashedMaterial } from "three/src/materials/LineDashedMaterial.js";
 export { SpriteMaterial } from "three/src/materials/SpriteMaterial.js";
@@ -92,4 +95,4 @@ export { InstancedInterleavedBuffer } from "three/src/core/InstancedInterleavedB
 export { InterleavedBufferAttribute } from "three/src/core/InterleavedBufferAttribute.js";
 export { ShaderMaterial } from "three/src/materials/ShaderMaterial.js";
 export { WireframeGeometry } from "three/src/geometries/WireframeGeometry.js";
-export { OBJLoader } from "three/src/loaders/ObjectLoader";
+export { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
