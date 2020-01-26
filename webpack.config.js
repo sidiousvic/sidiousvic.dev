@@ -1,11 +1,18 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   entry: {
     app: "./src/App.jsx"
   },
+  // resolve: {
+  //   alias: {
+  //     // Forward all three imports to our exports file
+  //     three$: path.resolve("./src/three-exports.js")
+  //   }
+  // },
   mode: "development",
   output: {
     filename: "[name].bundle.js",
@@ -13,8 +20,11 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./dist",
-    hot: true
+    contentBase: "./dist"
+    // hot: true
+  },
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
   },
   plugins: [
     new HtmlWebpackPlugin({

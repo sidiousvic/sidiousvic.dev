@@ -4,10 +4,11 @@ import "./styles.css";
 
 export default function MOTHERBOARD() {
   return (
-    <div>
+    <>
+      <nav></nav>
       {/* REACT THREE FIBER */}
       <ThreeScene />
       {/* REACT THREE FIBER */}
-    </div>
+    </>
   );
 }
