@@ -2,11 +2,13 @@ import React, { Suspense, useState } from "react";
 import { Canvas } from "react-three-fiber";
 import SidiousSkull from "../SidiousSkull/SidiousSkull.tsx";
 
-export default function ThreeScene() {
-  let [mouse, setMouse] = useState({ x: 0, y: 0 });
+export default function Scene() {
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [eyeVelocity, setEyeVelocity] = useState(0);
 
   return (
     <Canvas
+      onClick={() => setEyeVelocity(0.05)}
       onMouseMove={e => {
         setMouse({
           x: (e.clientX - window.innerWidth / 2) / 2,
@@ -22,7 +24,11 @@ export default function ThreeScene() {
         intensity={4}
       />
       <Suspense fallback={null}>
-        <SidiousSkull mouse={mouse} />
+        <SidiousSkull
+          mouse={mouse}
+          eyeVelocity={eyeVelocity}
+          setEyeVelocity={setEyeVelocity}
+        />
       </Suspense>
     </Canvas>
   );

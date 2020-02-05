@@ -1,3 +1,4 @@
+import { useEyeVelocity } from "./types.d";
 declare module "*.obj";
 
 export interface MouseCoords {
@@ -7,4 +8,6 @@ export interface MouseCoords {
 
 export interface SidiousSkullProps {
   mouse: MouseCoords;
+  eyeVelocity: number;
+  setEyeVelocity: React.Dispatch<React.SetStateAction<number>>;
 }
