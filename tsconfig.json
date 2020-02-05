@@ -13,7 +13,7 @@
     "resolveJsonModule": true, // include modules imported with .json extension
     "noEmit": false, // do not emit output (meaning do not compile code, only perform type checking)
     "jsx": "react", // support JSX in .tsx files
-    "sourceMap": false, // *** generate corrresponding .map file ***
+    "sourceMap": true, // *** generate corrresponding .map file ***
     "declaration": false, // *** generate corresponding .d.ts file ***
     "noUnusedLocals": true, // *** report errors on unused locals ***
     "noUnusedParameters": true, // *** report errors on unused parameters ***
