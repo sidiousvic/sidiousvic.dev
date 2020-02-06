@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-//@ts-ignore
-import { MeshToonMaterial, Color, OBJLoader } from "../../three.exports";
+import { MeshToonMaterial, Color, OBJLoader } from "../../three.x";
 import useZ from "../../zustand/z";
 import { useFrame, useLoader, useUpdate } from "react-three-fiber";
 import SidiousSkullModel from "../../assets/models/SidiousSkull.obj";
@@ -44,7 +43,7 @@ const SidiousSkull: React.FC = () => {
 
   const obj = useLoader(OBJLoader, SidiousSkullModel); // loadModel
   useEffect(() => {
-    (obj as THREE.Mesh).children.map((child: THREE.Object3D): void => {
+    obj.children.map((child: THREE.Object3D): void => {
       if (child.type === "Mesh") {
         (child as THREE.Mesh).material = new MeshToonMaterial({
           color: new Color(0x000000)

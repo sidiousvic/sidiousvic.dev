@@ -7,7 +7,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       modules: [path.resolve(__dirname, "src"), "node_modules"],
       alias: {
         //  all three imports forwarded to three.exports file
-        three$: path.resolve("./src/three.exports.js")
+        three$: path.resolve("./src/three.x.ts")
       },
       extensions: [".ts", ".tsx", ".js"]
     },

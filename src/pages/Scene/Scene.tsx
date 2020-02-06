@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas } from "react-three-fiber";
 //@ts-ignore
-import { Color } from "../../three.exports";
+import { Color } from "../../three.x";
 import SidiousSkull from "../SidiousSkull/SidiousSkull";
 import useZ from "../../zustand/z";
 
