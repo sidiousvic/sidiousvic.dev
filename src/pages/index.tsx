@@ -1,10 +1,12 @@
 import React from "react";
 import Scene from "./Scene/Scene";
 
-export default function MOTHERBOARD() {
+const MOTHERBOARD: React.FC = () => {
   return (
     <>
       <Scene />
     </>
   );
-}
+};
+
+export default MOTHERBOARD;

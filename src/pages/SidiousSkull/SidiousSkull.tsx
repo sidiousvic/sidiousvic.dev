@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
+//@ts-ignore
 import { MeshToonMaterial, Color, OBJLoader } from "../../three.exports";
-import { useFrame, useLoader, useUpdate } from "react-three-fiber";
-import { SidiousSkullProps } from "./types";
-import SidiousSkullModel from "../../assets/models/SidiousSkull.obj";
 import useZ from "../../zustand/z";
+import { useFrame, useLoader, useUpdate } from "react-three-fiber";
+import SidiousSkullModel from "../../assets/models/SidiousSkull.obj";
 
-const SidiousSkull: React.FC<SidiousSkullProps> = () => {
+const SidiousSkull: React.FC = () => {
   const eyeVelocity = useZ(z => z.eyeVelocity);
   const setEyeVelocity = useZ(z => z.setEyeVelocity);
   const mouse = useZ(z => z.mouse);
@@ -32,7 +32,7 @@ const SidiousSkull: React.FC<SidiousSkullProps> = () => {
     }
   }); // floatEyesGhostily
 
-  useFrame(({}) => {
+  useFrame(() => {
     eyeL.current.position.z += eyeVelocity;
     eyeR.current.position.z += eyeVelocity;
     if (eyeL.current.position.z > 1) setEyeVelocity(-eyeVelocity);
@@ -44,14 +44,14 @@ const SidiousSkull: React.FC<SidiousSkullProps> = () => {
 
   const obj = useLoader(OBJLoader, SidiousSkullModel); // loadModel
   useEffect(() => {
-    obj.children.map(child => {
+    (obj as THREE.Mesh).children.map((child: THREE.Object3D): void => {
       if (child.type === "Mesh") {
         (child as THREE.Mesh).material = new MeshToonMaterial({
           color: new Color(0x000000)
         });
       }
     });
-  }, []); // injectMaterial
+  }, [obj]); // injectMaterial
 
   return (
     <primitive object={obj}>

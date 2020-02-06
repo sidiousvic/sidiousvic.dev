@@ -2,12 +2,12 @@ import create from "zustand";
 
 const [useZ] = create(set => ({
   eyeVelocity: 0,
-  setEyeVelocity: eyeVelocity => {
+  setEyeVelocity: (eyeVelocity: number): void => {
     console.log("SET_EYE_VELOCITY");
-    set(z => ({ eyeVelocity }));
+    set({ eyeVelocity });
   },
   mouse: { x: 0, y: 0 },
-  setMouse: mouse => set(z => ({ mouse }))
+  setMouse: (mouse: number): void => set({ mouse })
 }));
 
 export default useZ;

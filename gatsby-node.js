@@ -9,7 +9,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         //  all three imports forwarded to three.exports file
         three$: path.resolve("./src/three.exports.js")
       },
-      extensions: [".tsx", ".ts", ".js"]
+      extensions: [".ts", ".tsx", ".js"]
     },
     optimization: {
       minimizer: [new UglifyJsPlugin()]

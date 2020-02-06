@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "es5", // specify ECMAScript target version
     "lib": ["dom", "dom.iterable", "esnext"], // list of library files to be included in the compilation
-    "allowJs": true, // allow JavaScript files to be compiled
     "skipLibCheck": true, // skip type checking of all declaration files
     "esModuleInterop": true, // disbles namespace imports (import * as fs from "fs") and enables CJS/AMD/UMD style imports (import fs from "fs")
     "allowSyntheticDefaultImports": true, // allow default imports from modules with no default export
@@ -21,6 +20,7 @@
     "incremental": true, // *** enable incremental compilation by reading/writing information from prior compilations to a file on disk ***
     "noFallthroughCasesInSwitch": true // *** report errors for fallthrough cases in switch statement ***
   },
+  "typeRoots": ["@types", "node_modules/@types"],
   "include": [
     "src/**/*" // *** the files TypeScript should type check ***
   ],

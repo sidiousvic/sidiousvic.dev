@@ -1,7 +1,3 @@
 module.exports = {
-  plugins: [
-    {
-      resolve: `gatsby-plugin-typescript`
-    }
-  ]
+  plugins: ["gatsby-plugin-typescript", "gatsby-plugin-eslint"]
 };

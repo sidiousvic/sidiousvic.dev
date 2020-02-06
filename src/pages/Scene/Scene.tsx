@@ -1,15 +1,17 @@
 import React, { Suspense } from "react";
 import { Canvas } from "react-three-fiber";
-import SidiousSkull from "../SidiousSkull/SidiousSkull.tsx";
+//@ts-ignore
+import { Color } from "../../three.exports";
+import SidiousSkull from "../SidiousSkull/SidiousSkull";
 import useZ from "../../zustand/z";
 
-export default function Scene() {
+const Scene: React.FC = () => {
   const setEyeVelocity = useZ(z => z.setEyeVelocity);
   const setMouse = useZ(z => z.setMouse);
   return (
     <Canvas
-      onClick={() => setEyeVelocity(0.03)}
-      onMouseMove={e => {
+      onClick={(): void => setEyeVelocity(0.03)}
+      onMouseMove={(e): void => {
         setMouse({
           x: (e.clientX - window.innerWidth / 2) / 2,
           y: (e.clientY - window.innerHeight / 2) / 2
@@ -21,7 +23,7 @@ export default function Scene() {
     >
       <directionalLight
         position={[10, 10, 10]}
-        color={0x432342}
+        color={new Color(0x432342)}
         intensity={4}
       />
       <Suspense fallback={null}>
@@ -29,4 +31,6 @@ export default function Scene() {
       </Suspense>
     </Canvas>
   );
-}
+};
+
+export default Scene;
