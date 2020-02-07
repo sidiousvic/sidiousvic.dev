@@ -53,31 +53,38 @@ const SidiousSkull: React.FC = () => {
   }, [obj]); // injectMaterial
 
   return (
-    <primitive object={obj}>
-      {/* l eye */}
-      <pointLight color={new Color(0xff0050)} intensity={1}>
-        <group ref={eyeL}>
-          <pointLight color={new Color(0xaa3feb)} intensity={1}>
-            <mesh visible>
-              <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
-              <meshToonMaterial attach="material" color={0xff0030} />
-            </mesh>
-          </pointLight>
-        </group>
-      </pointLight>
+    <>
+      <directionalLight
+        position={[10, 10, 10]}
+        color={new Color(0x432342)}
+        intensity={4}
+      />
+      <primitive object={obj}>
+        {/* l eye */}
+        <pointLight color={new Color(0xff0050)} intensity={1}>
+          <group ref={eyeL}>
+            <pointLight color={new Color(0xaa3feb)} intensity={1}>
+              <mesh visible>
+                <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
+                <meshToonMaterial attach="material" color={0xff0030} />
+              </mesh>
+            </pointLight>
+          </group>
+        </pointLight>
 
-      {/* r eye */}
-      <pointLight color={new Color(0xff0050)} intensity={1}>
-        <group ref={eyeR}>
-          <pointLight color={new Color(0xaa3feb)} intensity={1}>
-            <mesh visible>
-              <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
-              <meshToonMaterial attach="material" color={0xff0030} />
-            </mesh>
-          </pointLight>
-        </group>
-      </pointLight>
-    </primitive>
+        {/* r eye */}
+        <pointLight color={new Color(0xff0050)} intensity={1}>
+          <group ref={eyeR}>
+            <pointLight color={new Color(0xaa3feb)} intensity={1}>
+              <mesh visible>
+                <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
+                <meshToonMaterial attach="material" color={0xff0030} />
+              </mesh>
+            </pointLight>
+          </group>
+        </pointLight>
+      </primitive>
+    </>
   );
 };
 
