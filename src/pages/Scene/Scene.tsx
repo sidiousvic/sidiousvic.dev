@@ -17,7 +17,6 @@ const Scene: React.FC = () => {
           y: (e.clientY - window.innerHeight / 2) / 2
         });
       }}
-      orthographic={false}
       camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 5] }}
       pixelRatio={window.devicePixelRatio}
     >
