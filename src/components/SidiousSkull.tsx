@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
-import { MeshToonMaterial, Color, OBJLoader } from "../../three.x";
-import useZ from "../../zustand/z";
+// three
+import { MeshToonMaterial, Color, OBJLoader } from "../three.x";
+import useZ from "../zustand/z";
 import { useFrame, useLoader, useUpdate } from "react-three-fiber";
-import SidiousSkullModel from "../../assets/models/SidiousSkull.obj";
+import SidiousSkullModel from "../assets/models/SidiousSkull.obj";
 
 const SidiousSkull: React.FC = () => {
   const eyeVelocity = useZ(z => z.eyeVelocity);
   const setEyeVelocity = useZ(z => z.setEyeVelocity);
   const mouse = useZ(z => z.mouse);
+
+  useEffect(() => {
+    console.log(mouse);
+  }, [mouse]);
 
   const eyeL = useUpdate((mesh: THREE.Mesh) => {
     mesh.position.set(-0.24, 0.19, 0.6);
@@ -44,11 +49,9 @@ const SidiousSkull: React.FC = () => {
   const obj = useLoader(OBJLoader, SidiousSkullModel); // loadModel
   useEffect(() => {
     obj.children.map((child: THREE.Object3D): void => {
-      if (child.type === "Mesh") {
-        (child as THREE.Mesh).material = new MeshToonMaterial({
-          color: new Color(0x000000)
-        });
-      }
+      (child as THREE.Mesh).material = new MeshToonMaterial({
+        color: new Color(0x000000)
+      });
     });
   }, [obj]); // injectMaterial
 
@@ -59,31 +62,30 @@ const SidiousSkull: React.FC = () => {
         color={new Color(0x432342)}
         intensity={4}
       />
-      <primitive object={obj}>
+      <group>
+        <primitive object={obj} dispose={null} />
         {/* l eye */}
-        <pointLight color={new Color(0xff0050)} intensity={1}>
-          <group ref={eyeL}>
-            <pointLight color={new Color(0xaa3feb)} intensity={1}>
-              <mesh visible>
-                <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
-                <meshToonMaterial attach="material" color={0xff0030} />
-              </mesh>
-            </pointLight>
-          </group>
-        </pointLight>
+        <pointLight color={new Color(0xff0050)} intensity={1} />
+        <group ref={eyeL}>
+          <pointLight color={new Color(0xaa3feb)} intensity={1}>
+            <mesh visible>
+              <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
+              <meshToonMaterial attach="material" color={0xff0030} />
+            </mesh>
+          </pointLight>
+        </group>
 
         {/* r eye */}
-        <pointLight color={new Color(0xff0050)} intensity={1}>
-          <group ref={eyeR}>
-            <pointLight color={new Color(0xaa3feb)} intensity={1}>
-              <mesh visible>
-                <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
-                <meshToonMaterial attach="material" color={0xff0030} />
-              </mesh>
-            </pointLight>
-          </group>
-        </pointLight>
-      </primitive>
+        <pointLight color={new Color(0xff0050)} intensity={1} />
+        <group ref={eyeR}>
+          <pointLight color={new Color(0xaa3feb)} intensity={1}>
+            <mesh visible>
+              <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
+              <meshToonMaterial attach="material" color={0xff0030} />
+            </mesh>
+          </pointLight>
+        </group>
+      </group>
     </>
   );
 };
