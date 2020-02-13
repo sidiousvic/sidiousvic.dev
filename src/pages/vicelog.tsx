@@ -1,12 +1,11 @@
 import React from "react";
-import Scene from "../components/Scene";
 import { Link } from "gatsby";
 
-const MOTHERBOARD: React.FC = () => {
+const Vicelog: React.FC = () => {
   return (
-    <>
+    <div>
       <Link
-        to="/the-vicelog"
+        to="/"
         style={{
           color: "lime",
           position: "absolute",
@@ -15,11 +14,10 @@ const MOTHERBOARD: React.FC = () => {
           zIndex: 99
         }}
       >
-        VICELOG
+        BACK
       </Link>
-      <Scene />
-    </>
+    </div>
   );
 };
 
-export default MOTHERBOARD;
+export default Vicelog;

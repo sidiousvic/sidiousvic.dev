@@ -35,5 +35,5 @@
   "globals": {
     "React": true
   },
-  "ignorePatterns": ["gatsby*.js"]
+  "ignorePatterns": ["gatsby*.js", "post.jsx"]
 }

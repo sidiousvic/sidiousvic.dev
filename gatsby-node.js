@@ -1,6 +1,40 @@
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const path = require("path");
 
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const pages = await graphql(`
+    {
+      allPrismicPost {
+        edges {
+          node {
+            uid
+            data {
+              title {
+                text
+              }
+              body {
+                html
+              }
+              timestamp
+            }
+          }
+        }
+      }
+    }
+  `);
+  const template = path.resolve("src/templates/post.jsx");
+  pages.data.allPrismicPost.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.uid}`,
+      component: template,
+      context: {
+        uid: edge.node.uid
+      }
+    });
+  });
+};
+
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
