@@ -10,10 +10,6 @@ const SidiousSkull: React.FC = () => {
   const setEyeVelocity = useZ(z => z.setEyeVelocity);
   const mouse = useZ(z => z.mouse);
 
-  useEffect(() => {
-    console.log(mouse);
-  }, [mouse]);
-
   const eyeL = useUpdate((mesh: THREE.Mesh) => {
     mesh.position.set(-0.24, 0.19, 0.6);
   }, []); // mountLeftEye
@@ -69,7 +65,7 @@ const SidiousSkull: React.FC = () => {
         <group ref={eyeL}>
           <pointLight color={new Color(0xaa3feb)} intensity={1}>
             <mesh visible>
-              <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
+              <sphereBufferGeometry attach="geometry" args={[0.02, 20, 20]} />
               <meshToonMaterial attach="material" color={0xff0030} />
             </mesh>
           </pointLight>
@@ -80,7 +76,7 @@ const SidiousSkull: React.FC = () => {
         <group ref={eyeR}>
           <pointLight color={new Color(0xaa3feb)} intensity={1}>
             <mesh visible>
-              <sphereGeometry attach="geometry" args={[0.02, 20, 20]} />
+              <sphereBufferGeometry attach="geometry" args={[0.02, 20, 20]} />
               <meshToonMaterial attach="material" color={0xff0030} />
             </mesh>
           </pointLight>

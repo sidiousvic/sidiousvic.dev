@@ -1,13 +1,13 @@
 import React from "react";
 import Scene from "../components/Scene";
-import { Link } from "gatsby";
+import Navbar from "../components/Navbar";
+import Title from "../components/Title";
 
 const MOTHERBOARD: React.FC = () => {
   return (
     <>
-      <Link to="/Navbar" activeStyle={{ color: "red" }}>
-        NAVBAR
-      </Link>
+      <Navbar />
+      <Title />
       <Scene />
     </>
   );
