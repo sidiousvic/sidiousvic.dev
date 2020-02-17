@@ -7,13 +7,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "DEXTER";
-  src: url("../assets/fonts/5computerized.ttf") format("woff");
-  font-weight: 800;
-  font-style: normal;
-}
-
 /* MOTHERBOARD */
 * {
   box-sizing: border-box;
