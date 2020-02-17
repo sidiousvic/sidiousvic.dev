@@ -1,13 +1,12 @@
 @font-face {
   font-family: "FX";
-  src: url("../assets/fonts/Futura-CondensedExtraBold.woff2") format("woff2"),
-    url("../assets/fonts/Futura-CondensedExtraBold.woff") format("woff"),
-    url("../assets/fonts/Futura-CondensedExtraBold.ttf") format("truetype");
+  src: url("../fonts/Futura-CondensedExtraBold.woff2") format("woff2"),
+    url("../fonts/Futura-CondensedExtraBold.woff") format("woff"),
+    url("../fonts/Futura-CondensedExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
 
-/* MOTHERBOARD */
 * {
   box-sizing: border-box;
 }
