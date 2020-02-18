@@ -27,8 +27,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {
-          families: ["FX"],
-          urls: ["/fonts/fonts.css"]
+          families: ["FX"]
         }
       }
     }
