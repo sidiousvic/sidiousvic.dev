@@ -1,9 +1,8 @@
 import React, { ReactElement } from "react";
 import Navi from "./Navi";
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import ThunderLogo from "!svg-react-loader!../assets/images/thunderLogo.svg";
+import ThunderLogo from "!svg-react-loader!../images/thunderLogo.svg";
+
 const Navbar = (): ReactElement => {
   return (
     <nav>

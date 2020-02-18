@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { MeshToonMaterial, Color, OBJLoader } from "../three.x";
 import useZ from "../zustand/z";
 import { useFrame, useLoader, useUpdate } from "react-three-fiber";
-import SidiousSkullModel from "../assets/models/SidiousSkull.obj";
+import SidiousSkullModel from "../models/SidiousSkull.obj";
 
 const SidiousSkull: React.FC = () => {
   const eyeVelocity = useZ(z => z.eyeVelocity);

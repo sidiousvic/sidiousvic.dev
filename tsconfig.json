@@ -24,5 +24,5 @@
   "include": [
     "src/**/*" // *** the files TypeScript should type check ***
   ],
-  "exclude": ["node_modules", "build"] // *** the files to not type check ***
+  "exclude": ["node_modules", "build", "src/pages/blackdog"] // *** the files to not type check ***
 }

@@ -1,6 +1,9 @@
+/* eslint-disable */
+//@ts-nocheck
+
 // assign canvas to variable and get gontext
-const canvas = document.querySelector('canvas');
-const c = canvas.getContext('2d');
+const canvas = document.querySelector("canvas");
+const c = canvas.getContext("2d");
 
 // define canvas size
 canvas.width = innerWidth;
@@ -17,13 +20,13 @@ let score = 0;
 
 //// EVENT LISTENERS
 // map mouse movement to mouse object
-addEventListener('mousemove', function(e) {
+addEventListener("mousemove", function(e) {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 });
 
 // resize canvas on window resize
-addEventListener('resize', function() {
+addEventListener("resize", function() {
   canvas.width = innerWidth;
   canvas.height = innerHeight;
   // reset the game on resize
@@ -97,10 +100,10 @@ function Enemy(x, y, img, width, height) {
         // HITBOX ^^^
         _this.velocity.x = -_this.velocity.x;
         _this.velocity.y = -_this.velocity.y;
-        if (_this.img === document.getElementById('enemy')) {
-          _this.img = document.getElementById('enemyR');
+        if (_this.img === document.getElementById("enemy")) {
+          _this.img = document.getElementById("enemyR");
         } else {
-          _this.img = document.getElementById('enemy');
+          _this.img = document.getElementById("enemy");
         }
       }
 
@@ -109,8 +112,8 @@ function Enemy(x, y, img, width, height) {
         enemies.length = 0; // hitbox ^^^
 
         // update score
-        document.getElementById('score').innerHTML =
-          String(score - 1) + ' POINTS';
+        document.getElementById("score").innerHTML =
+          String(score - 1) + " POINTS";
         score = 0;
 
         // relocate coin
@@ -128,17 +131,17 @@ function Enemy(x, y, img, width, height) {
     // max number of enemies to win
     if (enemies.length > 99) {
       enemies.length = 0;
-      document.getElementById('score').innerHTML = 'INSERT WIN MESSAGE HERE';
+      document.getElementById("score").innerHTML = "INSERT WIN MESSAGE HERE";
       score = 0;
     }
 
     // bounce enemy off walls
     if (_this.x <= 0 || _this.x >= innerWidth) {
       _this.velocity.x = -_this.velocity.x;
-      if (_this.img === document.getElementById('enemy')) {
-        _this.img = document.getElementById('enemyR');
+      if (_this.img === document.getElementById("enemy")) {
+        _this.img = document.getElementById("enemyR");
       } else {
-        _this.img = document.getElementById('enemy');
+        _this.img = document.getElementById("enemy");
       }
     }
 
@@ -165,7 +168,7 @@ function init() {
   player = new Player(
     mouse.x,
     mouse.y,
-    document.getElementById('blackdog'),
+    document.getElementById("blackdog"),
     50,
     50
   );
@@ -181,7 +184,7 @@ function init() {
   );
 
   // instantiate coin
-  coin = new Coin(sx, sy, document.getElementById('coin'), 50, 50);
+  coin = new Coin(sx, sy, document.getElementById("coin"), 50, 50);
 
   // push initial enemies
   for (var i = 0; i < 3; i++) {
@@ -204,7 +207,7 @@ function init() {
       }
     }
     // push initial enemies
-    enemies.push(new Enemy(_x, _y, document.getElementById('enemy'), 30, 30));
+    enemies.push(new Enemy(_x, _y, document.getElementById("enemy"), 30, 30));
   }
 }
 
@@ -254,8 +257,8 @@ function animate() {
       }
     }
 
-    enemies.push(new Enemy(x, y, document.getElementById('enemy'), 30, 30));
-    document.getElementById('score').innerHTML = String(score);
+    enemies.push(new Enemy(x, y, document.getElementById("enemy"), 30, 30));
+    document.getElementById("score").innerHTML = String(score);
     score++;
   }
 
@@ -267,24 +270,24 @@ init();
 animate();
 
 let vicToppings = [
-  { name: 'cilantro', grams: 4 },
+  { name: "cilantro", grams: 4 },
   {
-    name: 'picoDeGallo',
+    name: "picoDeGallo",
     grams: 4
   }
 ];
 
 function addSalsa(toppings, type) {
   toppings.push({
-    name: 'salsa',
-    type: 'verde'
+    name: "salsa",
+    type: "verde"
   });
   return toppings;
 }
 
 function makeTaco(tortilla, carne, toppings, salsa) {
   toppings.map(topping => {
-    if (topping.name === 'cilantro') {
+    if (topping.name === "cilantro") {
       if (topping.grams > 3) {
         topping.grams = 3;
       }
@@ -298,4 +301,4 @@ function makeTaco(tortilla, carne, toppings, salsa) {
   return tortilla;
 }
 
-console.log(makeTaco([], 'barbacoa', vicToppings, false));
+console.log(makeTaco([], "barbacoa", vicToppings, false));

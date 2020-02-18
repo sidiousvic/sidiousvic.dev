@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@types/react": "^16.9.19",
+    "@types/react-helmet": "^5.0.15",
     "@types/react-redux": "^7.1.7",
     "@types/three": "^0.103.2",
     "dotenv": "^8.2.0",

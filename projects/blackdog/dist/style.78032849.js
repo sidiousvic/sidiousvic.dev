@@ -1,3 +1,5 @@
+/* eslint-disable */
+//@ts-nocheck
 // modules are defined as an array
 // [ module function, map of requires ]
 //
@@ -7,10 +9,10 @@
 // orig method which is the require for previous bundles
 
 // eslint-disable-next-line no-global-assign
-parcelRequire = (function (modules, cache, entry, globalName) {
+parcelRequire = (function(modules, cache, entry, globalName) {
   // Save the require from previous bundle to this closure if any
-  var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
-  var nodeRequire = typeof require === 'function' && require;
+  var previousRequire = typeof parcelRequire === "function" && parcelRequire;
+  var nodeRequire = typeof require === "function" && require;
 
   function newRequire(name, jumped) {
     if (!cache[name]) {
@@ -18,7 +20,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
         // if we cannot find the module within our internal map or
         // cache jump to the current global require ie. the last bundle
         // that was added to the page.
-        var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
+        var currentRequire =
+          typeof parcelRequire === "function" && parcelRequire;
         if (!jumped && currentRequire) {
           return currentRequire(name, true);
         }
@@ -32,30 +35,36 @@ parcelRequire = (function (modules, cache, entry, globalName) {
         }
 
         // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
+        if (nodeRequire && typeof name === "string") {
           return nodeRequire(name);
         }
 
-        var err = new Error('Cannot find module \'' + name + '\'');
-        err.code = 'MODULE_NOT_FOUND';
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = "MODULE_NOT_FOUND";
         throw err;
       }
 
       localRequire.resolve = resolve;
       localRequire.cache = {};
 
-      var module = cache[name] = new newRequire.Module(name);
+      var module = (cache[name] = new newRequire.Module(name));
 
-      modules[name][0].call(module.exports, localRequire, module, module.exports, this);
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
     }
 
     return cache[name].exports;
 
-    function localRequire(x){
+    function localRequire(x) {
       return newRequire(localRequire.resolve(x));
     }
 
-    function resolve(x){
+    function resolve(x) {
       return modules[name][1][x] || x;
     }
   }
@@ -71,10 +80,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   newRequire.modules = modules;
   newRequire.cache = cache;
   newRequire.parent = previousRequire;
-  newRequire.register = function (id, exports) {
-    modules[id] = [function (require, module) {
-      module.exports = exports;
-    }, {}];
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {}
+    ];
   };
 
   for (var i = 0; i < entry.length; i++) {
@@ -90,13 +102,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
     if (typeof exports === "object" && typeof module !== "undefined") {
       module.exports = mainExports;
 
-    // RequireJS
+      // RequireJS
     } else if (typeof define === "function" && define.amd) {
-     define(function () {
-       return mainExports;
-     });
+      define(function() {
+        return mainExports;
+      });
 
-    // <script>
+      // <script>
     } else if (globalName) {
       this[globalName] = mainExports;
     }
@@ -104,245 +116,319 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})(
+  {
+    "../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/bundle-url.js": [
+      function(require, module, exports) {
+        var bundleURL = null;
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+        function getBundleURLCached() {
+          if (!bundleURL) {
+            bundleURL = getBundleURL();
+          }
 
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/style.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./../The-Legend-of-Zelda-NES.woff2":[["The-Legend-of-Zelda-NES.b66b0030.woff2","The-Legend-of-Zelda-NES.woff2"],"The-Legend-of-Zelda-NES.woff2"],"./../The-Legend-of-Zelda-NES.woff":[["The-Legend-of-Zelda-NES.65448d64.woff","The-Legend-of-Zelda-NES.woff"],"The-Legend-of-Zelda-NES.woff"],"_css_loader":"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
-var global = arguments[3];
-var OVERLAY_ID = '__parcel__error__overlay__';
-var OldModule = module.bundle.Module;
-
-function Module(moduleName) {
-  OldModule.call(this, moduleName);
-  this.hot = {
-    data: module.bundle.hotData,
-    _acceptCallbacks: [],
-    _disposeCallbacks: [],
-    accept: function (fn) {
-      this._acceptCallbacks.push(fn || function () {});
-    },
-    dispose: function (fn) {
-      this._disposeCallbacks.push(fn);
-    }
-  };
-  module.bundle.hotData = null;
-}
-
-module.bundle.Module = Module;
-var parent = module.bundle.parent;
-
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
-  var hostname = "" || location.hostname;
-  var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55473" + '/');
-
-  ws.onmessage = function (event) {
-    var data = JSON.parse(event.data);
-
-    if (data.type === 'update') {
-      console.clear();
-      data.assets.forEach(function (asset) {
-        hmrApply(global.parcelRequire, asset);
-      });
-      data.assets.forEach(function (asset) {
-        if (!asset.isNew) {
-          hmrAccept(global.parcelRequire, asset.id);
+          return bundleURL;
         }
-      });
-    }
 
-    if (data.type === 'reload') {
-      ws.close();
+        function getBundleURL() {
+          // Attempt to find the URL of the current script and use that as the base URL
+          try {
+            throw new Error();
+          } catch (err) {
+            var matches = ("" + err.stack).match(
+              /(https?|file|ftp):\/\/[^)\n]+/g
+            );
 
-      ws.onclose = function () {
-        location.reload();
-      };
-    }
+            if (matches) {
+              return getBaseURL(matches[0]);
+            }
+          }
 
-    if (data.type === 'error-resolved') {
-      console.log('[parcel] ✨ Error resolved');
-      removeErrorOverlay();
-    }
+          return "/";
+        }
 
-    if (data.type === 'error') {
-      console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
-      removeErrorOverlay();
-      var overlay = createErrorOverlay(data);
-      document.body.appendChild(overlay);
-    }
-  };
-}
+        function getBaseURL(url) {
+          return (
+            ("" + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, "$1") +
+            "/"
+          );
+        }
 
-function removeErrorOverlay() {
-  var overlay = document.getElementById(OVERLAY_ID);
+        exports.getBundleURL = getBundleURLCached;
+        exports.getBaseURL = getBaseURL;
+      },
+      {}
+    ],
+    "../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js": [
+      function(require, module, exports) {
+        var bundle = require("./bundle-url");
 
-  if (overlay) {
-    overlay.remove();
-  }
-}
+        function updateLink(link) {
+          var newLink = link.cloneNode();
 
-function createErrorOverlay(data) {
-  var overlay = document.createElement('div');
-  overlay.id = OVERLAY_ID; // html encode message and stack trace
+          newLink.onload = function() {
+            link.remove();
+          };
 
-  var message = document.createElement('div');
-  var stackTrace = document.createElement('pre');
-  message.innerText = data.error.message;
-  stackTrace.innerText = data.error.stack;
-  overlay.innerHTML = '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' + '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' + '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' + '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' + message.innerHTML + '</div>' + '<pre>' + stackTrace.innerHTML + '</pre>' + '</div>';
-  return overlay;
-}
+          newLink.href = link.href.split("?")[0] + "?" + Date.now();
+          link.parentNode.insertBefore(newLink, link.nextSibling);
+        }
 
-function getParents(bundle, id) {
-  var modules = bundle.modules;
+        var cssTimeout = null;
 
-  if (!modules) {
-    return [];
-  }
+        function reloadCSS() {
+          if (cssTimeout) {
+            return;
+          }
 
-  var parents = [];
-  var k, d, dep;
+          cssTimeout = setTimeout(function() {
+            var links = document.querySelectorAll('link[rel="stylesheet"]');
 
-  for (k in modules) {
-    for (d in modules[k][1]) {
-      dep = modules[k][1][d];
+            for (var i = 0; i < links.length; i++) {
+              if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+                updateLink(links[i]);
+              }
+            }
 
-      if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
-        parents.push(k);
+            cssTimeout = null;
+          }, 50);
+        }
+
+        module.exports = reloadCSS;
+      },
+      {
+        "./bundle-url":
+          "../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/bundle-url.js"
       }
-    }
-  }
+    ],
+    "css/style.css": [
+      function(require, module, exports) {
+        var reloadCSS = require("_css_loader");
 
-  if (bundle.parent) {
-    parents = parents.concat(getParents(bundle.parent, id));
-  }
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      },
+      {
+        "./../The-Legend-of-Zelda-NES.woff2": [
+          [
+            "The-Legend-of-Zelda-NES.b66b0030.woff2",
+            "The-Legend-of-Zelda-NES.woff2"
+          ],
+          "The-Legend-of-Zelda-NES.woff2"
+        ],
+        "./../The-Legend-of-Zelda-NES.woff": [
+          [
+            "The-Legend-of-Zelda-NES.65448d64.woff",
+            "The-Legend-of-Zelda-NES.woff"
+          ],
+          "The-Legend-of-Zelda-NES.woff"
+        ],
+        _css_loader:
+          "../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js"
+      }
+    ],
+    "../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js": [
+      function(require, module, exports) {
+        var global = arguments[3];
+        var OVERLAY_ID = "__parcel__error__overlay__";
+        var OldModule = module.bundle.Module;
 
-  return parents;
-}
+        function Module(moduleName) {
+          OldModule.call(this, moduleName);
+          this.hot = {
+            data: module.bundle.hotData,
+            _acceptCallbacks: [],
+            _disposeCallbacks: [],
+            accept: function(fn) {
+              this._acceptCallbacks.push(fn || function() {});
+            },
+            dispose: function(fn) {
+              this._disposeCallbacks.push(fn);
+            }
+          };
+          module.bundle.hotData = null;
+        }
 
-function hmrApply(bundle, asset) {
-  var modules = bundle.modules;
+        module.bundle.Module = Module;
+        var parent = module.bundle.parent;
 
-  if (!modules) {
-    return;
-  }
+        if (
+          (!parent || !parent.isParcelRequire) &&
+          typeof WebSocket !== "undefined"
+        ) {
+          var hostname = "" || location.hostname;
+          var protocol = location.protocol === "https:" ? "wss" : "ws";
+          var ws = new WebSocket(
+            protocol + "://" + hostname + ":" + "55473" + "/"
+          );
 
-  if (modules[asset.id] || !bundle.parent) {
-    var fn = new Function('require', 'module', 'exports', asset.generated.js);
-    asset.isNew = !modules[asset.id];
-    modules[asset.id] = [fn, asset.deps];
-  } else if (bundle.parent) {
-    hmrApply(bundle.parent, asset);
-  }
-}
+          ws.onmessage = function(event) {
+            var data = JSON.parse(event.data);
 
-function hmrAccept(bundle, id) {
-  var modules = bundle.modules;
+            if (data.type === "update") {
+              console.clear();
+              data.assets.forEach(function(asset) {
+                hmrApply(global.parcelRequire, asset);
+              });
+              data.assets.forEach(function(asset) {
+                if (!asset.isNew) {
+                  hmrAccept(global.parcelRequire, asset.id);
+                }
+              });
+            }
 
-  if (!modules) {
-    return;
-  }
+            if (data.type === "reload") {
+              ws.close();
 
-  if (!modules[id] && bundle.parent) {
-    return hmrAccept(bundle.parent, id);
-  }
+              ws.onclose = function() {
+                location.reload();
+              };
+            }
 
-  var cached = bundle.cache[id];
-  bundle.hotData = {};
+            if (data.type === "error-resolved") {
+              console.log("[parcel] ✨ Error resolved");
+              removeErrorOverlay();
+            }
 
-  if (cached) {
-    cached.hot.data = bundle.hotData;
-  }
+            if (data.type === "error") {
+              console.error(
+                "[parcel] 🚨  " + data.error.message + "\n" + data.error.stack
+              );
+              removeErrorOverlay();
+              var overlay = createErrorOverlay(data);
+              document.body.appendChild(overlay);
+            }
+          };
+        }
 
-  if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
-    cached.hot._disposeCallbacks.forEach(function (cb) {
-      cb(bundle.hotData);
-    });
-  }
+        function removeErrorOverlay() {
+          var overlay = document.getElementById(OVERLAY_ID);
 
-  delete bundle.cache[id];
-  bundle(id);
-  cached = bundle.cache[id];
+          if (overlay) {
+            overlay.remove();
+          }
+        }
 
-  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-    cached.hot._acceptCallbacks.forEach(function (cb) {
-      cb();
-    });
+        function createErrorOverlay(data) {
+          var overlay = document.createElement("div");
+          overlay.id = OVERLAY_ID; // html encode message and stack trace
 
-    return true;
-  }
+          var message = document.createElement("div");
+          var stackTrace = document.createElement("pre");
+          message.innerText = data.error.message;
+          stackTrace.innerText = data.error.stack;
+          overlay.innerHTML =
+            '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' +
+            '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' +
+            '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' +
+            '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' +
+            message.innerHTML +
+            "</div>" +
+            "<pre>" +
+            stackTrace.innerHTML +
+            "</pre>" +
+            "</div>";
+          return overlay;
+        }
 
-  return getParents(global.parcelRequire, id).some(function (id) {
-    return hmrAccept(global.parcelRequire, id);
-  });
-}
-},{}]},{},["../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+        function getParents(bundle, id) {
+          var modules = bundle.modules;
+
+          if (!modules) {
+            return [];
+          }
+
+          var parents = [];
+          var k, d, dep;
+
+          for (k in modules) {
+            for (d in modules[k][1]) {
+              dep = modules[k][1][d];
+
+              if (
+                dep === id ||
+                (Array.isArray(dep) && dep[dep.length - 1] === id)
+              ) {
+                parents.push(k);
+              }
+            }
+          }
+
+          if (bundle.parent) {
+            parents = parents.concat(getParents(bundle.parent, id));
+          }
+
+          return parents;
+        }
+
+        function hmrApply(bundle, asset) {
+          var modules = bundle.modules;
+
+          if (!modules) {
+            return;
+          }
+
+          if (modules[asset.id] || !bundle.parent) {
+            var fn = new Function(
+              "require",
+              "module",
+              "exports",
+              asset.generated.js
+            );
+            asset.isNew = !modules[asset.id];
+            modules[asset.id] = [fn, asset.deps];
+          } else if (bundle.parent) {
+            hmrApply(bundle.parent, asset);
+          }
+        }
+
+        function hmrAccept(bundle, id) {
+          var modules = bundle.modules;
+
+          if (!modules) {
+            return;
+          }
+
+          if (!modules[id] && bundle.parent) {
+            return hmrAccept(bundle.parent, id);
+          }
+
+          var cached = bundle.cache[id];
+          bundle.hotData = {};
+
+          if (cached) {
+            cached.hot.data = bundle.hotData;
+          }
+
+          if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
+            cached.hot._disposeCallbacks.forEach(function(cb) {
+              cb(bundle.hotData);
+            });
+          }
+
+          delete bundle.cache[id];
+          bundle(id);
+          cached = bundle.cache[id];
+
+          if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
+            cached.hot._acceptCallbacks.forEach(function(cb) {
+              cb();
+            });
+
+            return true;
+          }
+
+          return getParents(global.parcelRequire, id).some(function(id) {
+            return hmrAccept(global.parcelRequire, id);
+          });
+        }
+      },
+      {}
+    ]
+  },
+  {},
+  [
+    "../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"
+  ],
+  null
+);
