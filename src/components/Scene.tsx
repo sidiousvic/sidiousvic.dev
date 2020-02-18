@@ -4,7 +4,6 @@ import SidiousSkull from "./SidiousSkull";
 import useZ from "../zustand/z";
 import { useWindowSize } from "../hooks";
 import { window } from "browser-monads";
-import Fade from "react-reveal/Fade";
 
 const Scene: React.FC = () => {
   const setEyeVelocity = useZ(z => z.setEyeVelocity);
@@ -19,26 +18,24 @@ const Scene: React.FC = () => {
   };
 
   return (
-    <Fade duration={3000}>
-      <Canvas
-        onMouseMove={(e): void => {
-          setMouse({
-            x: (e.clientX - windowSize.innerWidth / 2) / 2,
-            y: (e.clientY - windowSize.innerHeight / 2) / 2
-          });
-        }}
-        onClick={(): void => {
-          toggleTitle();
-          setEyeVelocity(0.03);
-        }}
-        camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 5] }}
-        pixelRatio={window.devicePixelRatio}
-      >
-        <Suspense fallback={null}>
-          <SidiousSkull />
-        </Suspense>
-      </Canvas>
-    </Fade>
+    <Canvas
+      onMouseMove={(e): void => {
+        setMouse({
+          x: (e.clientX - windowSize.innerWidth / 2) / 2,
+          y: (e.clientY - windowSize.innerHeight / 2) / 2
+        });
+      }}
+      onClick={(): void => {
+        toggleTitle();
+        setEyeVelocity(0.03);
+      }}
+      camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 5] }}
+      pixelRatio={window.devicePixelRatio}
+    >
+      <Suspense fallback={null}>
+        <SidiousSkull />
+      </Suspense>
+    </Canvas>
   );
 };
 

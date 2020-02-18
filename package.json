@@ -10,8 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server --open",
-    "g": "gatsby develop -p 9000",
-    "preload-fonts": "gatsby-preload-fonts -p 9000"
+    "g": "gatsby develop -p 9000"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
@@ -50,7 +49,6 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "gatsby": "^2.19.12",
-    "gatsby-plugin-preload-fonts": "^1.0.27",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-svg-sprite": "^2.0.1",
     "gatsby-plugin-typescript": "^2.1.27",
