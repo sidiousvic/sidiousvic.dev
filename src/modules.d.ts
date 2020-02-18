@@ -14,5 +14,5 @@ declare module "*.svg" {
 }
 
 declare module "browser-monads";
-
 declare module "react-reveal/Fade";
+declare module "webfontloader";

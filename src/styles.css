@@ -88,3 +88,12 @@ nav {
 .title h1:hover {
   cursor: pointer;
 }
+
+html {
+  visibility: hidden;
+}
+
+html.wf-active,
+html.wf-inactive {
+  visibility: visible;
+}
