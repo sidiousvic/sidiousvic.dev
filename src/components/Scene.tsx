@@ -16,8 +16,6 @@ const Scene: React.FC = () => {
     if (title === "JUST DO SH*T.") setTitle("@SIDIOUSVIC");
   };
 
-  console.log(window.devicePixelRatio);
-
   return (
     <>
       <Canvas
