@@ -4,6 +4,7 @@ import SidiousSkull from "./SidiousSkull";
 import useZ from "../zustand/z";
 import { useWindowSize } from "../hooks";
 import { window } from "browser-monads";
+import Fade from "react-reveal/Fade";
 
 const Scene: React.FC = () => {
   const setEyeVelocity = useZ(z => z.setEyeVelocity);
@@ -18,7 +19,7 @@ const Scene: React.FC = () => {
   };
 
   return (
-    <>
+    <Fade duration={3000}>
       <Canvas
         onMouseMove={(e): void => {
           setMouse({
@@ -37,7 +38,7 @@ const Scene: React.FC = () => {
           <SidiousSkull />
         </Suspense>
       </Canvas>
-    </>
+    </Fade>
   );
 };
 
