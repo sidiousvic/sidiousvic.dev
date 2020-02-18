@@ -16,6 +16,8 @@ const Scene: React.FC = () => {
     if (title === "JUST DO SH*T.") setTitle("@SIDIOUSVIC");
   };
 
+  console.log(window.devicePixelRatio);
+
   return (
     <>
       <Canvas
@@ -30,7 +32,7 @@ const Scene: React.FC = () => {
           setEyeVelocity(0.03);
         }}
         camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 5] }}
-        pixelRatio={window && window.devicePixelRatio}
+        pixelRatio={2}
       >
         <Suspense fallback={null}>
           <SidiousSkull />
