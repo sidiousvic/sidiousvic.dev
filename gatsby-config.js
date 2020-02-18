@@ -6,7 +6,6 @@ module.exports = {
     "gatsby-plugin-typescript",
     "gatsby-plugin-eslint",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-preload-fonts",
     {
       resolve: `gatsby-source-prismic`,
       options: {
