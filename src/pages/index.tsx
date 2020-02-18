@@ -25,8 +25,29 @@ TOKYO—BASED DVLPMNT 'N' DSGN
 vic@sidiousvic.dev 
 
 --> */}
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/FuturaCondensedExtraBold.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/FuturaCondensedExtraBold.woff"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/FuturaCondensedExtraBold.ttf"
+          type="font/truetype"
+          crossOrigin="anonymous"
+        />
         <meta property="og:title" content="SIDIOUSVIC.DEV" />
-        <meta property="og:image" content="./assets/images/og-screen.png" />
+        <meta property="og:image" content="" />
         <meta
           property="og:description"
           content="Axewielding, inditing, programming primate of the species mēxihcan 🍕"

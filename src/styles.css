@@ -56,7 +56,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "FX";
+  font-family: "FX", Arial, Helvetica, sans-serif;
   color: var(--sidious-red);
   mix-blend-mode: difference;
   z-index: 99;
