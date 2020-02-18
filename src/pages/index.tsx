@@ -4,13 +4,6 @@ import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import favicon from "../images/favicon.ico";
 import Helmet from "react-helmet";
-import WebFont from "webfontloader";
-
-WebFont.load({
-  google: {
-    families: ["Droid Sans", "Droid Serif"]
-  }
-});
 
 const MOTHERBOARD: React.FC = () => {
   return (

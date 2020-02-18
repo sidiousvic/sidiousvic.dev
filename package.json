@@ -65,7 +65,6 @@
     "three": "^0.112.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
-    "webfontloader": "^1.6.28",
     "zustand": "^2.2.2"
   }
 }
