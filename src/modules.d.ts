@@ -12,3 +12,5 @@ declare module "*.svg" {
   import ThunderLogo from "./images/thunderLogo.svg";
   export default ThunderLogo;
 }
+
+declare module "browser-monads";

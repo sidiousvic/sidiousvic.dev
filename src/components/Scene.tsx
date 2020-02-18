@@ -3,6 +3,7 @@ import { Canvas } from "react-three-fiber";
 import SidiousSkull from "./SidiousSkull";
 import useZ from "../zustand/z";
 import { useWindowSize } from "../hooks";
+import { window } from "browser-monads";
 
 const Scene: React.FC = () => {
   const setEyeVelocity = useZ(z => z.setEyeVelocity);
@@ -30,7 +31,7 @@ const Scene: React.FC = () => {
           setEyeVelocity(0.03);
         }}
         camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 5] }}
-        pixelRatio={2}
+        pixelRatio={window.devicePixelRatio}
       >
         <Suspense fallback={null}>
           <SidiousSkull />
