@@ -30,6 +30,7 @@ const Scene: React.FC = () => {
           setEyeVelocity(0.03);
         }}
         camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 5] }}
+        pixelRatio={window && window.devicePixelRatio}
       >
         <Suspense fallback={null}>
           <SidiousSkull />
