@@ -1,8 +1,6 @@
 @font-face {
   font-family: "FX";
-  src: url("FuturaCondensedExtraBold.woff2") format("woff2"),
-    url("FuturaCondensedExtraBold.woff") format("woff"),
-    url("FuturaCondensedExtraBold.ttf") format("truetype");
+  src: url("FuturaCondensedExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }

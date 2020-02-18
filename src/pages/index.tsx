@@ -28,20 +28,6 @@ vic@sidiousvic.dev
         <link
           rel="preload"
           as="font"
-          href="/fonts/FuturaCondensedExtraBold.woff2"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          as="font"
-          href="/fonts/FuturaCondensedExtraBold.woff"
-          type="font/woff"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          as="font"
           href="/fonts/FuturaCondensedExtraBold.ttf"
           type="font/truetype"
           crossOrigin="anonymous"
