@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, MouseEvent } from "react";
 // three
 import { MeshToonMaterial, Color, OBJLoader } from "../three.x";
 import useZ from "../zustand/z";
@@ -59,7 +59,18 @@ const SidiousSkull: React.FC = () => {
         intensity={4}
       />
       <group>
-        <primitive object={obj} dispose={null} />
+        <primitive
+          onPointerOver={(e: MouseEvent): void => {
+            const target = e.target as HTMLCanvasElement;
+            target.style.cursor = "pointer";
+          }}
+          onPointerOut={(e: MouseEvent): void => {
+            const target = e.target as HTMLCanvasElement;
+            target.style.cursor = "default";
+          }}
+          object={obj}
+          dispose={null}
+        />
         {/* l eye */}
         <pointLight color={new Color(0xff0050)} intensity={1} />
         <group ref={eyeL}>
