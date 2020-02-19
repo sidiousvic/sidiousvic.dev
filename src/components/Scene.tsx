@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, MouseEvent } from "react";
 import { Canvas } from "react-three-fiber";
 import SidiousSkull from "./SidiousSkull";
 import useZ from "../zustand/z";
@@ -17,14 +17,15 @@ const Scene: React.FC = () => {
     if (title === "JUST DO SH*T.") setTitle("@SIDIOUSVIC");
   };
 
+  window.addEventListener("mousemove", (e: MouseEvent) => {
+    setMouse({
+      x: (e.clientX - windowSize.innerWidth / 2) / 2,
+      y: (e.clientY - windowSize.innerHeight / 2) / 2
+    });
+  });
+
   return (
     <Canvas
-      onMouseMove={(e): void => {
-        setMouse({
-          x: (e.clientX - windowSize.innerWidth / 2) / 2,
-          y: (e.clientY - windowSize.innerHeight / 2) / 2
-        });
-      }}
       onClick={(): void => {
         toggleTitle();
         setEyeVelocity(0.03);
