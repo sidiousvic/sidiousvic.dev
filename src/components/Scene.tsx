@@ -13,8 +13,8 @@ const Scene: React.FC = () => {
   const windowSize = useWindowSize(900);
 
   const toggleTitle = (): void => {
-    if (title === "@SIDIOUSVIC") setTitle("JUST DO SH*T.");
-    if (title === "JUST DO SH*T.") setTitle("@SIDIOUSVIC");
+    if (title === "VIC SIDIOUS") setTitle("JUST DO SH*T.");
+    if (title === "JUST DO SH*T.") setTitle("VIC SIDIOUS");
   };
 
   window.addEventListener("mousemove", (e: MouseEvent) => {
@@ -30,7 +30,7 @@ const Scene: React.FC = () => {
         toggleTitle();
         setEyeVelocity(0.03);
       }}
-      camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 5] }}
+      camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 7] }}
       pixelRatio={window.devicePixelRatio}
     >
       <Suspense fallback={null}>
