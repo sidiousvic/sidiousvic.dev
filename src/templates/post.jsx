@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Button from "../components/Button";
+// import styled from "@emotion/styled";
+
+// const styled
 
 const Post = ({ data: { prismicPost } }) => {
   const { data } = prismicPost;
@@ -9,7 +11,6 @@ const Post = ({ data: { prismicPost } }) => {
       <h1>{data.title.text}</h1>
       <div dangerouslySetInnerHTML={{ __html: data.body.html }} />
       <pre>{data.timestamp}</pre>
-      <Button link="/" label="SIDIOUSVIC.DEV" />
     </>
   );
 };
