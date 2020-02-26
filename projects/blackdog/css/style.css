@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'The Legend of Zelda NES';
-  src: url('../The-Legend-of-Zelda-NES.woff2') format('woff2'),
-    url('../The-Legend-of-Zelda-NES.woff') format('woff');
+  font-family: "The Legend of Zelda NES";
+  src: url("../The-Legend-of-Zelda-NES.woff2") format("woff2"),
+    url("../The-Legend-of-Zelda-NES.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -10,10 +10,7 @@ canvas {
   top: 0px;
   left: 0px;
 }
-/* * {
-  cursor: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7),
-    auto;
-} */
+
 body {
   margin: 0;
   background-color: rgb(247, 0, 37);
