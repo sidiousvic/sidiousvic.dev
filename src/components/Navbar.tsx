@@ -21,7 +21,7 @@ const StyledNav = styled.nav`
 const Navbar = (): ReactElement => {
   return (
     <StyledNav>
-      <Logotype value="vic sidious" />
+      <Logotype value="@sidiousvic" />
       {/* <ThunderLogo width={60} /> */}
 
       <Navis />
