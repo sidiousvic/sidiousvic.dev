@@ -6,8 +6,8 @@ import { useFrame, useLoader, useUpdate } from "react-three-fiber";
 import SidiousSkullModel from "../models/SidiousSkull.obj";
 
 const SidiousSkull: React.FC = () => {
-  const eyeVelocity = useZ(z => z.eyeVelocity);
-  const setEyeVelocity = useZ(z => z.setEyeVelocity);
+  // const eyeVelocity = useZ(z => z.eyeVelocity);
+  // const setEyeVelocity = useZ(z => z.setEyeVelocity);
   const mouse = useZ(z => z.mouse);
 
   const eyeL = useUpdate((mesh: THREE.Mesh) => {
@@ -23,24 +23,24 @@ const SidiousSkull: React.FC = () => {
     camera.lookAt(scene.position);
   }); // moveCameraWithMouse
 
-  useFrame(({ clock }) => {
-    if (eyeL.current && eyeR.current) {
-      eyeL.current.position.y += Math.cos(clock.getElapsedTime() * 2) * 0.0005;
-      eyeL.current.position.x += Math.sin(clock.getElapsedTime() * 2) * 0.0003;
-      eyeR.current.position.y += Math.cos(clock.getElapsedTime() * 2) * 0.0005;
-      eyeR.current.position.x -= Math.sin(clock.getElapsedTime() * 2) * 0.0003;
-    }
-  }); // floatEyesGhostily
+  // useFrame(({ clock }) => {
+  //   if (eyeL.current && eyeR.current) {
+  //     eyeL.current.position.y += Math.cos(clock.getElapsedTime() * 2) * 0.0005;
+  //     eyeL.current.position.x += Math.sin(clock.getElapsedTime() * 2) * 0.0003;
+  //     eyeR.current.position.y += Math.cos(clock.getElapsedTime() * 2) * 0.0005;
+  //     eyeR.current.position.x -= Math.sin(clock.getElapsedTime() * 2) * 0.0003;
+  //   }
+  // }); // floatEyesGhostily
 
-  useFrame(() => {
-    eyeL.current.position.z += eyeVelocity;
-    eyeR.current.position.z += eyeVelocity;
-    if (eyeL.current.position.z > 1) setEyeVelocity(-eyeVelocity);
-    if (eyeL.current.position.z < 0.56) {
-      eyeL.current.position.z = 0.55;
-      eyeR.current.position.z = 0.55;
-    }
-  }); // fireEyes
+  // useFrame(() => {
+  //   eyeL.current.position.z += eyeVelocity;
+  //   eyeR.current.position.z += eyeVelocity;
+  //   if (eyeL.current.position.z > 1) setEyeVelocity(-eyeVelocity);
+  //   if (eyeL.current.position.z < 0.56) {
+  //     eyeL.current.position.z = 0.55;
+  //     eyeR.current.position.z = 0.55;
+  //   }
+  // }); // fireEyes
 
   const obj = useLoader(OBJLoader, SidiousSkullModel); // loadModel
   useEffect(() => {
@@ -77,7 +77,7 @@ const SidiousSkull: React.FC = () => {
           <pointLight color={new Color(0xaa3feb)} intensity={1}>
             <mesh visible>
               <sphereBufferGeometry attach="geometry" args={[0.02, 20, 20]} />
-              <meshToonMaterial attach="material" color={0xff0030} />
+              <meshToonMaterial attach="material" color={0xff0020} />
             </mesh>
           </pointLight>
         </group>
@@ -88,7 +88,7 @@ const SidiousSkull: React.FC = () => {
           <pointLight color={new Color(0xaa3feb)} intensity={1}>
             <mesh visible>
               <sphereBufferGeometry attach="geometry" args={[0.02, 20, 20]} />
-              <meshToonMaterial attach="material" color={0xff0030} />
+              <meshToonMaterial attach="material" color={0xff0020} />
             </mesh>
           </pointLight>
         </group>
