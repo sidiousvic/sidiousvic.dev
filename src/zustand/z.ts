@@ -2,7 +2,7 @@ import create from "zustand";
 
 const [useZ] = create(set => ({
   eyeVelocity: 0,
-  title: "@SIDIOUSVIC",
+  title: "JUST DO SH*T.",
   setTitle: (title: string): void => {
     set({ title });
   },
