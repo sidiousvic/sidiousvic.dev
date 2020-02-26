@@ -1,12 +1,28 @@
 import React from "react";
+import styled from "@emotion/styled";
 
 interface NaviProps {
   value: string | number;
 }
 
+const StyledNavi = styled.div`
+  text-align: center;
+  color: whitesmoke;
+  font-family: Arial;
+  font-size: 2rem;
+  color: #000;
+  // text-transform: uppercase;
+  margin: 1rem;
+  min-width: 5rem;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`;
+
 const Navi: React.FC<NaviProps> = props => {
   const { value } = props;
-  return <div className="navi">{value}</div>;
+  return <StyledNavi>{value}</StyledNavi>;
 };
 
 export default Navi;
