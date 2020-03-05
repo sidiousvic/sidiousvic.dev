@@ -13,6 +13,7 @@ body,
   height: 100vh;
   margin: 0;
   padding: 0;
+  font-family: Neue Machina;
   font-size: 10px;
   background-color: var(--sidious-red);
 }
@@ -20,9 +21,8 @@ body,
 canvas {
   height: 100vh !important;
   width: 100vw !important;
-  z-index: 0;
-  background: var(--sidious-red);
-  background: var(--sidious-red);
+  background: transparent;
+  /* mix-blend-mode: overlay; */
 }
 
 @keyframes rotate {
