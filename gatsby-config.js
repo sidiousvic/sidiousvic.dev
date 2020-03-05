@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic`,
       options: {
-        repositoryName: `Vicelog`,
+        repositoryName: `V90X`,
         accessToken: `${process.env.PRISMIC_API_KEY}`,
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`
       }
