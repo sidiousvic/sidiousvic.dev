@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 import useZ from "../zustand/z";
 
 const StyledTitle = styled.div`
-  font-size: 3.5vw;
+  font-size: 6vw;
+  padding: 3rem;
   pointer-events: none;
   user-select: none;
   width: 100%;
@@ -13,7 +14,11 @@ const StyledTitle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Neue Machina Black;
+  // font-family: Blacker Pro Display Trial Heavy;
+  letter-spacing: -0.3rem;
+  font-style: regular;
+  text-transform: uppercase;
   color: var(--sidious-red);
   mix-blend-mode: difference;
   z-index: 99;
