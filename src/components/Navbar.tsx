@@ -9,13 +9,15 @@ import styled from "@emotion/styled";
 const StyledNav = styled.nav`
   position: fixed;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 4rem;
   align-items: center;
   background-color: transparent;
-  z-index: 100;
   width: 100%;
   height: 10%;
+  z-index: 99;
+  mix-blend-mode: difference;
 `;
 
 const Navbar = (): ReactElement => {

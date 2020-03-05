@@ -8,13 +8,14 @@ interface LogotypeProps {
 const StyledLogotype = styled.div`
   text-align: center;
   color: whitesmoke;
-  font-family: Arial;
-  font-weight: 600;
+  font-family: Neue Machina Ultrabold;
   font-size: 2rem;
   color: #000;
   text-transform: uppercase;
   margin: 1rem;
   min-width: 5rem;
+  mix-blend-mode: difference;
+  color: var(--sidious-red);
   &:hover {
     cursor: pointer;
   }
