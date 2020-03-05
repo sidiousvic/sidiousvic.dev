@@ -9,6 +9,13 @@ const SidiousSkull: React.FC = () => {
   // const eyeVelocity = useZ(z => z.eyeVelocity);
   // const setEyeVelocity = useZ(z => z.setEyeVelocity);
   const mouse = useZ(z => z.mouse);
+  const title = useZ(z => z.title);
+  const setTitle = useZ(z => z.setTitle);
+
+  const toggleTitle = (): void => {
+    if (title === "Vic Sidious") setTitle("Just do Sh*t.");
+    if (title === "Just do Sh*t.") setTitle("Vic Sidious");
+  };
 
   const eyeL = useUpdate((mesh: THREE.Mesh) => {
     mesh.position.set(-0.24, 0.19, 0.6);
@@ -60,6 +67,9 @@ const SidiousSkull: React.FC = () => {
       />
       <group>
         <primitive
+          onClick={(): void => {
+            toggleTitle();
+          }}
           onPointerOver={(e: MouseEvent): void => {
             const target = e.target as HTMLCanvasElement;
             target.style.cursor = "pointer";
