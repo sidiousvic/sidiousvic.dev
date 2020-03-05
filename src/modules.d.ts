@@ -13,6 +13,21 @@ declare module "*.svg" {
   export default ThunderLogo;
 }
 
+declare module "*.jpg" {
+  import BlackwatersBackground from "./images/blackwaters.jpg";
+  export default BlackwatersBackground;
+}
+
+declare module "*.png" {
+  import qrcodeScars from "./images/qrcodeScars.png";
+  export default qrcodeScars;
+}
+
+declare module "*.gif" {
+  import barcodePie from "./images/barcodePie.gif";
+  export default barcodePie;
+}
+
 declare module "browser-monads";
 declare module "react-reveal/Fade";
 declare module "webfontloader";
