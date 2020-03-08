@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{"9KGF":function(n,e,t){"use strict";t.r(e);var a=t("q1tI"),c=t.n(a),i=t("n57c");e.default=function(){return c.a.createElement(i.a,{link:"/",label:"SIDIOUSVIC.DEV"})}}}]);
