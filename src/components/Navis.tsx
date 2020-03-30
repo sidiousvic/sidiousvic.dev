@@ -10,7 +10,7 @@ const StyledNavis = styled.div`
 const Navis: React.FC = () => {
   return (
     <StyledNavis>
-      <Navi value="V90X" />
+      <Navi value="MUSICS" />
       <Navi value="NEMESIS" />
       <Navi value="About" />
     </StyledNavis>
