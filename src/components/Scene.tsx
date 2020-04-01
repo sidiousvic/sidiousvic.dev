@@ -5,6 +5,14 @@ import useZ from "../zustand/z";
 import { useWindowSize } from "../hooks";
 import { window } from "browser-monads";
 
+const WarningSignEmoji: React.FC = () => {
+  return (
+    <span role="img" aria-label="warning-sign">
+      ⚠️
+    </span>
+  );
+};
+
 const Scene: React.FC = () => {
   const setMouse = useZ(z => z.setMouse);
   const windowSize = useWindowSize(900);
@@ -22,7 +30,7 @@ const Scene: React.FC = () => {
       camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 4.5] }}
       pixelRatio={window.devicePixelRatio}
     >
-      <Suspense fallback={null}>
+      <Suspense fallback={WarningSignEmoji}>
         <SidiousSkull />
       </Suspense>
     </Canvas>
