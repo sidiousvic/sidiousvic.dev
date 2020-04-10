@@ -13,6 +13,11 @@ declare module "*.svg" {
   export default ThunderLogo;
 }
 
+declare module "*.svg" {
+  import XicuahuaBorder from "./images/xicuahua.svg";
+  export default XicuahuaBorder;
+}
+
 declare module "*.jpg" {
   import BlackwatersBackground from "./images/blackwaters.jpg";
   export default BlackwatersBackground;
