@@ -4,10 +4,11 @@ import Title from "../components/Title";
 import favicon from "../images/favicon.ico";
 import Navbar from "../components/Navbar";
 import Helmet from "react-helmet";
-import BlackwatersBackground from "!file-loader!../images/blackwaters.jpg";
-import barcodePie from "!file-loader!../images/barcodePie.gif";
-
-console.log(BlackwatersBackground);
+import blackwatersUrl from "!file-loader!../images/blackwaters.jpg";
+import barcodePieUrl from "!file-loader!../images/barcodePie.gif";
+import scorpionUrl from "!file-loader!../images/scorpion.png";
+import vicPixUrl from "!file-loader!../images/snake.png";
+import XicuahuaBorder from "!svg-react-loader!../images/xicuahua.svg";
 
 const MOTHERBOARD: React.FC = () => {
   return (
@@ -42,23 +43,26 @@ vic@sidiousvic.dev
       <Title />
       <Scene />
       <div
+        className="wrapper"
         style={{
-          background: "var(--sidiousred)",
+          background: "var(--sidious-red)",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
+          flexDirection: "column",
+          alignItems: "center"
         }}
       >
+        {/* BLACKPOOL */}
         <div
           style={{
             background: "black",
-            backgroundImage: `url(${BlackwatersBackground})`,
+            backgroundImage: `url(${blackwatersUrl})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundAttachment: "fixed",
             width: "90%",
             height: "80%",
-            padding: "2rem",
+            padding: "4rem",
+            margin: "4rem",
             display: "flex",
             color: "whitesmoke",
             alignItems: "right",
@@ -67,26 +71,33 @@ vic@sidiousvic.dev
           }}
         >
           <img
-            src={barcodePie}
+            src={barcodePieUrl}
             alt="lol"
             style={{
               position: "absolute",
               bottom: "2%",
               mixBlendMode: "multiply",
-              // filter: "invert(1)",
               // transform: "rotate(180deg)",
               maxWidth: 200,
               maxHeight: 50
             }}
           />
           <div
+            id="vicPix"
             style={{
-              width: "20%"
+              width: "40%",
+              backgroundImage: `url(${vicPixUrl})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              mixBlendMode: "difference",
+              filter: "invert(1)",
+              borderRadius: "50%"
             }}
           ></div>
           <div
             style={{
-              fontSize: "3rem",
+              fontSize: "5vw",
               width: "60%",
               fontFamily: "Blacker Pro Display Trial Light",
               mixBlendMode: "difference"
@@ -100,9 +111,52 @@ vic@sidiousvic.dev
               VIC SIDIOUS
             </span>{" "}
             is a primate of the species mēhxican, living in Tokyo. He develops
-            www, plays the axe, football and is very good at bullsh*tting.
+            www, wields the guitar, plays no.{" "}
+            <span style={{ fontFamily: "Neue Machina" }}>9</span> in football
+            and indites sh*t sometimes.
           </div>
         </div>
+        {/* BLACKPOOL */}
+        {/* BORN AND RAISED */}
+        <div
+          style={{
+            mixBlendMode: "multiply",
+            backgroundImage: `url(${scorpionUrl})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            fontFamily: "Neue Machina Ultrabold",
+            margin: "4rem",
+            padding: "4rem",
+            fontSize: "10vw",
+            position: "relative"
+          }}
+        >
+          <p style={{ mixBlendMode: "overlay" }}>
+            BORN AND RAISED IN THE DESERT
+          </p>
+          <XicuahuaBorder
+            style={{
+              position: "absolute",
+              top: "0%",
+              right: "5%",
+              mixBlendMode: "difference"
+            }}
+            width={"40%"}
+          />
+        </div>
+        {/* BORN AND RAISED */}
+        {/* MUSICS */}
+        <div
+          style={{
+            fontFamily: "Manhunter",
+            fontStyle: "italic",
+            padding: "4rem",
+            fontSize: "14vw"
+          }}
+        >
+          Musics
+        </div>
+        {/* MUSICS */}
       </div>
     </>
   );
