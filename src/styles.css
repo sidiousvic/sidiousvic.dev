@@ -3,7 +3,7 @@
 }
 
 :root {
-  --sidious-red: #f51862;
+  --sidious-red: #ff1462;
 }
 
 html,
@@ -36,4 +36,9 @@ canvas {
 
 .title h1:hover {
   cursor: pointer;
+}
+
+#vicPix:hover {
+  filter: none !important;
+  /* transform: scale(1.1); */
 }
