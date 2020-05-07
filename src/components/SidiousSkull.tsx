@@ -1,4 +1,4 @@
-import React, { useEffect, MouseEvent } from "react";
+import React, { useEffect } from "react";
 // three
 import { MeshToonMaterial, Color, OBJLoader } from "../three.x";
 import useZ from "../zustand/z";
@@ -70,13 +70,14 @@ const SidiousSkull: React.FC = () => {
           onClick={(): void => {
             toggleTitle();
           }}
-          onPointerOver={(e: MouseEvent): void => {
-            const target = e.target as HTMLCanvasElement;
-            target.style.cursor = "pointer";
+          onPointerOver={(): void => {
+            // const target = e.target as HTMLCanvasElement;
+            // console.log(e);
+            document.body.style.cursor = "pointer";
           }}
-          onPointerOut={(e: MouseEvent): void => {
-            const target = e.target as HTMLCanvasElement;
-            target.style.cursor = "default";
+          onPointerOut={(): void => {
+            // const target = e.target as HTMLCanvasElement;
+            document.body.style.cursor = "default";
           }}
           object={obj}
           dispose={null}

@@ -24,6 +24,3 @@ yarn-debug.log*
 yarn-error.log*
 .vscode
 vscode/ftp-sync.json
-
-# gatsby
-.cache

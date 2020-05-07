@@ -42,3 +42,35 @@ canvas {
   filter: none !important;
   /* transform: scale(1.1); */
 }
+
+.keyboard {
+  background: rgb(2, 2, 2);
+}
+
+.key {
+  color: rgb(5, 5, 5);
+  background: rgb(15, 15, 15);
+  width: 6.6%;
+  margin: 0 0.4%;
+  cursor: pointer;
+  border-radius: 0 0 5px 5px;
+  box-shadow: #000 0px 5px;
+}
+.key:hover {
+  background: rgb(10, 10, 10);
+  transform: translateY(3%);
+}
+.black-key {
+  color: transparent;
+  background: rgb(25, 25, 25);
+  margin: 0 -2%;
+  width: 4%;
+  height: 70%;
+  border-radius: 0 0 5px 5px;
+  cursor: pointer;
+  z-index: 99;
+  box-shadow: #000 0px 5px;
+}
+.black-key:hover {
+  background: rgb(10, 10, 10);
+}
