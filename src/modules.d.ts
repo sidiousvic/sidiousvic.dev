@@ -18,6 +18,26 @@ declare module "*.svg" {
   export default XicuahuaBorder;
 }
 
+declare module "*.svg" {
+  import sineWave from "./images/sine.svg";
+  export default sineWave;
+}
+
+declare module "*.svg" {
+  import squareWave from "./images/square.svg";
+  export default squareWave;
+}
+
+declare module "*.svg" {
+  import sawWave from "./images/saw.svg";
+  export default sawWave;
+}
+
+declare module "*.svg" {
+  import triangleWave from "./images/triangle.svg";
+  export default triangleWave;
+}
+
 declare module "*.jpg" {
   import BlackwatersBackground from "./images/blackwaters.jpg";
   export default BlackwatersBackground;
