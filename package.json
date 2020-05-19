@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/sidiousvic/sidiousvic.dev",
+  "homepage": "https://sidiousvic.dev",
   "author": "sidiousvic <vic@sidiousvic.dev>",
   "license": "MIT",
   "scripts": {
