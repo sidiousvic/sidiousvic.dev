@@ -11,13 +11,12 @@ const StyledNav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 4rem;
+  padding: 2rem 4rem;
   align-items: center;
   background-color: transparent;
   width: 100%;
-  height: 10%;
+  height: 20%;
   z-index: 99;
-  mix-blend-mode: difference;
 `;
 
 const Navbar = (): ReactElement => {
@@ -25,7 +24,6 @@ const Navbar = (): ReactElement => {
     <StyledNav>
       <Logotype value="@sidiousvic" />
       {/* <ThunderLogo width={60} /> */}
-
       <Navis />
     </StyledNav>
   );
