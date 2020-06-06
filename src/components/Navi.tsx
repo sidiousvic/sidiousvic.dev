@@ -21,9 +21,8 @@ const StyledNavi = styled.div`
   }
 `;
 
-const Navi: React.FC<NaviProps> = props => {
-  const { value } = props;
+function Navi({ value }: NaviProps) {
   return <StyledNavi>{value}</StyledNavi>;
-};
+}
 
 export default Navi;
