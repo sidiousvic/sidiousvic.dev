@@ -9,33 +9,13 @@ declare module "*.ico" {
 }
 
 declare module "*.svg" {
-  import ThunderLogo from "./images/thunderLogo.svg";
-  export default ThunderLogo;
+  import BlmSvg from "./images/blmSvg.svg";
+  export default BlmSvg;
 }
 
 declare module "*.svg" {
   import XicuahuaBorder from "./images/xicuahua.svg";
   export default XicuahuaBorder;
-}
-
-declare module "*.svg" {
-  import sineWave from "./images/sine.svg";
-  export default sineWave;
-}
-
-declare module "*.svg" {
-  import squareWave from "./images/square.svg";
-  export default squareWave;
-}
-
-declare module "*.svg" {
-  import sawWave from "./images/saw.svg";
-  export default sawWave;
-}
-
-declare module "*.svg" {
-  import triangleWave from "./images/triangle.svg";
-  export default triangleWave;
 }
 
 declare module "*.jpg" {
@@ -46,11 +26,6 @@ declare module "*.jpg" {
 declare module "*.png" {
   import qrcodeScars from "./images/qrcodeScars.png";
   export default qrcodeScars;
-}
-
-declare module "*.gif" {
-  import barcodePie from "./images/barcodePie.gif";
-  export default barcodePie;
 }
 
 declare module "browser-monads";
