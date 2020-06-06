@@ -14,8 +14,9 @@ const StyledTitle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: Neue Machina Black;
-  // font-family: Blacker Pro Display Trial Heavy;
+  /* font-family: "Arial"; */
+  font-family: "Futura Condensed Extra";
+  /* font-family: "Blacker Pro Display Trial Heavy"; */
   letter-spacing: -0.3rem;
   font-style: regular;
   text-transform: uppercase;
