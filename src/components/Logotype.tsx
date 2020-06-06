@@ -19,6 +19,7 @@ const StyledLogotype = styled.div`
   &:hover {
     cursor: pointer;
   }
+  mix-blend-mode: difference;
 `;
 
 const Navi: React.FC<LogotypeProps> = props => {
