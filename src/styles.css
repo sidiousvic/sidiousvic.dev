@@ -13,7 +13,7 @@ body,
   height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: Neue Machina;
+  font-family: Arial;
   font-size: 10px;
   background-color: var(--sidious-red);
 }
@@ -25,115 +25,6 @@ canvas {
   /* mix-blend-mode: overlay; */
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .title h1:hover {
   cursor: pointer;
-}
-
-#vicPix:hover {
-  filter: none !important;
-  /* transform: scale(1.1); */
-}
-
-.synth {
-  /* background: rgb(20, 20, 20); */
-  transform: skewY(-2deg);
-}
-
-.synth-controls {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  color: transparent;
-  user-select: none;
-  width: 20%;
-  margin: 2%;
-  border-radius: 5px;
-  /* background: rgb(15, 15, 15); */
-  /* border: 2px black dotted; */
-  /* border: 2px var(--sidious-red) dotted; */
-}
-
-.synth-control {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 40%;
-  border-radius: 5px;
-  margin: 1%;
-  cursor: pointer;
-  border: 2px var(--sidious-red) dotted;
-  background-color: rgb(25, 25, 25);
-}
-
-.synth-sound-label {
-  font-size: 19px;
-  color: black;
-  font-family: Manhunter;
-}
-
-.synth-control:hover {
-  transform: scale(1.1);
-}
-
-.key {
-  color: transparent;
-  height: 90%;
-  background: rgb(15, 15, 15);
-  width: 6.6%;
-  margin: 0 0.4%;
-  cursor: pointer;
-  border: 2px var(--sidious-red) dotted;
-  border-radius: 0 0 5px 5px;
-  box-shadow: #000 0px 5px;
-  user-select: none;
-}
-
-@media screen and (max-width: 600px) {
-  .synth {
-    overflow: scroll;
-    flex-wrap: wrap;
-    flex-direction: column;
-  }
-  .synth-controls {
-    width: 100%;
-  }
-  .key {
-    width: 20%;
-    margin: 0 -1%;
-  }
-  .black-key {
-    width: 9% !important;
-    margin: 0 -1%;
-  }
-}
-
-.keyDown {
-  background: rgb(42, 255, 166) !important;
-  box-shadow: rgb(255, 86, 255) 0px 5px !important;
-  transform: translateY(3%);
-}
-
-.black-key {
-  border: 2px var(--sidious-red) dotted;
-  color: transparent;
-  background: rgb(25, 25, 25);
-  margin: 0 -2%;
-  width: 4%;
-  height: 70%;
-  border-radius: 0 0 5px 5px;
-  cursor: pointer;
-  z-index: 99;
-  box-shadow: #000 0px 5px;
-  user-select: none;
 }
