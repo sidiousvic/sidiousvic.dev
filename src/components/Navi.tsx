@@ -8,7 +8,7 @@ interface NaviProps {
 const StyledNavi = styled.div`
   text-align: center;
   color: whitesmoke;
-  font-family: Neue Machina;
+  font-family: NeueMachina;
   font-weight: normal;
   font-size: 2rem;
   color: #000;

@@ -8,7 +8,7 @@ interface LogotypeProps {
 const StyledLogotype = styled.div`
   text-align: center;
   color: whitesmoke;
-  font-family: Neue Machina Ultrabold;
+  font-family: NeueMachinaUltrabold;
   font-size: 2rem;
   color: #000;
   text-transform: uppercase;

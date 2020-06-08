@@ -13,7 +13,7 @@ export default function BornAndRaised() {
         backgroundImage: `url(${scorpionUrl})`,
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
-        fontFamily: "Neue Machina Ultrabold",
+        fontFamily: "NeueMachinaUltrabold",
         margin: "4rem",
         padding: "2rem",
         fontSize: "8vw",
@@ -24,7 +24,7 @@ export default function BornAndRaised() {
         style={{
           marginBottom: 0,
           mixBlendMode: "overlay",
-          transform: `translate(${mouse.x * 0.07}%, ${mouse.y * 0.07}%)`
+          transform: `translate(${mouse.x * 0.03}%, ${mouse.y * 0.03}%)`
         }}
       >
         BORN AND RAISED IN THE
@@ -34,8 +34,8 @@ export default function BornAndRaised() {
           marginTop: 0,
           textAlign: "center",
           mixBlendMode: "overlay",
-          transform: `translate(${mouse.y * 0.07}%, ${mouse.x *
-            0.07}%) skew(${mouse.y * 0.1}deg, ${mouse.x * 0.1}deg)`,
+          transform: `translate(${mouse.y * 0.04}%, ${mouse.x *
+            0.04}%) skew(${mouse.y * 0.02}deg, ${mouse.x * 0.02}deg)`,
           fontFamily: "'Flag (sRB)'",
           fontSize: "14vw"
         }}
@@ -45,8 +45,8 @@ export default function BornAndRaised() {
       <XicuahuaBorder
         style={{
           position: "absolute",
-          top: `${0 + mouse.x * 0.05}%`,
-          right: `${5 + mouse.y * 0.05}%`,
+          top: `${0 + mouse.x * 0.01}%`,
+          right: `${5 + mouse.y * 0.01}%`,
           mixBlendMode: "difference"
         }}
         width={"40%"}

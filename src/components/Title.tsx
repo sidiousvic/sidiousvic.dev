@@ -15,7 +15,7 @@ const StyledTitle = styled.div`
   align-items: center;
   justify-content: center;
   /* font-family: "Arial"; */
-  font-family: "Futura Condensed Extra";
+  font-family: "Nikes";
   /* font-family: "Blacker Pro Display Trial Heavy"; */
   letter-spacing: -0.3rem;
   font-style: regular;

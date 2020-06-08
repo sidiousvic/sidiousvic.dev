@@ -1,3 +1,18 @@
+/* @font-face {
+  font-family: "Flag";
+  src: url("./fonts/Flag.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "NuMachina";
+  src: url("./fonts/NeueMachina-Regular.otf") format("otf");
+}
+
+@font-face {
+  font-family: "NuMachinaUltrabold";
+  src: url("./fonts/NeueMachina-Ultrabold.otf") format("otf");
+} */
+
 * {
   box-sizing: border-box;
 }
@@ -25,14 +40,13 @@ canvas {
 }
 
 /* BLACK LIVES MATTER LOGO FILLS TO COUNTER PARENT'S (NAVBAR) MIX-BLEND-MODE*/
-.blm-svg {
+.blm-svg rect {
+  fill: lime;
+  border-radius: 1rem;
+}
+
+.blm-svg path {
   fill: var(--sidious-red);
-}
-.blm-svg path:nth-child(n + 22) {
-  fill: lime;
-}
-.blm-svg path:nth-child(-n + 2) {
-  fill: lime;
 }
 
 .title h1:hover {
