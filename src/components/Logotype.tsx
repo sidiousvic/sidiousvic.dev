@@ -14,12 +14,11 @@ const StyledLogotype = styled.div`
   text-transform: uppercase;
   margin: 1rem;
   min-width: 5rem;
-  mix-blend-mode: difference;
+  background-blend-mode: difference;
   color: var(--sidious-red);
   &:hover {
     cursor: pointer;
   }
-  mix-blend-mode: difference;
 `;
 
 const Navi: React.FC<LogotypeProps> = props => {

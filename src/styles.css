@@ -22,7 +22,17 @@ canvas {
   height: 100vh !important;
   width: 100vw !important;
   background: transparent;
-  /* mix-blend-mode: overlay; */
+}
+
+/* BLACK LIVES MATTER LOGO FILLS TO COUNTER PARENT'S (NAVBAR) MIX-BLEND-MODE*/
+.blm-svg {
+  fill: var(--sidious-red);
+}
+.blm-svg path:nth-child(n + 22) {
+  fill: lime;
+}
+.blm-svg path:nth-child(-n + 2) {
+  fill: lime;
 }
 
 .title h1:hover {

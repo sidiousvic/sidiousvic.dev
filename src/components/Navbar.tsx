@@ -13,10 +13,11 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   padding: 2rem 4rem;
   align-items: center;
-  background-color: transparent;
   width: 100%;
   height: 20%;
   z-index: 99;
+  background-color: transparent;
+  mix-blend-mode: difference;
 `;
 
 const Navbar = (): ReactElement => {
