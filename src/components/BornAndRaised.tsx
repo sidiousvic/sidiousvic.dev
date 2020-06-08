@@ -17,7 +17,10 @@ export default function BornAndRaised() {
         margin: "4rem",
         padding: "2rem",
         fontSize: "8vw",
-        position: "relative"
+        position: "relative",
+        width: "80%",
+        cursor: "crosshair",
+        userSelect: "none"
       }}
     >
       <p

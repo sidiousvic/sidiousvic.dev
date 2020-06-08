@@ -17,7 +17,7 @@ const StyledLogotype = styled.div`
   background-blend-mode: difference;
   color: var(--sidious-red);
   &:hover {
-    cursor: pointer;
+    cursor: help;
   }
 `;
 
