@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import BlmSvg from "../images/blm.svg";
 import BlmDonateSvg from "../images/blmDonate.svg";
+import TaraSvg from "../images/tarahumaraFoundation.svg";
+import TaraDonateSvg from "../images/tarahumaraFoundationDonate.svg";
 
 const StyledNavis = styled.div`
   display: flex;
@@ -11,13 +13,34 @@ const StyledNavis = styled.div`
 
 function Navis() {
   const [blmSvgDonate, setBlmSvgDonate] = useState(false);
+  const [taraSvgDonate, setTaraSvgDonate] = useState(false);
 
   function toggleBlmDonate() {
     setBlmSvgDonate(!blmSvgDonate);
   }
 
+  function toggleTaraDonate() {
+    setTaraSvgDonate(!taraSvgDonate);
+  }
+
   return (
     <StyledNavis>
+      <a
+        onMouseEnter={() => {
+          toggleTaraDonate();
+        }}
+        onMouseLeave={() => {
+          toggleTaraDonate();
+        }}
+        href="https://www.tarahumara.org.mx/english/support.html"
+        target="_blank"
+      >
+        {taraSvgDonate ? (
+          <TaraDonateSvg className="tara-svg" width={"80px"} />
+        ) : (
+          <TaraSvg className="tara-svg" width={"80px"} />
+        )}
+      </a>
       <a
         onMouseEnter={() => {
           toggleBlmDonate();

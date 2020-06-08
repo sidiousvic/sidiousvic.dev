@@ -39,13 +39,33 @@ canvas {
   background: transparent;
 }
 
-/* BLACK LIVES MATTER LOGO FILLS TO COUNTER PARENT'S (NAVBAR) MIX-BLEND-MODE*/
+.blm-svg,
+.tara-svg {
+  margin: 1rem;
+  box-shadow: var(--sidious-red) 5px 5px;
+}
+
+.blm-svg:hover,
+.tara-svg:hover {
+  transform: scale(1.1);
+}
+
+/* DONATION LOGO FILLS TO COUNTER PARENT'S (NAVBAR) MIX-BLEND-MODE*/
 .blm-svg rect {
   fill: lime;
   border-radius: 1rem;
 }
 
 .blm-svg path {
+  fill: var(--sidious-red);
+}
+
+.tara-svg rect {
+  fill: mintcream;
+  border-radius: 1rem;
+}
+
+.tara-svg path {
   fill: var(--sidious-red);
 }
 
