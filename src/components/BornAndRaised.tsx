@@ -39,7 +39,7 @@ export default function BornAndRaised() {
           mixBlendMode: "overlay",
           transform: `translate(${mouse.y * 0.04}%, ${mouse.x *
             0.04}%) skew(${mouse.y * 0.02}deg, ${mouse.x * 0.02}deg)`,
-          fontFamily: "'Flag (sRB)'",
+          fontFamily: "Flag",
           fontSize: "14vw"
         }}
       >

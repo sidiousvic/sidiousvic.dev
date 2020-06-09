@@ -11,7 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server --open",
-    "deploy": "yarn build && gh-pages -d dist"
+    "predeploy": "yarn build && cp CNAME ./dist",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",

@@ -27,7 +27,7 @@ const styles = css`
   }
   @font-face {
     font-family: "Flag";
-    src: url(${Flag}) format("ttf");
+    src: url(${Flag}) format("truetype");
   }
 `;
 
