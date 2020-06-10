@@ -25,13 +25,15 @@ canvas {
 }
 
 .blm-svg,
-.tara-svg {
+.tara-svg,
+.aar-svg {
   margin: 1rem;
   box-shadow: var(--sidious-red) 5px 5px;
 }
 
 .blm-svg:hover,
-.tara-svg:hover {
+.tara-svg:hover,
+.aar-svg:hover {
   transform: scale(1.1);
 }
 
@@ -52,6 +54,15 @@ canvas {
 
 .tara-svg path {
   fill: var(--sidious-red);
+}
+
+.aar-svg rect {
+  fill: rgb(220, 101, 250);
+}
+
+.aar-svg path {
+  fill: oldlace;
+  stroke: mintcream;
 }
 
 .title h1:hover {
