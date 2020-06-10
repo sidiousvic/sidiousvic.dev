@@ -4,6 +4,8 @@ import BlmSvg from "../images/blm.svg";
 import BlmDonateSvg from "../images/blmDonate.svg";
 import TaraSvg from "../images/tarahumaraFoundation.svg";
 import TaraDonateSvg from "../images/tarahumaraFoundationDonate.svg";
+import AARSvg from "../images/AAR.svg";
+import AARDonateSvg from "../images/AARDonate.svg";
 
 const StyledNavis = styled.div`
   display: flex;
@@ -14,6 +16,7 @@ const StyledNavis = styled.div`
 function Navis() {
   const [blmSvgDonate, setBlmSvgDonate] = useState(false);
   const [taraSvgDonate, setTaraSvgDonate] = useState(false);
+  const [aarSvgDonate, setAarSvgDonate] = useState(false);
 
   function toggleBlmDonate() {
     setBlmSvgDonate(!blmSvgDonate);
@@ -23,8 +26,28 @@ function Navis() {
     setTaraSvgDonate(!taraSvgDonate);
   }
 
+  function toggleAarDonate() {
+    setAarSvgDonate(!aarSvgDonate);
+  }
+
   return (
     <StyledNavis>
+      <a
+        onMouseEnter={() => {
+          toggleAarDonate();
+        }}
+        onMouseLeave={() => {
+          toggleAarDonate();
+        }}
+        href="https://www.aarjapan.gr.jp/english/support/"
+        target="_blank"
+      >
+        {aarSvgDonate ? (
+          <AARDonateSvg className="aar-svg" width={"80px"} />
+        ) : (
+          <AARSvg className="aar-svg" width={"80px"} />
+        )}
+      </a>
       <a
         onMouseEnter={() => {
           toggleTaraDonate();
