@@ -21,6 +21,22 @@ const StyledNav = styled.nav`
 `;
 
 const Navbar = (): ReactElement => {
+  // const iconNumber = useRef(2);
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     const icon = document.getElementById("icon") as HTMLLinkElement;
+  //     console.log(icon);
+  //     icon.href = `./static/favicon/favicon${iconNumber.current}.png`;
+  //   }, 100);
+
+  //   if (iconNumber.current > 29) iconNumber.current = 0;
+  //   else iconNumber.current++;
+
+  //   return function cleanUp() {
+  //     clearTimeout(timer);
+  //   };
+  // });
   return (
     <StyledNav>
       <Logotype value="@sidiousvic" />
