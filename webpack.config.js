@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -30,12 +30,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "🔥GENERIC🌻DARKLORD🍕VIC👽SIDIOUS🔮",
       filename: "./index.html",
       template: "src/index.html"
     }),
-    new CleanWebpackPlugin()
-    // new BundleAnalyzerPlugin()
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [{ from: "static", to: "static" }]
+    })
   ],
   module: {
     rules: [
