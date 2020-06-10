@@ -13,6 +13,7 @@ const StyledLogotype = styled.div`
   color: #000;
   text-transform: uppercase;
   margin: 1rem;
+  user-select: none;
   min-width: 5rem;
   background-blend-mode: difference;
   color: var(--sidious-red);
