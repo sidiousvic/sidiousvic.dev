@@ -48,6 +48,7 @@
     "@types/three": "^0.103.2",
     "audiosynth": "^0.0.5",
     "browser-monads": "^1.0.0",
+    "copy-webpack-plugin": "^6.0.2",
     "dotenv": "^8.2.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
