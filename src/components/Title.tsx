@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import useZ from "../zustand/z";
 
@@ -25,14 +25,15 @@ const StyledTitle = styled.div`
   z-index: 99;
 `;
 
-const Title = (): ReactElement => {
+export default function Title() {
   const title = useZ(z => z.title);
+  const about = useZ(z => z.about);
 
   return (
-    <StyledTitle>
+    <StyledTitle
+      style={{ transition: "ease-in-out 0.4s", opacity: about ? 0 : 1 }}
+    >
       <h1>{title}</h1>
     </StyledTitle>
   );
-};
-
-export default Title;
+}
