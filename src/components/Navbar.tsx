@@ -1,9 +1,6 @@
-import React, { ReactElement } from "react";
-// eslint-disable-next-line import/no-webpack-loader-syntax
-// import ThunderLogo from "!svg-react-loader!../images/thunderLogo.svg";
+import React from "react";
 import Navis from "../components/Navis";
 import Logotype from "../components/Logotype";
-
 import styled from "@emotion/styled";
 
 const StyledNav = styled.nav`
@@ -20,30 +17,16 @@ const StyledNav = styled.nav`
   mix-blend-mode: difference;
 `;
 
-const Navbar = (): ReactElement => {
-  // const iconNumber = useRef(2);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     const icon = document.getElementById("icon") as HTMLLinkElement;
-  //     console.log(icon);
-  //     icon.href = `./static/favicon/favicon${iconNumber.current}.png`;
-  //   }, 100);
-
-  //   if (iconNumber.current > 29) iconNumber.current = 0;
-  //   else iconNumber.current++;
-
-  //   return function cleanUp() {
-  //     clearTimeout(timer);
-  //   };
-  // });
+function Navbar() {
   return (
-    <StyledNav>
-      <Logotype value="@sidiousvic" />
-      {/* <ThunderLogo width={60} /> */}
-      <Navis />
-    </StyledNav>
+    <>
+      <StyledNav>
+        <Logotype value="@sidiousvic" />
+        <Navis />
+      </StyledNav>
+      {/* <StyledSidebar /> */}
+    </>
   );
-};
+}
 
 export default Navbar;
