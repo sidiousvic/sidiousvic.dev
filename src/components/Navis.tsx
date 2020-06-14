@@ -34,22 +34,6 @@ function Navis() {
     <StyledNavis>
       <a
         onMouseEnter={() => {
-          toggleAarDonate();
-        }}
-        onMouseLeave={() => {
-          toggleAarDonate();
-        }}
-        href="https://www.aarjapan.gr.jp/english/support/"
-        target="_blank"
-      >
-        {aarSvgDonate ? (
-          <AARDonateSvg className="aar-svg" width={"80px"} />
-        ) : (
-          <AARSvg className="aar-svg" width={"80px"} />
-        )}
-      </a>
-      <a
-        onMouseEnter={() => {
           toggleTaraDonate();
         }}
         onMouseLeave={() => {
@@ -64,6 +48,23 @@ function Navis() {
           <TaraSvg className="tara-svg" width={"80px"} />
         )}
       </a>
+      <a
+        onMouseEnter={() => {
+          toggleAarDonate();
+        }}
+        onMouseLeave={() => {
+          toggleAarDonate();
+        }}
+        href="https://www.aarjapan.gr.jp/english/support/"
+        target="_blank"
+      >
+        {aarSvgDonate ? (
+          <AARDonateSvg className="aar-svg" width={"80px"} />
+        ) : (
+          <AARSvg className="aar-svg" width={"80px"} />
+        )}
+      </a>
+
       <a
         onMouseEnter={() => {
           toggleBlmDonate();
