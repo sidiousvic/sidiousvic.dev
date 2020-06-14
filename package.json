@@ -58,6 +58,7 @@
     "react-dom": "^16.13.1",
     "react-reveal": "^1.2.2",
     "react-three-fiber": "^4.0.8",
+    "spotify-sdk": "^1.0.0-beta2",
     "svg-react-loader": "^0.4.6",
     "three": "^0.116.1",
     "ts-loader": "^6.2.1",
