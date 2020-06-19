@@ -66,7 +66,7 @@ export { OrthographicCamera } from "three/src/cameras/OrthographicCamera.js";
 // export { Geometry } from "three/src/core/Geometry.js";
 // export * from "three/src/core/BufferAttribute.js";
 // export { Face3 } from "three/src/core/Face3.js";
-// export { Object3D } from "three/src/core/Object3D.js";
+export { Object3D } from "three/src/core/Object3D.js";
 export { Raycaster } from "three/src/core/Raycaster.js";
 // export { Triangle } from "three/src/math/Triangle.js";
 // export { _Math as Math } from "three/src/math/Math.js";
