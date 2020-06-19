@@ -21,8 +21,6 @@ const StyledNavi = styled.div`
   }
 `;
 
-function Navi({ value }: NaviProps) {
+export default function Navi({ value }: NaviProps) {
   return <StyledNavi>{value}</StyledNavi>;
 }
-
-export default Navi;
