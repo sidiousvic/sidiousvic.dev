@@ -1,9 +1,6 @@
-import React, { ReactElement } from "react";
-// eslint-disable-next-line import/no-webpack-loader-syntax
-// import ThunderLogo from "!svg-react-loader!../images/thunderLogo.svg";
-import Navis from "./Navis";
-import Logotype from "./Logotype";
-
+import React from "react";
+import Navis from "../components/Navis";
+import Logotype from "../components/Logotype";
 import styled from "@emotion/styled";
 
 const StyledNav = styled.nav`

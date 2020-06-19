@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --sidious-red: #ff1462;
+}
+
+html,
+body,
+#root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  font-size: 10px;
+  background-color: var(--sidious-red);
+}
+
+canvas {
+  height: 100vh !important;
+  width: 100vw !important;
+  background: transparent;
+}
+
+.blm-svg,
+.tara-svg,
+.aar-svg {
+  margin: 1rem;
+  box-shadow: var(--sidious-red) 5px 5px;
+}
+
+.blm-svg:hover,
+.tara-svg:hover,
+.aar-svg:hover {
+  transform: scale(1.1);
+}
+
+/* DONATION LOGO FILLS TO COUNTER PARENT'S (NAVBAR) MIX-BLEND-MODE*/
+.blm-svg rect {
+  fill: lime;
+  border-radius: 1rem;
+}
+
+.blm-svg path {
+  fill: var(--sidious-red);
+}
+
+.tara-svg rect {
+  fill: mintcream;
+  border-radius: 1rem;
+}
+
+.tara-svg path {
+  fill: rgb(131, 123, 238);
+}
+
+.aar-svg rect {
+  fill: rgb(0, 174, 255);
+  filter: invert(100%);
+}
+
+.aar-svg path {
+  fill: oldlace;
+  stroke: mintcream;
+}
+
+.title h1:hover {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: "Nikes";
+  src: url(${Nikes}) format("opentype");
+}
+@font-face {
+  font-family: "NeueMachina";
+  src: url(${NeueMachina}) format("opentype");
+}
+@font-face {
+  font-family: "NeueMachinaUltrabold";
+  src: url(${NeueMachinaUltrabold}) format("opentype");
+}
+@font-face {
+  font-family: "Flag";
+  src: url(${Flag}) format("truetype");
+}
