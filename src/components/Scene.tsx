@@ -2,34 +2,13 @@ import React, { Suspense, MouseEvent } from "react";
 import { Canvas } from "react-three-fiber";
 import SidiousSkull from "./SidiousSkull";
 import useZ from "../zustand/z";
+import { useWindowSize } from "../hooks";
 import { window } from "browser-monads";
 
-import { useState, useLayoutEffect } from "react";
-
-interface WindowSize {
-  innerWidth: number;
-  innerHeight: number;
-}
-
-export const useWindowSize = (defaultValue: number): WindowSize => {
-  const [windowSize, setWindowSize] = useState({
-    innerWidth: defaultValue,
-    innerHeight: defaultValue
-  });
-
-  useLayoutEffect(() => {
-    setWindowSize({
-      innerWidth: window.innerWidth,
-      innerHeight: window.innerHeight
-    });
-  }, []);
-
-  return windowSize;
-};
-
-const Scene: React.FC = () => {
+export default function Scene() {
   const setMouse = useZ(z => z.setMouse);
   const windowSize = useWindowSize(900);
+  const about = useZ(z => z.about);
 
   window.addEventListener("mousemove", (e: MouseEvent) => {
     setMouse({
@@ -40,6 +19,7 @@ const Scene: React.FC = () => {
 
   return (
     <Canvas
+      style={{ transition: "ease-in-out 0.4s", opacity: about ? 0 : 1 }}
       invalidateFrameloop
       camera={{ fov: 35, near: 0.1, far: 100, position: [0, 0, 4.5] }}
       pixelRatio={window.devicePixelRatio}
@@ -49,6 +29,4 @@ const Scene: React.FC = () => {
       </Suspense>
     </Canvas>
   );
-};
-
-export default Scene;
+}
