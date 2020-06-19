@@ -5,7 +5,6 @@ export default function BornAndRaised() {
   const { desertXicuahua } = DATA();
 
   const cursor = desertXicuahua === "DESERT" ? "grab" : "grabbing";
-  console.log(cursor);
   return `
   <div class="born-and-raised-div">
     <div class="scorpion-div">
