@@ -39,7 +39,6 @@ function moveBornAndRaised(e: MouseEvent) {
     x: (e.clientX - window.innerWidth / 2) / 2,
     y: (e.clientY - window.innerHeight / 2) / 2
   };
-
   const xicuahuaImg: HTMLImageElement | null = document.querySelector(
     ".xicuahua-img"
   );
