@@ -3,17 +3,18 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
-    app: "./src/index.tsx"
+    app: "./src/MOTHERBOARD.ts"
   },
   resolve: {
     alias: {
       // Forward all three imports to our exports file
       three$: path.resolve("./src/three.x.ts")
     },
-    extensions: [".tsx", ".ts", ".js"]
+    extensions: [".ts", ".js"]
   },
   mode: "development",
   output: {
@@ -34,6 +35,7 @@ module.exports = {
       template: "src/index.html"
     }),
     new CleanWebpackPlugin(),
+    // new BundleAnalyzerPlugin(),
     new CopyPlugin({
       patterns: [{ from: "static", to: "static" }]
     })
@@ -62,7 +64,7 @@ module.exports = {
       },
       {
         test: /\.(svg)$/,
-        use: ["svg-react-loader"]
+        use: ["file-loader"]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
