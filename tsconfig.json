@@ -12,6 +12,7 @@
     "resolveJsonModule": true, // include modules imported with .json extension
     "noEmit": false, // do not emit output (meaning do not compile code, only perform type checking)
     "jsx": "react", // support JSX in .tsx files
+    "downlevelIteration": true,
     "sourceMap": true, // *** generate corrresponding .map file ***
     "declaration": false, // *** generate corresponding .d.ts file ***
     "noUnusedLocals": true, // *** report errors on unused locals ***
@@ -21,9 +22,6 @@
     "noFallthroughCasesInSwitch": true // *** report errors for fallthrough cases in switch statement ***
   },
   "typeRoots": ["@types", "node_modules/@types"],
-  "include": [
-    "src/**/*",
-    "projects/blackdog" // *** the files TypeScript should type check ***
-  ],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "build"] // *** the files to not type check ***
 }
