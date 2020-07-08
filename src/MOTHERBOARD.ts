@@ -10,9 +10,9 @@ export const { fire, data, launch } = phantom(reduxStore, XDOM);
 launch();
 
 function XDOM(): any {
-  const { pizza, desertXicuahua } = data();
+  const { title, desertXicuahua } = data();
   return `
-  ${Title(pizza)}
+  ${Title(title)}
   ${BornAndRaised(desertXicuahua)}
   `;
 }
