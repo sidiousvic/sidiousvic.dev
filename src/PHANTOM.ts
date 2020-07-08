@@ -1,5 +1,3 @@
-import redux from "./redux";
-
 type PseudoNode = {
   tagName: string;
   attributes: { id: string; class: string | DOMTokenList };
@@ -8,10 +6,12 @@ type PseudoNode = {
 };
 
 type XDOMFunction = {
-  (): string;
+  (): [string, any];
 };
 
-function PHANTOM(XDOM: XDOMFunction) {
+function PHANTOM(reduxStore: any, XDOM: XDOMFunction) {
+  let phantomDOM: any = { test: { attributes: { id: 0 }, dataset: {} } };
+
   function LAUNCHDOM() {
     const body = document.body;
     if (!document.querySelector("#PHANTOM")) {
@@ -20,7 +20,7 @@ function PHANTOM(XDOM: XDOMFunction) {
       body?.appendChild(PHANTOM);
     }
     document.getElementById("X")?.firstChild;
-    const DOM = RENDER();
+    const DOM = RENDERPSEUDOELEMENT();
     SWAPNODE(DOM, document.querySelector("#PHANTOM"));
     return DOM;
   }
@@ -33,46 +33,88 @@ function PHANTOM(XDOM: XDOMFunction) {
     `;
   }
 
+  function RENDERPSEUDOELEMENT(
+    pseudoElement = TRANSMUTEXMLTOPSEUDOEL(COALESCEXDOM())
+  ) {
+    const {
+      tagName,
+      attributes,
+      innerHTML,
+      children /*dataset*/
+    } = pseudoElement;
+
+    let $children: PseudoNode[] = [];
+
+    if (children && children.length) {
+      ($children as unknown) = Array.prototype.map.call(children, child => {
+        RENDERPSEUDOELEMENT(child);
+      });
+    }
+
+    let DOMElement;
+
+    // dom diffing
+    Object.values(phantomDOM).map((phantomNode: any) => {
+      if (
+        phantomNode.attributes.id === pseudoElement.attributes.id &&
+        JSON.stringify(phantomNode.dataset) !==
+          JSON.stringify(pseudoElement.dataset)
+      ) {
+        let newNode = document.createElement(tagName);
+        for (const [k, v] of Object.entries(attributes)) {
+          newNode.setAttribute(k, v as string);
+        }
+        newNode.innerHTML = innerHTML;
+        let targetNode = document.querySelector(`#${attributes.id}`);
+        SWAPNODE(newNode, targetNode);
+        DOMElement = newNode;
+      }
+    });
+
+    phantomDOM[attributes.id] = pseudoElement;
+    DOMElement = document.createElement(tagName);
+
+    for (const [k, v] of Object.entries(attributes)) {
+      DOMElement.setAttribute(k, v as string);
+    }
+
+    DOMElement.innerHTML = innerHTML;
+    return DOMElement;
+  }
+
   function TRANSMUTEXMLTOPSEUDOEL(xml: string) {
     if (typeof xml !== "string") xml = (xml as HTMLElement).outerHTML;
     let doc = new DOMParser().parseFromString(xml, "text/html");
     const $el = doc.body.firstChild;
-    const { tagName, children, id, classList, innerHTML } = $el as HTMLElement;
+    const {
+      tagName,
+      children,
+      id,
+      dataset,
+      classList,
+      innerHTML,
+      outerHTML
+    } = $el as HTMLElement;
+
     let $children: PseudoNode[] = [];
+
     if (children && children.length) {
       ($children as unknown) = Array.prototype.map.call(children, child => {
         return TRANSMUTEXMLTOPSEUDOEL(child);
       });
     }
+
     return {
       tagName,
       attributes: {
         id,
         class: classList
       },
-      $children,
-      innerHTML
+      dataset,
+      children: $children,
+      innerHTML,
+      outerHTML
     };
-  }
-
-  function RENDERPSEUDOELEMENT({ tagName, attributes, innerHTML }: PseudoNode) {
-    const ELEMENT = document.createElement(tagName);
-
-    for (const [k, v] of Object.entries(attributes)) {
-      ELEMENT.setAttribute(k, v as string);
-    }
-
-    ELEMENT.innerHTML = innerHTML;
-
-    return ELEMENT;
-  }
-
-  function RENDER() {
-    const element = TRANSMUTEXMLTOPSEUDOEL(COALESCEXDOM());
-    if (typeof element === "string") {
-      return document.createTextNode(element);
-    }
-    return RENDERPSEUDOELEMENT(element);
   }
 
   function SWAPNODE(
@@ -83,15 +125,14 @@ function PHANTOM(XDOM: XDOMFunction) {
     return pseudoNode;
   }
 
-  redux.subscribe(() => {
-    SWAPNODE(LAUNCHDOM(), document.getElementById("X")?.firstChild);
+  reduxStore.subscribe(() => {
+    RENDERPSEUDOELEMENT();
   });
 
   return {
-    FIRE: redux.dispatch,
-    DATA: redux.getState,
-    WATCH: document.addEventListener,
-    LAUNCH: LAUNCHDOM
+    fire: reduxStore.dispatch,
+    data: reduxStore.getState,
+    launch: LAUNCHDOM
   };
 }
 
