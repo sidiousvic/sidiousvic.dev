@@ -70,7 +70,7 @@ canvas {
   stroke: mintcream;
 }
 
-.title-div {
+#title-div {
   font-size: 6vw;
   padding: 3rem;
   user-select: none;
@@ -89,26 +89,26 @@ canvas {
   z-index: 99;
 }
 
-.title-h1 {
+#title-h1 {
   font-family: "Nikes";
   cursor: pointer;
 }
 
-.born-and-raised-div {
+#born-and-raised-div {
   background: var(--sidious-red);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.born-and-raised-p {
+#born-and-raised-p {
   margin-bottom: 0;
   mix-blend-mode: overlay;
   pointer-events: none;
   user-select: none;
 }
 
-.desert-p {
+#desert-p {
   margin-top: 0;
   text-align: center;
   mix-blend-mode: overlay;
@@ -117,7 +117,7 @@ canvas {
   user-select: none;
 }
 
-.scorpion-div {
+#scorpion-div {
   mix-blend-mode: multiply;
   background-image: url("../assets/images/scorpion.png");
   background-size: contain;
@@ -131,7 +131,7 @@ canvas {
   cursor: crosshair;
 }
 
-.xicuahua-img {
+#xicuahua-img {
   position: absolute;
   top: 0;
   right: 5%;
@@ -144,7 +144,7 @@ canvas {
 
 @media only screen and (device-width: 375px) and (device-height: 812px) {
   /* IPHONE X */
-  .title {
+  #title {
     letter-spacing: -0.1rem;
   }
 }
