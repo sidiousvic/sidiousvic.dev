@@ -38,21 +38,18 @@
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "@emotion/styled": "^10.0.27",
+    "@sidiousvic/phantom": "^1.4.98",
+    "@types/redux": "^3.6.0",
     "@types/three": "^0.103.2",
-    "audiosynth": "^0.0.5",
-    "browser-monads": "^1.0.0",
     "copy-webpack-plugin": "^6.0.2",
-    "dotenv": "^8.2.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "gh-pages": "^2.2.0",
     "prettier": "^1.19.1",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "three": "^0.116.1",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.5",
-    "zustand": "^2.2.2"
+    "typescript": "^3.7.5"
   }
 }
