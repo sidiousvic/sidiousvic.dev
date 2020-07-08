@@ -52,4 +52,5 @@ declare module "browser-monads";
 declare module "react-reveal/Fade";
 declare module "webfontloader";
 declare module "react-dom";
+declare module "@sidiousvic/phantom";
 declare module "diff";
