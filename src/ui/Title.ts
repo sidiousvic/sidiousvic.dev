@@ -1,10 +1,7 @@
-import { DATA } from "../MOTHERBOARD";
-
-export default function Title() {
-  const { title } = DATA();
+export default function Title(pizza: any) {
   return `
-  <div class="title-div">
-  <h1 class="title-h1" id="1">${title}</h1>
+  <div id="title-div">
+    <h1 data-phantom="${pizza}" id="title-h1">${pizza}</h1>
   </div>
   `;
 }
