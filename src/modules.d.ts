@@ -3,29 +3,9 @@ declare module "*.obj" {
   export default SidiousSkullModel;
 }
 
-declare module "*.ico" {
-  import favicon from "./assets/images/favicon.ico";
-  export default favicon;
-}
-
-declare module "*.svg" {
-  import BlmSvg from "./assets/images/blmSvg.svg";
-  export default BlmSvg;
-}
-
 declare module "*.svg" {
   import XicuahuaBorder from "./assets/images/xicuahua.svg";
   export default XicuahuaBorder;
-}
-
-declare module "*.jpg" {
-  import BlackwatersBackground from "./assets/images/blackwaters.jpg";
-  export default BlackwatersBackground;
-}
-
-declare module "*.png" {
-  import qrcodeScars from "./assets/images/qrcodeScars.png";
-  export default qrcodeScars;
 }
 
 declare module "*.otf" {

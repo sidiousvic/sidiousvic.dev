@@ -8,7 +8,6 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server --open",
     "predeploy": "yarn build && cp CNAME ./dist",
@@ -47,7 +46,6 @@
   "dependencies": {
     "@sidiousvic/phantom": "^1.4.98",
     "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.8",
     "three": "^0.116.1"
   }
 }
