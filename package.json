@@ -46,6 +46,6 @@
   "dependencies": {
     "@sidiousvic/phantom": "^1.4.98",
     "redux": "^4.0.5",
-    "three": "^0.116.1"
+    "three": "^0.137.0"
   }
 }
